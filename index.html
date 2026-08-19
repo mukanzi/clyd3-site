@@ -12,13 +12,17 @@
 
     <header class="site-header">
         <a class="brand" href="#top" aria-label="CLYD3 home">
-            <span class="brand-mark">C</span>
+            <span class="brand-mark" aria-hidden="true">
+                <span class="brand-orbit"></span>
+                <span class="brand-core">C3</span>
+                <span class="brand-node"></span>
+            </span>
             <span class="brand-name">CLYD3</span>
         </a>
 
         <div class="header-status" aria-label="Site status">
             <span class="status-dot"></span>
-            <span>Digital home / evolving</span>
+            <span>CLYD3 system / online</span>
         </div>
 
         <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
@@ -27,10 +31,11 @@
         </button>
 
         <nav class="primary-nav" id="primary-nav" aria-label="Primary navigation">
-            <a href="#index">Index</a>
-            <a href="#work">Work</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
+            <a href="#index"><span>01</span>Index</a>
+            <a href="#work"><span>02</span>Work</a>
+            <a href="#archive"><span>03</span>Archive</a>
+            <a href="#notes"><span>04</span>Notes</a>
+            <a href="#about"><span>05</span>About</a>
         </nav>
     </header>
 
@@ -44,8 +49,7 @@
                     <span class="hero-serif">&amp; culture.</span>
                 </h1>
                 <p class="hero-intro">
-                    A personal space for work, experiments, photographs and notes —
-                    designed as an evolving archive rather than a static portfolio.
+                    An evolving archive of work, experiments, photographs and things worth remembering.
                 </p>
                 <div class="hero-actions">
                     <a class="text-link" href="#index">Explore the index <span>↘</span></a>
@@ -55,24 +59,48 @@
 
             <div class="hero-visual reveal" aria-hidden="true">
                 <div class="signal-field" data-parallax>
+                    <div class="signal-grid"></div>
+                    <div class="signal-ring ring-outer"></div>
                     <div class="signal-ring ring-1"></div>
                     <div class="signal-ring ring-2"></div>
                     <div class="signal-ring ring-3"></div>
                     <div class="signal-axis axis-x"></div>
                     <div class="signal-axis axis-y"></div>
-                    <span class="signal-node node-a"></span>
-                    <span class="signal-node node-b"></span>
-                    <span class="signal-node node-c"></span>
-                    <span class="signal-node node-d"></span>
-                    <div class="signal-label label-a">03°</div>
+                    <div class="signal-diagonal diagonal-a"></div>
+                    <div class="signal-diagonal diagonal-b"></div>
+                    <div class="signal-sweep"></div>
+
+                    <svg class="signal-links" viewBox="0 0 100 100" preserveAspectRatio="none">
+                        <line x1="25" y1="50" x2="50" y2="25"></line>
+                        <line x1="50" y1="25" x2="77" y2="50"></line>
+                        <line x1="77" y1="50" x2="50" y2="78"></line>
+                        <line x1="50" y1="78" x2="25" y2="50"></line>
+                    </svg>
+
+                    <span class="signal-node node-a" data-depth="0.9"></span>
+                    <span class="signal-node node-b" data-depth="1.2"></span>
+                    <span class="signal-node node-c" data-depth="0.7"></span>
+                    <span class="signal-node node-d" data-depth="1.0"></span>
+                    <span class="signal-node node-e" data-depth="0.5"></span>
+                    <span class="signal-node node-f" data-depth="1.35"></span>
+
+                    <div class="signal-label label-a">03° / NW</div>
                     <div class="signal-label label-b">FIELD / 26</div>
-                    <div class="signal-core">C3</div>
+                    <div class="signal-label label-c">NODE / ACTIVE</div>
+                    <div class="signal-label cursor-coordinates">X +000 / Y +000</div>
+
+                    <div class="signal-core">
+                        <span>C3</span>
+                        <small>SYS</small>
+                    </div>
+
+                    <div class="signal-live"><span></span> LIVE FIELD</div>
                 </div>
             </div>
 
             <div class="hero-meta reveal">
                 <span>Independent digital archive</span>
-                <span>Built in public</span>
+                <span>Signal / work / memory</span>
                 <span class="hero-year">2026</span>
             </div>
         </section>
