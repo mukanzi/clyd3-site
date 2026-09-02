@@ -1,0 +1,217 @@
+/* CLYD3 — Liquid Glass Material Layer
+   Selective translucent/refractive treatment that preserves the paper + signal system.
+   JS adds .liquid-glass-surface and updates --glass-x / --glass-y on pointer movement. */
+
+:root {
+    --glass-paper: rgba(241, 239, 232, 0.48);
+    --glass-paper-strong: rgba(241, 239, 232, 0.68);
+    --glass-dark: rgba(255, 255, 255, 0.055);
+    --glass-line: rgba(255, 255, 255, 0.42);
+    --glass-shadow: rgba(17, 17, 17, 0.08);
+    --glass-blur: 18px;
+}
+
+.liquid-glass-surface {
+    --glass-x: 50%;
+    --glass-y: 50%;
+    --glass-glint: rgba(255, 255, 255, 0.34);
+    background-image:
+        radial-gradient(
+            circle at var(--glass-x) var(--glass-y),
+            var(--glass-glint) 0%,
+            rgba(255, 255, 255, 0.13) 15%,
+            rgba(255, 255, 255, 0.03) 31%,
+            transparent 48%
+        ),
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.20),
+            rgba(255, 255, 255, 0.055) 42%,
+            rgba(13, 124, 120, 0.025) 72%,
+            rgba(255, 255, 255, 0.08)
+        );
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(1.18);
+    backdrop-filter: blur(var(--glass-blur)) saturate(1.18);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.44),
+        inset 0 -1px 0 rgba(17, 17, 17, 0.035),
+        0 12px 40px rgba(17, 17, 17, 0.035);
+}
+
+/* ---------------------------------------------------------
+   Header — floating frosted navigation plane
+--------------------------------------------------------- */
+.site-header.liquid-glass-surface {
+    position: sticky;
+    top: 0;
+    z-index: 60;
+    background-color: rgba(241, 239, 232, 0.66);
+    border-bottom-color: rgba(17, 17, 17, 0.12);
+    -webkit-backdrop-filter: blur(24px) saturate(1.22);
+    backdrop-filter: blur(24px) saturate(1.22);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.52),
+        0 10px 32px rgba(17, 17, 17, 0.035);
+}
+
+/* ---------------------------------------------------------
+   Constellation — glass navigation nodes
+--------------------------------------------------------- */
+.constellation-node.liquid-glass-surface {
+    --glass-blur: 14px;
+    --glass-glint: rgba(255, 255, 255, 0.46);
+    background-color: rgba(241, 239, 232, 0.34);
+    border-color: rgba(255, 255, 255, 0.22);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.58),
+        inset 0 -1px 0 rgba(17, 17, 17, 0.035),
+        0 18px 42px rgba(17, 17, 17, 0.025);
+}
+
+.constellation-node.liquid-glass-surface:hover,
+.constellation-node.liquid-glass-surface:focus-visible {
+    background-color: rgba(241, 239, 232, 0.58);
+    border-color: color-mix(in srgb, var(--node-color) 24%, rgba(255,255,255,.55));
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.72),
+        0 20px 48px rgba(17, 17, 17, 0.055),
+        0 0 28px color-mix(in srgb, var(--node-color) 9%, transparent);
+}
+
+/* Central index core gains a glass halo while remaining visually solid. */
+.constellation-core {
+    box-shadow:
+        0 0 0 1px var(--teal),
+        0 0 0 8px rgba(13,124,120,.05),
+        0 18px 45px rgba(17,17,17,.11);
+}
+
+/* ---------------------------------------------------------
+   Work ledger — glass metadata capsules only
+--------------------------------------------------------- */
+.work-section .project-tag.liquid-glass-surface,
+.work-section .project-system.liquid-glass-surface,
+.panel-status.liquid-glass-surface {
+    --glass-blur: 10px;
+    --glass-glint: rgba(255, 255, 255, 0.56);
+    background-color: rgba(241, 239, 232, 0.42);
+    border-color: rgba(255, 255, 255, 0.48);
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.66),
+        0 7px 20px rgba(17,17,17,.025);
+}
+
+.work-section .project-row:hover .project-tag,
+.work-section .project-row:hover .project-system {
+    border-color: color-mix(in srgb, var(--row-accent) 26%, rgba(255,255,255,.52));
+}
+
+/* ---------------------------------------------------------
+   About — glass directional lens
+--------------------------------------------------------- */
+.statement-mark.liquid-glass-surface {
+    --glass-blur: 12px;
+    --glass-glint: rgba(255, 255, 255, 0.52);
+    background-color: rgba(241,239,232,.30);
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.68),
+        0 12px 28px rgba(17,17,17,.035),
+        0 0 24px rgba(13,124,120,.035);
+}
+
+/* ---------------------------------------------------------
+   Archive + Notes — translucent field windows
+--------------------------------------------------------- */
+.coming-panel.liquid-glass-surface {
+    --glass-blur: 13px;
+    --glass-glint: rgba(255,255,255,.26);
+    background-color: rgba(241,239,232,.20);
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.45),
+        0 16px 44px rgba(17,17,17,.018);
+}
+
+.coming-panel.liquid-glass-surface:hover {
+    background-color: rgba(241,239,232,.32);
+}
+
+/* ---------------------------------------------------------
+   Contact — dark liquid-glass communication panel
+--------------------------------------------------------- */
+.contact-side.liquid-glass-surface {
+    --glass-blur: 24px;
+    --glass-glint: rgba(255,255,255,.12);
+    max-width: 410px;
+    padding: 28px;
+    border: 1px solid rgba(241,239,232,.13);
+    border-radius: 24px;
+    background-color: rgba(255,255,255,.035);
+    background-image:
+        radial-gradient(
+            circle at var(--glass-x) var(--glass-y),
+            rgba(255,255,255,.15),
+            rgba(255,255,255,.045) 22%,
+            transparent 48%
+        ),
+        linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.018));
+    -webkit-backdrop-filter: blur(24px) saturate(1.22);
+    backdrop-filter: blur(24px) saturate(1.22);
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.16),
+        inset 0 -1px 0 rgba(255,255,255,.03),
+        0 24px 60px rgba(0,0,0,.14);
+}
+
+.contact-section .primary-contact.liquid-glass-surface {
+    --glass-blur: 10px;
+    --glass-glint: rgba(255,255,255,.18);
+    padding: 10px 14px;
+    border: 1px solid rgba(241,239,232,.18);
+    border-radius: 999px;
+    background-color: rgba(255,255,255,.045);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.12);
+}
+
+.contact-section .primary-contact.liquid-glass-surface:hover {
+    border-color: rgba(13,124,120,.56);
+    background-color: rgba(13,124,120,.075);
+}
+
+/* ---------------------------------------------------------
+   Graceful fallback / accessibility
+--------------------------------------------------------- */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .liquid-glass-surface {
+        background-image: none;
+        background-color: rgba(241,239,232,.82);
+    }
+
+    .contact-side.liquid-glass-surface,
+    .contact-section .primary-contact.liquid-glass-surface {
+        background-color: rgba(255,255,255,.075);
+    }
+}
+
+@media (max-width: 760px) {
+    .site-header.liquid-glass-surface {
+        -webkit-backdrop-filter: blur(18px) saturate(1.15);
+        backdrop-filter: blur(18px) saturate(1.15);
+    }
+
+    .constellation-node.liquid-glass-surface {
+        background-color: rgba(241,239,232,.56);
+    }
+
+    .contact-side.liquid-glass-surface {
+        max-width: 100%;
+        padding: 22px;
+        border-radius: 20px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .liquid-glass-surface {
+        --glass-x: 50% !important;
+        --glass-y: 50% !important;
+    }
+}
