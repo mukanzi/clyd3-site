@@ -1,58 +1,110 @@
 /* CLYD3 — Selected Work / Practice Field
-   Replaces the horizontal ledger with an alternating signal map.
-   Keeps the section consistent with the constellation and liquid-glass system. */
+   Refined proportion pass: tighter field, smaller nodes, stronger active routes.
+   Keeps the alternating signal-map concept while reducing visual weight. */
 
 .work-section .section-heading {
-    margin-bottom: clamp(30px, 4vw, 52px);
+    margin-bottom: clamp(26px, 3vw, 42px);
 }
 
 .work-field {
     position: relative;
-    min-height: 760px;
-    padding: clamp(42px, 5vw, 72px) 0 clamp(32px, 4vw, 56px);
+    min-height: 640px;
+    padding: 0;
     border-top: 1px solid var(--line);
     border-bottom: 1px solid var(--line);
     overflow: hidden;
 }
 
+/* Central practice rail. It becomes an active route map on hover/focus. */
 .work-field::before {
     content: '';
     position: absolute;
     left: 50%;
-    top: 58px;
-    bottom: 48px;
+    top: 84px;
+    bottom: 42px;
     width: 1px;
     background: linear-gradient(
         to bottom,
         transparent 0,
         var(--line) 7%,
-        var(--line) 91%,
+        var(--line) 92%,
         transparent 100%
     );
+    transition: background 280ms ease, box-shadow 280ms ease;
 }
 
+/* Smaller, quieter orbital context. */
 .work-field::after {
     content: '';
     position: absolute;
     left: 50%;
-    top: 50%;
-    width: 420px;
-    height: 420px;
-    border: 1px solid var(--line-soft);
+    top: 52%;
+    width: 355px;
+    height: 355px;
+    border: 1px solid rgba(17,17,17,.11);
     border-radius: 50%;
     transform: translate(-50%, -50%);
     box-shadow:
-        0 0 0 70px rgba(17,17,17,.012),
-        0 0 0 142px rgba(17,17,17,.008);
+        0 0 0 54px rgba(17,17,17,.010),
+        0 0 0 108px rgba(17,17,17,.006);
     pointer-events: none;
+    transition: border-color 280ms ease, box-shadow 280ms ease;
+}
+
+/* Route-specific rail states. Modern browsers support :has(); fallback stays neutral. */
+.work-field:has(.work-node--data:is(:hover, :focus-visible))::before {
+    background: linear-gradient(
+        to bottom,
+        transparent 0,
+        var(--line) 7%,
+        var(--teal) 18%,
+        var(--teal) 34%,
+        var(--line) 44%,
+        var(--line) 92%,
+        transparent 100%
+    );
+    box-shadow: 0 0 9px rgba(13,124,120,.13);
+}
+
+.work-field:has(.work-node--systems:is(:hover, :focus-visible))::before {
+    background: linear-gradient(
+        to bottom,
+        transparent 0,
+        var(--line) 7%,
+        var(--line) 31%,
+        var(--teal) 41%,
+        var(--teal) 61%,
+        var(--line) 70%,
+        var(--line) 92%,
+        transparent 100%
+    );
+    box-shadow: 0 0 9px rgba(13,124,120,.13);
+}
+
+.work-field:has(.work-node--creative:is(:hover, :focus-visible))::before {
+    background: linear-gradient(
+        to bottom,
+        transparent 0,
+        var(--line) 7%,
+        var(--line) 58%,
+        var(--crimson) 69%,
+        var(--crimson) 86%,
+        var(--line) 92%,
+        transparent 100%
+    );
+    box-shadow: 0 0 10px rgba(166,61,69,.13);
+}
+
+.work-field:has(.work-node:is(:hover, :focus-visible))::after {
+    border-color: rgba(13,124,120,.18);
 }
 
 .work-core {
     position: absolute;
     left: 50%;
-    top: 26px;
+    top: 54px;
     z-index: 5;
-    width: 66px;
+    width: 62px;
     aspect-ratio: 1;
     display: grid;
     place-items: center;
@@ -61,19 +113,24 @@
     transform: translateX(-50%);
     border: 1px solid var(--teal);
     border-radius: 50%;
-    background: var(--paper);
-    box-shadow: 0 0 0 8px rgba(13,124,120,.035);
+    background: rgba(241,239,232,.82);
+    -webkit-backdrop-filter: blur(10px) saturate(1.12);
+    backdrop-filter: blur(10px) saturate(1.12);
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.56),
+        0 0 0 7px rgba(13,124,120,.028),
+        0 9px 22px rgba(17,17,17,.025);
     font-family: 'DM Mono', monospace;
 }
 
 .work-core strong {
-    font-size: 12px;
+    font-size: 11px;
     letter-spacing: .08em;
     font-weight: 500;
 }
 
 .work-core span {
-    font-size: 6px;
+    font-size: 5.5px;
     letter-spacing: .14em;
     text-transform: uppercase;
     color: var(--soft-ink);
@@ -82,7 +139,7 @@
 .work-field-status {
     position: absolute;
     right: 0;
-    top: 18px;
+    top: 22px;
     font-family: 'DM Mono', monospace;
     font-size: 8px;
     letter-spacing: .07em;
@@ -98,41 +155,45 @@
     margin-right: 8px;
     border-radius: 50%;
     background: var(--teal);
-    box-shadow: 0 0 0 5px rgba(13,124,120,.055);
+    box-shadow: 0 0 0 5px rgba(13,124,120,.05);
     vertical-align: 1px;
 }
 
 .work-node {
     --work-accent: var(--teal);
-    --connector: 86px;
+    --connector: clamp(72px, 7vw, 126px);
     position: absolute;
     z-index: 4;
-    width: min(42%, 560px);
-    min-height: 190px;
-    padding: clamp(26px, 3vw, 38px);
-    border: 1px solid rgba(17,17,17,.12);
-    border-radius: 26px;
-    background: rgba(241,239,232,.34);
+    width: min(36%, 470px);
+    min-height: 156px;
+    padding: clamp(21px, 2.2vw, 29px);
+    border: 1px solid rgba(17,17,17,.095);
+    border-radius: 18px;
+    background: rgba(241,239,232,.28);
     transition:
-        transform 320ms cubic-bezier(.2,.7,.2,1),
+        transform 300ms cubic-bezier(.2,.7,.2,1),
+        opacity 240ms ease,
         border-color 220ms ease,
-        box-shadow 260ms ease;
+        box-shadow 260ms ease,
+        background-color 220ms ease;
 }
 
+/* Tighter vertical rhythm: all three read as one coherent field. */
 .work-node--data {
-    left: 2%;
-    top: 128px;
+    left: 3%;
+    top: 118px;
 }
 
 .work-node--systems {
-    right: 2%;
-    top: 332px;
+    right: 3%;
+    top: 265px;
 }
 
 .work-node--creative {
     --work-accent: var(--crimson);
-    left: 7%;
-    top: 535px;
+    left: 8%;
+    top: 412px;
+    width: min(33%, 430px);
 }
 
 .work-node::before {
@@ -148,12 +209,12 @@
 .work-node::after {
     content: '';
     position: absolute;
-    top: calc(50% - 5px);
-    width: 10px;
-    height: 10px;
+    top: calc(50% - 4px);
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
     background: var(--work-accent);
-    box-shadow: 0 0 0 6px color-mix(in srgb, var(--work-accent) 8%, transparent);
+    box-shadow: 0 0 0 5px color-mix(in srgb, var(--work-accent) 7%, transparent);
     transition: transform 220ms ease, box-shadow 220ms ease;
 }
 
@@ -164,7 +225,7 @@
 
 .work-node--data::after,
 .work-node--creative::after {
-    left: calc(100% + var(--connector) - 4px);
+    left: calc(100% + var(--connector) - 3px);
 }
 
 .work-node--systems::before {
@@ -172,29 +233,38 @@
 }
 
 .work-node--systems::after {
-    right: calc(100% + var(--connector) - 4px);
+    right: calc(100% + var(--connector) - 3px);
+}
+
+/* Inactive nodes recede slightly when a route is selected. */
+.work-field:has(.work-node:is(:hover, :focus-visible)) .work-node:not(:hover):not(:focus-visible) {
+    opacity: .68;
+    transform: scale(.987);
 }
 
 .work-node:hover,
 .work-node:focus-visible {
     outline: none;
-    transform: translateY(-5px);
-    border-color: color-mix(in srgb, var(--work-accent) 35%, rgba(17,17,17,.12));
+    transform: translateY(-3px);
+    opacity: 1;
+    border-color: color-mix(in srgb, var(--work-accent) 34%, rgba(17,17,17,.10));
+    background-color: rgba(241,239,232,.46);
     box-shadow:
-        0 24px 54px rgba(17,17,17,.055),
-        0 0 36px color-mix(in srgb, var(--work-accent) 6%, transparent);
+        inset 0 1px 0 rgba(255,255,255,.62),
+        0 13px 30px rgba(17,17,17,.035),
+        0 0 24px color-mix(in srgb, var(--work-accent) 5%, transparent);
 }
 
 .work-node:hover::before,
 .work-node:focus-visible::before {
     background: var(--work-accent);
-    box-shadow: 0 0 12px color-mix(in srgb, var(--work-accent) 24%, transparent);
+    box-shadow: 0 0 10px color-mix(in srgb, var(--work-accent) 20%, transparent);
 }
 
 .work-node:hover::after,
 .work-node:focus-visible::after {
-    transform: scale(1.35);
-    box-shadow: 0 0 0 9px color-mix(in srgb, var(--work-accent) 11%, transparent);
+    transform: scale(1.28);
+    box-shadow: 0 0 0 8px color-mix(in srgb, var(--work-accent) 10%, transparent);
 }
 
 .work-node-topline {
@@ -202,9 +272,9 @@
     align-items: center;
     justify-content: space-between;
     gap: 18px;
-    margin-bottom: 26px;
+    margin-bottom: 18px;
     font-family: 'DM Mono', monospace;
-    font-size: 8px;
+    font-size: 7.5px;
     letter-spacing: .06em;
     text-transform: uppercase;
     color: var(--soft-ink);
@@ -216,18 +286,18 @@
 
 .work-node-title {
     margin: 0;
-    font-size: clamp(34px, 3.4vw, 56px);
+    font-size: clamp(31px, 3vw, 48px);
     line-height: .96;
     letter-spacing: -.05em;
     font-weight: 500;
 }
 
 .work-node-description {
-    max-width: 390px;
-    margin: 14px 0 0;
+    max-width: 350px;
+    margin: 11px 0 0;
     font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    line-height: 1.6;
+    font-size: 9px;
+    line-height: 1.55;
     letter-spacing: .02em;
     color: var(--soft-ink);
 }
@@ -237,7 +307,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 16px;
-    margin-top: 28px;
+    margin-top: 20px;
 }
 
 .work-node-tag {
@@ -245,11 +315,11 @@
     align-items: center;
     gap: 7px;
     width: fit-content;
-    padding: 7px 10px;
-    border: 1px solid rgba(17,17,17,.12);
+    padding: 6px 9px;
+    border: 1px solid rgba(17,17,17,.10);
     border-radius: 999px;
     font-family: 'DM Mono', monospace;
-    font-size: 8px;
+    font-size: 7px;
     text-transform: uppercase;
     letter-spacing: .06em;
     color: var(--soft-ink);
@@ -257,81 +327,94 @@
 
 .work-node-tag::before {
     content: '';
-    width: 5px;
-    height: 5px;
+    width: 4px;
+    height: 4px;
     border-radius: 50%;
     background: var(--work-accent);
 }
 
 .work-node-arrow {
     color: var(--work-accent);
-    font-size: 20px;
+    font-size: 18px;
     transition: transform 220ms ease;
 }
 
 .work-node:hover .work-node-arrow,
 .work-node:focus-visible .work-node-arrow {
-    transform: translate(4px, -4px);
+    transform: translate(3px, -3px);
 }
 
 .work-field-end {
     position: absolute;
     left: 50%;
-    bottom: 18px;
+    bottom: 14px;
     transform: translateX(-50%);
-    padding: 6px 10px;
+    padding: 5px 9px;
     border: 1px solid var(--line);
     border-radius: 999px;
-    background: var(--paper);
+    background: rgba(241,239,232,.78);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
     font-family: 'DM Mono', monospace;
-    font-size: 7px;
+    font-size: 6.5px;
     letter-spacing: .07em;
     text-transform: uppercase;
     color: var(--soft-ink);
 }
 
-/* Liquid-glass integration */
+/* Liquid-glass integration — sharper, less cloudy than the previous pass. */
 .work-node.liquid-glass-surface {
-    --glass-blur: 18px;
-    --glass-glint: rgba(255,255,255,.40);
-    background-color: rgba(241,239,232,.30);
-    border-color: rgba(255,255,255,.34);
+    --glass-blur: 12px;
+    --glass-glint: rgba(255,255,255,.28);
+    background-color: rgba(241,239,232,.25);
+    border-color: rgba(255,255,255,.38);
     box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.60),
-        inset 0 -1px 0 rgba(17,17,17,.035),
-        0 20px 46px rgba(17,17,17,.028);
+        inset 0 1px 0 rgba(255,255,255,.56),
+        inset 0 -1px 0 rgba(17,17,17,.025),
+        0 9px 24px rgba(17,17,17,.018);
 }
 
 .work-node.liquid-glass-surface:hover,
 .work-node.liquid-glass-surface:focus-visible {
-    background-color: rgba(241,239,232,.52);
-    border-color: color-mix(in srgb, var(--work-accent) 28%, rgba(255,255,255,.50));
+    background-color: rgba(241,239,232,.46);
+    border-color: color-mix(in srgb, var(--work-accent) 30%, rgba(255,255,255,.50));
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.68),
+        0 13px 30px rgba(17,17,17,.035),
+        0 0 22px color-mix(in srgb, var(--work-accent) 5%, transparent);
 }
 
 @media (max-width: 1120px) {
+    .work-field {
+        min-height: 620px;
+    }
+
     .work-node {
-        --connector: 58px;
-        width: 43%;
+        --connector: clamp(46px, 5vw, 70px);
+        width: 38%;
     }
 
     .work-node--data { left: 0; }
     .work-node--systems { right: 0; }
-    .work-node--creative { left: 3%; }
+    .work-node--creative {
+        left: 4%;
+        width: 35%;
+    }
 }
 
 @media (max-width: 760px) {
     .work-field {
         min-height: auto;
-        padding: 90px 0 22px 38px;
+        padding: 92px 0 20px 38px;
         display: grid;
-        gap: 18px;
+        gap: 16px;
         overflow: visible;
     }
 
     .work-field::before {
         left: 18px;
-        top: 78px;
-        bottom: 30px;
+        top: 76px;
+        bottom: 28px;
     }
 
     .work-field::after {
@@ -340,8 +423,8 @@
 
     .work-core {
         left: 18px;
-        top: 18px;
-        width: 52px;
+        top: 20px;
+        width: 50px;
         transform: translateX(-50%);
     }
 
@@ -360,25 +443,30 @@
         top: auto;
         width: 100%;
         min-height: 0;
-        padding: 24px;
-        border-radius: 20px;
+        padding: 22px;
+        border-radius: 16px;
+    }
+
+    .work-field:has(.work-node:is(:hover, :focus-visible)) .work-node:not(:hover):not(:focus-visible) {
+        opacity: 1;
+        transform: none;
     }
 
     .work-node::before {
         width: 20px;
         left: -20px !important;
         right: auto !important;
-        top: 34px;
+        top: 32px;
     }
 
     .work-node::after {
-        left: -25px !important;
+        left: -24px !important;
         right: auto !important;
-        top: 29px;
+        top: 28px;
     }
 
     .work-node-title {
-        font-size: clamp(32px, 10vw, 46px);
+        font-size: clamp(30px, 9vw, 43px);
     }
 
     .work-field-end {
@@ -387,7 +475,7 @@
         bottom: auto;
         transform: none;
         justify-self: start;
-        margin-top: 4px;
+        margin-top: 3px;
     }
 }
 
@@ -395,7 +483,9 @@
     .work-node,
     .work-node::before,
     .work-node::after,
-    .work-node-arrow {
+    .work-node-arrow,
+    .work-field::before,
+    .work-field::after {
         transition: none !important;
     }
 }
