@@ -1,45 +1,44 @@
 /* CLYD3 — Animated Sharingan signal core
-   Kept as a separate component layer so the core can evolve independently
-   from the primary site design system. */
+   The eye is rendered as vector artwork inside the existing orbital field.
+   This avoids browser inconsistencies from constructing the tomoe from CSS spans. */
 
 .signal-core.sharingan-core {
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 94px;
+    width: 100px;
     aspect-ratio: 1;
     display: grid;
     place-items: center;
     border-radius: 50%;
     background: transparent;
-    color: inherit;
-    font-family: inherit;
     z-index: 5;
     pointer-events: none;
     isolation: isolate;
 }
 
+/* Crimson energy halo immediately around the eye. */
 .signal-core.sharingan-core::before {
     content: '';
     position: absolute;
-    inset: -10px;
-    border: 1px solid rgba(166, 61, 69, 0.48);
+    inset: -9px;
+    border: 1px solid rgba(166, 61, 69, 0.58);
     border-radius: 50%;
     box-shadow:
         0 0 0 5px rgba(166, 61, 69, 0.035),
-        0 0 22px rgba(166, 61, 69, 0.12);
+        0 0 22px rgba(166, 61, 69, 0.16);
     animation: sharinganHalo 4.2s ease-in-out infinite;
     z-index: -1;
 }
 
+/* Retain one quiet teal ring to connect the eye to the CLYD3 system language. */
 .signal-core.sharingan-core::after {
     content: '';
     position: absolute;
     inset: -18px;
-    border: 1px solid rgba(13, 124, 120, 0.22);
+    border: 1px solid rgba(13, 124, 120, 0.28);
     border-radius: 50%;
-    animation: sharinganCounterSpin 18s linear infinite;
     z-index: -2;
 }
 
@@ -48,169 +47,65 @@
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    overflow: hidden;
-    background:
-        radial-gradient(circle at 50% 50%,
-            #020202 0 12%,
-            #180407 13% 18%,
-            #4a0d14 19% 43%,
-            #981c2a 44% 69%,
-            #4b0c13 70% 86%,
-            #160407 87% 100%);
-    border: 2px solid #150407;
-    box-shadow:
-        inset 0 0 16px rgba(0, 0, 0, 0.72),
-        inset 0 0 4px rgba(255, 226, 226, 0.18),
-        0 0 0 1px rgba(166, 61, 69, 0.44),
-        0 0 14px rgba(166, 61, 69, 0.14);
-    animation: sharinganSpin 12s linear infinite;
+    overflow: visible;
     transform-origin: center;
-    transition: filter 300ms ease, box-shadow 300ms ease;
+    animation: sharinganSpin 13s linear infinite;
+    transition: filter 280ms ease;
 }
 
-/* faint eye texture */
+/* Stable vector Sharingan artwork. */
 .sharingan::before {
     content: '';
     position: absolute;
-    inset: 8%;
+    inset: 0;
     border-radius: 50%;
-    border: 1px solid rgba(255, 230, 230, 0.12);
-    background:
-        repeating-conic-gradient(
-            from 4deg,
-            rgba(255,255,255,0.025) 0deg 1deg,
-            transparent 1deg 17deg
-        );
-    opacity: 0.9;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3CradialGradient id='iris' cx='38%25' cy='32%25' r='72%25'%3E%3Cstop offset='0' stop-color='%23d95b66'/%3E%3Cstop offset='.42' stop-color='%23b32232'/%3E%3Cstop offset='.75' stop-color='%238a1320'/%3E%3Cstop offset='1' stop-color='%2344060c'/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle cx='50' cy='50' r='49' fill='%23090909'/%3E%3Ccircle cx='50' cy='50' r='45.5' fill='url(%23iris)' stroke='%23230307' stroke-width='2'/%3E%3Ccircle cx='50' cy='50' r='31' fill='none' stroke='%23170204' stroke-width='2.2' opacity='.9'/%3E%3Cg fill='%23070707' stroke='%23070707' stroke-linejoin='round'%3E%3Cg transform='rotate(0 50 50)'%3E%3Ccircle cx='50' cy='20' r='5.3'/%3E%3Cpath d='M53.7 18.9 C64 16.8 68.5 23.6 61.8 31.2 C63 25.5 59.6 21.4 53.7 18.9 Z'/%3E%3C/g%3E%3Cg transform='rotate(120 50 50)'%3E%3Ccircle cx='50' cy='20' r='5.3'/%3E%3Cpath d='M53.7 18.9 C64 16.8 68.5 23.6 61.8 31.2 C63 25.5 59.6 21.4 53.7 18.9 Z'/%3E%3C/g%3E%3Cg transform='rotate(240 50 50)'%3E%3Ccircle cx='50' cy='20' r='5.3'/%3E%3Cpath d='M53.7 18.9 C64 16.8 68.5 23.6 61.8 31.2 C63 25.5 59.6 21.4 53.7 18.9 Z'/%3E%3C/g%3E%3C/g%3E%3Ccircle cx='50' cy='50' r='11.5' fill='%23030303'/%3E%3Ccircle cx='50' cy='50' r='7.4' fill='%23090909' stroke='%23230307' stroke-width='1.2'/%3E%3Cellipse cx='36' cy='29' rx='14' ry='7' fill='white' opacity='.08' transform='rotate(-28 36 29)'/%3E%3C/svg%3E");
+    box-shadow:
+        0 0 0 1px rgba(74, 6, 13, 0.58),
+        0 0 17px rgba(166, 61, 69, 0.19),
+        inset 0 0 11px rgba(0, 0, 0, 0.34);
 }
 
+/* Glassy highlight kept stationary relative to the spinning eye. */
 .sharingan::after {
     content: '';
     position: absolute;
-    left: 18%;
-    right: 18%;
-    top: 18%;
-    height: 18%;
-    border-radius: 50%;
-    background: radial-gradient(ellipse at center, rgba(255,255,255,.18), rgba(255,255,255,0) 72%);
-    transform: rotate(-18deg);
-    filter: blur(2px);
-    opacity: .55;
-    z-index: 5;
-}
-
-.signal-core .sharingan-ring {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-}
-
-.signal-core .outer-ring {
-    width: 72%;
-    height: 72%;
-    border: 2px solid rgba(8, 2, 3, 0.78);
-    box-shadow: 0 0 0 1px rgba(125, 17, 29, 0.22);
-}
-
-.signal-core .inner-ring {
-    width: 38%;
-    height: 38%;
-    border: 1px solid rgba(8, 2, 3, 0.82);
-}
-
-.signal-core .pupil {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 17px;
-    height: 17px;
-    border-radius: 50%;
-    background: #030303;
-    transform: translate(-50%, -50%);
-    box-shadow:
-        0 0 0 4px rgba(25, 3, 6, 0.55),
-        0 0 7px rgba(0, 0, 0, 0.9);
-    z-index: 4;
-}
-
-.signal-core .iris-glow {
-    position: absolute;
-    inset: 0;
+    inset: 4px;
     border-radius: 50%;
     background:
-        radial-gradient(circle at 34% 30%, rgba(255,255,255,0.12), transparent 18%),
-        radial-gradient(circle at center, transparent 48%, rgba(210, 42, 61, 0.13) 67%, transparent 88%);
+        radial-gradient(circle at 34% 27%, rgba(255,255,255,.11), transparent 19%),
+        radial-gradient(circle at center, transparent 54%, rgba(101,4,14,.15) 81%, transparent 100%);
     mix-blend-mode: screen;
-    animation: sharinganIrisPulse 3.4s ease-in-out infinite;
-    z-index: 6;
+    animation: sharinganIrisPulse 3.8s ease-in-out infinite;
 }
 
-/* Tomoe — three comma-like marks positioned around the iris */
-.signal-core .tomoe {
-    position: absolute;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: #080808;
-    z-index: 3;
-    transform-origin: center;
+/* Old HTML drawing primitives are intentionally hidden; the vector above owns the artwork. */
+.signal-core.sharingan-core .sharingan-ring,
+.signal-core.sharingan-core .tomoe,
+.signal-core.sharingan-core .pupil,
+.signal-core.sharingan-core .iris-glow {
+    display: none !important;
 }
 
-.signal-core .tomoe::after {
-    content: '';
-    position: absolute;
-    width: 14px;
-    height: 7px;
-    left: 5px;
-    top: 2px;
-    border-radius: 70% 90% 80% 10%;
-    background: #080808;
-    transform: rotate(-36deg);
-    transform-origin: left center;
-}
-
-.signal-core .tomoe-1 {
-    left: 50%;
-    top: 15%;
-    transform: translateX(-50%) rotate(-8deg);
-}
-
-.signal-core .tomoe-2 {
-    right: 18%;
-    bottom: 25%;
-    transform: rotate(112deg);
-}
-
-.signal-core .tomoe-3 {
-    left: 18%;
-    bottom: 25%;
-    transform: rotate(232deg);
-}
-
-/* The surrounding CLYD3 field responds when the eye is engaged. */
+/* Interaction: the Sharingan accelerates and the field warms to crimson. */
 .signal-field:hover .sharingan {
-    animation-duration: 4.5s;
-    filter: saturate(1.14) contrast(1.04);
-    box-shadow:
-        inset 0 0 18px rgba(0, 0, 0, 0.76),
-        inset 0 0 5px rgba(255, 226, 226, 0.22),
-        0 0 0 1px rgba(166, 61, 69, 0.65),
-        0 0 24px rgba(166, 61, 69, 0.22);
+    animation-duration: 4.2s;
+    filter: saturate(1.14) contrast(1.05) brightness(1.03);
 }
 
 .signal-field:hover .signal-core.sharingan-core::before {
-    border-color: rgba(166, 61, 69, 0.72);
+    border-color: rgba(166, 61, 69, 0.86);
     box-shadow:
-        0 0 0 7px rgba(166, 61, 69, 0.045),
-        0 0 30px rgba(166, 61, 69, 0.2);
+        0 0 0 7px rgba(166, 61, 69, 0.05),
+        0 0 32px rgba(166, 61, 69, 0.25);
 }
 
 .signal-field:hover .ring-3 {
-    border-color: rgba(166, 61, 69, 0.72);
-    box-shadow: 0 0 0 5px rgba(166, 61, 69, 0.045);
+    border-color: rgba(166, 61, 69, 0.75);
+    box-shadow: 0 0 0 5px rgba(166, 61, 69, 0.05);
 }
 
 .signal-field:hover .signal-sweep {
@@ -226,15 +121,10 @@
     to { transform: rotate(360deg); }
 }
 
-@keyframes sharinganCounterSpin {
-    from { transform: rotate(360deg); }
-    to { transform: rotate(0deg); }
-}
-
 @keyframes sharinganHalo {
     0%, 100% {
-        transform: scale(0.98);
-        opacity: 0.58;
+        transform: scale(.97);
+        opacity: .58;
     }
     50% {
         transform: scale(1.055);
@@ -244,26 +134,25 @@
 
 @keyframes sharinganIrisPulse {
     0%, 100% {
-        opacity: 0.52;
+        opacity: .58;
         transform: scale(1);
     }
     50% {
-        opacity: 0.96;
-        transform: scale(1.035);
+        opacity: .95;
+        transform: scale(1.025);
     }
 }
 
 @media (max-width: 760px) {
     .signal-core.sharingan-core {
-        width: 84px;
+        width: 88px;
     }
 }
 
 @media (prefers-reduced-motion: reduce) {
     .sharingan,
     .signal-core.sharingan-core::before,
-    .signal-core.sharingan-core::after,
-    .signal-core .iris-glow {
+    .sharingan::after {
         animation: none !important;
     }
 }
