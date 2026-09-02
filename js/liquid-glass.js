@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const selectors = [
         '.site-header',
         '.constellation-node',
+        '.work-node',
         '.work-section .project-tag',
         '.work-section .project-system',
         '.statement-mark',
