@@ -6,6 +6,7 @@
     <meta name="description" content="CLYD3 — a digital home for work, ideas, experiments and visual stories.">
     <title>CLYD3 — Digital Home</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/constellation.css">
     <style>
         /* Isolated Sharingan component. Intentionally kept here so it cannot
            leak styles into the rest of the CLYD3 typography/layout system. */
@@ -193,37 +194,51 @@
         <section class="index-section section-shell" id="index">
             <div class="section-heading reveal">
                 <p class="eyebrow"><span>002</span> INDEX</p>
-                <h2>Four ways into the work.</h2>
+                <h2>Four ways into the system.</h2>
             </div>
 
-            <div class="index-grid">
-                <a class="index-card reveal accent-teal" href="#work">
-                    <div class="card-topline"><span>01</span><span>Selected work</span></div>
-                    <h3>Work</h3>
-                    <p>Projects, systems, analysis and things made to solve real problems.</p>
-                    <span class="card-arrow">↗</span>
-                </a>
+            <div class="constellation-shell reveal">
+                <div class="constellation-stage" aria-label="CLYD3 content constellation">
+                    <div class="constellation-crosshair" aria-hidden="true"></div>
+                    <span class="constellation-coordinates constellation-coordinates--a" aria-hidden="true">FIELD / INDEX 04</span>
+                    <span class="constellation-coordinates constellation-coordinates--b" aria-hidden="true">SIGNAL / C3</span>
+                    <span class="constellation-coordinates constellation-coordinates--c" aria-hidden="true">● NAV / ACTIVE</span>
 
-                <a class="index-card reveal accent-crimson" href="#lab">
-                    <div class="card-topline"><span>02</span><span>Experiments</span></div>
-                    <h3>Lab</h3>
-                    <p>Small builds, prototypes, code studies and ideas still becoming.</p>
-                    <span class="card-arrow">↗</span>
-                </a>
+                    <div class="constellation-core" aria-hidden="true">
+                        <div class="constellation-core-inner">
+                            <strong>C3</strong>
+                            <span>Index</span>
+                        </div>
+                    </div>
 
-                <a class="index-card reveal accent-neutral" href="#archive">
-                    <div class="card-topline"><span>03</span><span>Visual archive</span></div>
-                    <h3>Archive</h3>
-                    <p>Photography, visual observations and fragments collected over time.</p>
-                    <span class="card-arrow">↗</span>
-                </a>
+                    <a class="constellation-node constellation-node--left" href="#work">
+                        <div class="constellation-node-meta"><span>01</span><span>Selected work</span></div>
+                        <h3>Work</h3>
+                        <p>Projects, systems, analysis and things made to solve real problems.</p>
+                        <span class="constellation-node-arrow">↗</span>
+                    </a>
 
-                <a class="index-card reveal accent-teal" href="#notes">
-                    <div class="card-topline"><span>04</span><span>Thinking aloud</span></div>
-                    <h3>Notes</h3>
-                    <p>Short essays, questions, frameworks and things worth remembering.</p>
-                    <span class="card-arrow">↗</span>
-                </a>
+                    <a class="constellation-node constellation-node--top" href="#archive">
+                        <div class="constellation-node-meta"><span>03</span><span>Visual archive</span></div>
+                        <h3>Archive</h3>
+                        <p>Photography, visual observations and fragments collected over time.</p>
+                        <span class="constellation-node-arrow">↗</span>
+                    </a>
+
+                    <a class="constellation-node constellation-node--right" href="#notes">
+                        <div class="constellation-node-meta"><span>04</span><span>Thinking aloud</span></div>
+                        <h3>Notes</h3>
+                        <p>Short essays, questions, frameworks and things worth remembering.</p>
+                        <span class="constellation-node-arrow">↗</span>
+                    </a>
+
+                    <a class="constellation-node constellation-node--bottom constellation-node--lab" href="#lab">
+                        <div class="constellation-node-meta"><span>02</span><span>Experiments</span></div>
+                        <h3>Lab</h3>
+                        <p>Small builds, prototypes, code studies and ideas still becoming.</p>
+                        <span class="constellation-node-arrow">↗</span>
+                    </a>
+                </div>
             </div>
         </section>
 
