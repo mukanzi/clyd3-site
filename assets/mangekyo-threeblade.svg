@@ -1,28 +1,24 @@
-<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="256" cy="256" r="122" fill="#C40000"></circle>
-  <circle cx="256" cy="256" r="111" stroke="#7D0000" stroke-width="6" opacity="0.45"></circle>
-  <circle cx="256" cy="256" r="98" stroke="#E35A5A" stroke-width="3" opacity="0.35"></circle>
-
-  <!-- one tapered Mangekyo blade -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Three-blade Mangekyo-inspired symbol">
   <defs>
-    <path id="blade" d="
-      M 258 78
-      C 230 88, 205 118, 194 154
-      C 182 194, 184 233, 173 270
-      C 161 311, 136 343, 98 365
-      C 124 364, 151 360, 176 349
-      C 219 330, 250 300, 268 258
-      C 284 221, 290 184, 299 148
-      C 309 111, 326 83, 358 61
-      C 323 61, 288 67, 258 78 Z"></path>
+    <clipPath id="irisClip">
+      <circle cx="256" cy="256" r="224"/>
+    </clipPath>
+    <path id="blade" d="M256 54 C311 61 358 91 389 137 C348 124 307 132 275 157 C238 186 217 226 213 272 C191 232 185 187 197 146 C209 105 230 75 256 54 Z"/>
   </defs>
 
-  <use href="#blade" fill="#050505"></use>
-  <use href="#blade" fill="#050505" transform="rotate(120 256 256)"></use>
-  <use href="#blade" fill="#050505" transform="rotate(240 256 256)"></use>
+  <!-- Dominant crimson iris -->
+  <circle cx="256" cy="256" r="224" fill="#d00000"/>
+  <circle cx="256" cy="256" r="205" fill="none" stroke="#710000" stroke-width="8" opacity="0.55"/>
 
-  <!-- preserve more visible red center -->
-  <circle cx="256" cy="256" r="34" fill="#B30000"></circle>
-  <circle cx="256" cy="256" r="18" fill="#2B0000" opacity="0.65"></circle>
-  <circle cx="256" cy="256" r="5.5" fill="#E00000"></circle>
+  <!-- Three long curved blades, clipped to the iris -->
+  <g clip-path="url(#irisClip)" fill="#050505">
+    <use href="#blade"/>
+    <use href="#blade" transform="rotate(120 256 256)"/>
+    <use href="#blade" transform="rotate(240 256 256)"/>
+  </g>
+
+  <!-- Re-open the centre so the blades do not merge into a black mass -->
+  <circle cx="256" cy="256" r="58" fill="#d00000"/>
+  <circle cx="256" cy="256" r="24" fill="#090909"/>
+  <circle cx="256" cy="256" r="7" fill="#e60000"/>
 </svg>
