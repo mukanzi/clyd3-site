@@ -1,10 +1,10 @@
 /* CLYD3 — C3 Constellation Index
-   Replaces the conventional four-card index with a navigational field.
-   Scoped to .constellation-* classes to avoid affecting the rest of the site. */
+   Refined navigation field: tighter geometry, quieter orbit system,
+   route-specific interaction, and restrained motion. */
 
 .constellation-shell {
     position: relative;
-    min-height: 760px;
+    min-height: 700px;
     margin-top: 20px;
     border-top: 1px solid var(--line);
     overflow: hidden;
@@ -12,31 +12,48 @@
 
 .constellation-stage {
     position: relative;
-    width: min(100%, 1120px);
-    height: 680px;
-    margin: 40px auto 0;
+    width: min(100%, 1040px);
+    height: 620px;
+    margin: 32px auto 0;
 }
 
+/* The two main orbits are intentionally not perfectly concentric. */
 .constellation-stage::before,
 .constellation-stage::after {
     content: '';
     position: absolute;
     left: 50%;
     top: 50%;
-    border: 1px solid var(--line-soft);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
     pointer-events: none;
+    transform: translate(-50%, -50%) rotate(-5deg);
 }
 
 .constellation-stage::before {
-    width: 520px;
-    height: 520px;
+    width: 500px;
+    height: 470px;
+    border-radius: 48% 52% 49% 51%;
+    background:
+        conic-gradient(
+            from 28deg,
+            var(--line-soft) 0deg 76deg,
+            transparent 76deg 102deg,
+            var(--line-soft) 102deg 223deg,
+            transparent 223deg 252deg,
+            var(--line-soft) 252deg 338deg,
+            transparent 338deg 360deg
+        );
+    -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 1px), #000 calc(100% - 1px));
+    mask: radial-gradient(farthest-side, transparent calc(100% - 1px), #000 calc(100% - 1px));
+    opacity: .95;
 }
 
 .constellation-stage::after {
-    width: 340px;
-    height: 340px;
+    width: 315px;
+    height: 335px;
+    border: 1px solid var(--line-soft);
+    border-radius: 52% 48% 50% 50%;
+    transform: translate(-50%, -50%) rotate(9deg);
+    opacity: .88;
 }
 
 .constellation-crosshair {
@@ -56,20 +73,20 @@
 }
 
 .constellation-crosshair::before {
-    width: 70%;
+    width: 62%;
     height: 1px;
 }
 
 .constellation-crosshair::after {
     width: 1px;
-    height: 74%;
+    height: 66%;
 }
 
 .constellation-core {
     position: absolute;
     left: 50%;
     top: 50%;
-    width: 124px;
+    width: 102px;
     aspect-ratio: 1;
     transform: translate(-50%, -50%);
     border-radius: 50%;
@@ -78,7 +95,7 @@
     background: var(--ink);
     color: var(--paper);
     z-index: 5;
-    box-shadow: 0 0 0 1px var(--teal), 0 0 0 8px rgba(13,124,120,.05);
+    box-shadow: 0 0 0 1px var(--teal), 0 0 0 7px rgba(13,124,120,.045);
 }
 
 .constellation-core::before,
@@ -91,14 +108,14 @@
 }
 
 .constellation-core::before {
-    inset: -12px;
-    opacity: .65;
-    animation: constellationPulse 4.6s ease-in-out infinite;
+    inset: -10px;
+    opacity: .58;
+    animation: constellationPulse 4.8s ease-in-out infinite;
 }
 
 .constellation-core::after {
-    inset: -24px;
-    opacity: .18;
+    inset: -20px;
+    opacity: .15;
 }
 
 .constellation-core-inner {
@@ -109,39 +126,34 @@
 
 .constellation-core strong {
     font-family: 'DM Mono', monospace;
-    font-size: 19px;
+    font-size: 16px;
     letter-spacing: .08em;
     font-weight: 500;
 }
 
 .constellation-core span {
     font-family: 'DM Mono', monospace;
-    font-size: 8px;
+    font-size: 7px;
     letter-spacing: .16em;
     text-transform: uppercase;
-    opacity: .58;
+    opacity: .56;
 }
 
 .constellation-node {
     --node-color: var(--teal);
     position: absolute;
     z-index: 4;
-    width: 270px;
-    padding: 18px 18px 16px;
-    border: 1px solid transparent;
-    background: rgba(241,239,232,.74);
-    backdrop-filter: blur(3px);
+    width: 250px;
+    padding: 12px 10px 12px;
+    border: 0;
+    background: transparent;
     transition:
-        transform 260ms cubic-bezier(.2,.7,.2,1),
-        border-color 220ms ease,
-        background 220ms ease;
+        opacity 220ms ease,
+        transform 260ms cubic-bezier(.2,.7,.2,1);
 }
 
 .constellation-node:hover,
 .constellation-node:focus-visible {
-    transform: translateY(-4px);
-    border-color: var(--line);
-    background: rgba(241,239,232,.94);
     outline: none;
 }
 
@@ -149,128 +161,147 @@
     --node-color: var(--crimson);
 }
 
+/* Pull the four pathways closer to the core for a tighter system. */
 .constellation-node--top {
     left: 50%;
-    top: 2%;
+    top: 6%;
     transform: translateX(-50%);
 }
 
 .constellation-node--top:hover,
 .constellation-node--top:focus-visible {
-    transform: translate(-50%, -4px);
+    transform: translate(-50%, -3px);
 }
 
 .constellation-node--left {
-    left: 2%;
+    left: 7%;
     top: 50%;
     transform: translateY(-50%);
 }
 
 .constellation-node--left:hover,
 .constellation-node--left:focus-visible {
-    transform: translate(4px, -50%);
+    transform: translate(3px, -50%);
 }
 
 .constellation-node--right {
-    right: 2%;
+    right: 7%;
     top: 50%;
     transform: translateY(-50%);
 }
 
 .constellation-node--right:hover,
 .constellation-node--right:focus-visible {
-    transform: translate(-4px, -50%);
+    transform: translate(-3px, -50%);
 }
 
 .constellation-node--bottom {
     left: 50%;
-    bottom: 1%;
+    bottom: 6%;
     transform: translateX(-50%);
 }
 
 .constellation-node--bottom:hover,
 .constellation-node--bottom:focus-visible {
-    transform: translate(-50%, -4px);
+    transform: translate(-50%, -3px);
 }
 
+/* Route lines + endpoint nodes. */
 .constellation-node::before {
     content: '';
     position: absolute;
     background: var(--line);
-    transition: background 220ms ease, box-shadow 220ms ease;
+    transition:
+        background 220ms ease,
+        box-shadow 220ms ease,
+        opacity 220ms ease;
     pointer-events: none;
 }
 
 .constellation-node::after {
     content: '';
     position: absolute;
-    width: 9px;
-    height: 9px;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
     background: var(--node-color);
-    box-shadow: 0 0 0 5px color-mix(in srgb, var(--node-color) 10%, transparent);
-    transition: transform 220ms ease, box-shadow 220ms ease;
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--node-color) 9%, transparent);
+    transition:
+        transform 220ms ease,
+        box-shadow 220ms ease,
+        opacity 220ms ease;
     pointer-events: none;
 }
 
 .constellation-node:hover::before,
 .constellation-node:focus-visible::before {
     background: var(--node-color);
-    box-shadow: 0 0 12px color-mix(in srgb, var(--node-color) 30%, transparent);
+    box-shadow: 0 0 10px color-mix(in srgb, var(--node-color) 26%, transparent);
 }
 
 .constellation-node:hover::after,
 .constellation-node:focus-visible::after {
-    transform: scale(1.35);
-    box-shadow: 0 0 0 8px color-mix(in srgb, var(--node-color) 13%, transparent);
+    transform: scale(1.4);
+    box-shadow: 0 0 0 7px color-mix(in srgb, var(--node-color) 13%, transparent);
 }
 
 .constellation-node--top::before {
     width: 1px;
-    height: 118px;
+    height: 86px;
     left: 50%;
-    top: calc(100% + 10px);
+    top: calc(100% + 8px);
 }
 
 .constellation-node--top::after {
     left: calc(50% - 4px);
-    top: calc(100% + 123px);
+    top: calc(100% + 98px);
 }
 
 .constellation-node--bottom::before {
     width: 1px;
-    height: 118px;
+    height: 86px;
     left: 50%;
-    bottom: calc(100% + 10px);
+    bottom: calc(100% + 8px);
 }
 
 .constellation-node--bottom::after {
     left: calc(50% - 4px);
-    bottom: calc(100% + 123px);
+    bottom: calc(100% + 98px);
 }
 
 .constellation-node--left::before {
     height: 1px;
-    width: 138px;
-    left: calc(100% + 10px);
+    width: 102px;
+    left: calc(100% + 8px);
     top: 50%;
 }
 
 .constellation-node--left::after {
-    left: calc(100% + 153px);
+    left: calc(100% + 116px);
     top: calc(50% - 4px);
 }
 
 .constellation-node--right::before {
     height: 1px;
-    width: 138px;
-    right: calc(100% + 10px);
+    width: 102px;
+    right: calc(100% + 8px);
     top: 50%;
 }
 
 .constellation-node--right::after {
-    right: calc(100% + 153px);
+    right: calc(100% + 116px);
     top: calc(50% - 4px);
+}
+
+/* When a route is active, let it own the field and quiet the rest. */
+.constellation-stage:has(.constellation-node:hover) .constellation-node:not(:hover),
+.constellation-stage:has(.constellation-node:focus-visible) .constellation-node:not(:focus-visible) {
+    opacity: .38;
+}
+
+.constellation-stage:has(.constellation-node:hover) .constellation-core,
+.constellation-stage:has(.constellation-node:focus-visible) .constellation-core {
+    box-shadow: 0 0 0 1px var(--teal), 0 0 0 9px rgba(13,124,120,.035);
 }
 
 .constellation-node-meta {
@@ -278,11 +309,11 @@
     justify-content: space-between;
     align-items: center;
     gap: 18px;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
     font-family: 'DM Mono', monospace;
-    font-size: 9px;
+    font-size: 8px;
     text-transform: uppercase;
-    letter-spacing: .05em;
+    letter-spacing: .055em;
     color: var(--soft-ink);
 }
 
@@ -292,15 +323,22 @@
 
 .constellation-node h3 {
     margin: 0;
-    font-size: clamp(34px, 3.2vw, 52px);
+    font-size: clamp(33px, 3vw, 48px);
     line-height: .96;
     letter-spacing: -.05em;
     font-weight: 500;
+    transition: color 220ms ease, transform 220ms ease;
+}
+
+.constellation-node:hover h3,
+.constellation-node:focus-visible h3 {
+    color: var(--node-color);
+    transform: translateX(2px);
 }
 
 .constellation-node p {
-    max-width: 240px;
-    margin: 14px 0 0;
+    max-width: 225px;
+    margin: 12px 0 0;
     font-size: 12px;
     line-height: 1.55;
     color: var(--soft-ink);
@@ -308,16 +346,18 @@
 
 .constellation-node-arrow {
     position: absolute;
-    right: 16px;
-    bottom: 14px;
-    font-size: 17px;
+    right: 10px;
+    bottom: 10px;
+    font-size: 15px;
     color: var(--node-color);
-    transition: transform 220ms ease;
+    opacity: .7;
+    transition: transform 220ms ease, opacity 220ms ease;
 }
 
 .constellation-node:hover .constellation-node-arrow,
 .constellation-node:focus-visible .constellation-node-arrow {
     transform: translate(4px, -4px);
+    opacity: 1;
 }
 
 .constellation-coordinates {
@@ -327,34 +367,63 @@
     letter-spacing: .06em;
     text-transform: uppercase;
     color: var(--soft-ink);
-    opacity: .72;
+    opacity: .68;
 }
 
-.constellation-coordinates--a { left: 13%; top: 13%; }
-.constellation-coordinates--b { right: 12%; bottom: 12%; }
-.constellation-coordinates--c { right: 8%; top: 17%; color: var(--teal); }
+.constellation-coordinates--a { left: 12%; top: 12%; }
+.constellation-coordinates--b { right: 10%; bottom: 10%; }
+.constellation-coordinates--c { right: 8%; top: 16%; color: var(--teal); }
 
 @keyframes constellationPulse {
-    0%, 100% { transform: scale(.96); opacity: .42; }
-    50% { transform: scale(1.06); opacity: .92; }
+    0%, 100% { transform: scale(.97); opacity: .38; }
+    50% { transform: scale(1.05); opacity: .82; }
+}
+
+@keyframes constellationNodeDrift {
+    0%, 100% { translate: 0 0; }
+    50% { translate: 0 -2px; }
+}
+
+@keyframes constellationNodeDriftSide {
+    0%, 100% { translate: 0 0; }
+    50% { translate: 2px 0; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .constellation-node--top::after,
+    .constellation-node--bottom::after {
+        animation: constellationNodeDrift 5.8s ease-in-out infinite;
+    }
+
+    .constellation-node--left::after,
+    .constellation-node--right::after {
+        animation: constellationNodeDriftSide 6.4s ease-in-out infinite;
+    }
+
+    .constellation-node--lab::after {
+        animation-duration: 5.2s;
+    }
 }
 
 @media (max-width: 1120px) {
     .constellation-stage {
         width: min(100%, 860px);
-        height: 630px;
+        height: 590px;
     }
 
-    .constellation-stage::before { width: 450px; height: 450px; }
-    .constellation-stage::after { width: 290px; height: 290px; }
+    .constellation-stage::before { width: 430px; height: 410px; }
+    .constellation-stage::after { width: 275px; height: 292px; }
 
-    .constellation-node { width: 230px; }
+    .constellation-node { width: 225px; }
+
+    .constellation-node--left { left: 5%; }
+    .constellation-node--right { right: 5%; }
 
     .constellation-node--left::before,
-    .constellation-node--right::before { width: 100px; }
+    .constellation-node--right::before { width: 78px; }
 
-    .constellation-node--left::after { left: calc(100% + 115px); }
-    .constellation-node--right::after { right: calc(100% + 115px); }
+    .constellation-node--left::after { left: calc(100% + 92px); }
+    .constellation-node--right::after { right: calc(100% + 92px); }
 }
 
 @media (max-width: 760px) {
@@ -371,6 +440,10 @@
         padding: 10px 0 10px 40px;
         display: grid;
         gap: 16px;
+        background-image: linear-gradient(var(--line), var(--line));
+        background-size: 1px calc(100% - 120px);
+        background-repeat: no-repeat;
+        background-position: 18px 94px;
     }
 
     .constellation-stage::before,
@@ -380,23 +453,17 @@
         display: none;
     }
 
-    .constellation-stage::marker { display: none; }
-
     .constellation-core {
         position: relative;
         left: auto;
         top: auto;
         transform: none;
-        width: 86px;
+        width: 82px;
         margin: 0 0 16px;
     }
 
     .constellation-stage > .constellation-core::after {
         display: none;
-    }
-
-    .constellation-stage::before {
-        content: '';
     }
 
     .constellation-node,
@@ -412,8 +479,9 @@
         width: 100%;
         transform: none;
         padding: 18px 18px 18px 20px;
-        border-color: var(--line);
+        border: 1px solid var(--line);
         background: transparent;
+        opacity: 1 !important;
     }
 
     .constellation-node:hover,
@@ -444,13 +512,7 @@
         right: auto !important;
         top: 24px !important;
         bottom: auto !important;
-    }
-
-    .constellation-stage {
-        background-image: linear-gradient(var(--line), var(--line));
-        background-size: 1px calc(100% - 120px);
-        background-repeat: no-repeat;
-        background-position: 18px 94px;
+        animation: none !important;
     }
 
     .constellation-node h3 {
@@ -459,5 +521,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .constellation-core::before { animation: none !important; }
+    .constellation-core::before,
+    .constellation-node::after {
+        animation: none !important;
+    }
 }
