@@ -1,0 +1,131 @@
+/* CLYD3 — V0.4 refinement layer
+   Small layout refinements after the unified system pass.
+   Intentionally loaded last so these rules remain easy to tune or remove. */
+
+/* ---------------------------------------------------------
+   Selected Work — tighter heading + denser ledger metadata
+--------------------------------------------------------- */
+.work-section .section-heading {
+    margin-bottom: clamp(28px, 3.5vw, 48px);
+    padding-bottom: 24px;
+}
+
+.work-section .project-row {
+    grid-template-columns: 62px minmax(0, 1fr) minmax(135px, .34fr) auto 38px;
+    column-gap: clamp(18px, 2vw, 34px);
+}
+
+.project-system {
+    justify-self: start;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    line-height: 1.5;
+    letter-spacing: .065em;
+    text-transform: uppercase;
+    color: var(--soft-ink);
+    opacity: .78;
+    transition: color 220ms ease, transform 240ms cubic-bezier(.2,.7,.2,1);
+}
+
+.work-section .project-row:hover .project-system,
+.work-section .project-row:focus-visible .project-system {
+    color: var(--row-accent);
+    transform: translateX(3px);
+}
+
+/* ---------------------------------------------------------
+   Archive + Notes — deliberate asymmetry
+--------------------------------------------------------- */
+.coming-grid {
+    grid-template-columns: minmax(0, 1.14fr) minmax(0, .86fr);
+}
+
+.coming-panel:first-child h2 {
+    max-width: 650px;
+}
+
+.dark-panel h2 {
+    max-width: 430px;
+}
+
+.coming-panel:first-child > p:not(.eyebrow) {
+    max-width: 520px;
+}
+
+.dark-panel > p:not(.eyebrow) {
+    max-width: 410px;
+}
+
+/* ---------------------------------------------------------
+   Contact — one clear outward action, one secondary action
+--------------------------------------------------------- */
+.contact-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+}
+
+.contact-actions .primary-contact {
+    border-bottom-color: var(--teal);
+}
+
+.contact-actions .primary-contact span {
+    color: var(--teal);
+}
+
+.contact-actions .primary-contact:hover span {
+    color: var(--crimson);
+}
+
+.contact-actions .secondary-contact {
+    color: rgba(241,239,232,.7);
+    border-bottom-color: rgba(241,239,232,.28);
+}
+
+/* ---------------------------------------------------------
+   Responsive refinement
+--------------------------------------------------------- */
+@media (max-width: 1050px) {
+    .work-section .project-row {
+        grid-template-columns: 54px minmax(0, 1fr) minmax(115px, .3fr) auto 32px;
+    }
+
+    .coming-grid {
+        grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr);
+    }
+}
+
+@media (max-width: 860px) {
+    .project-system {
+        display: none;
+    }
+
+    .work-section .project-row {
+        grid-template-columns: 48px minmax(0, 1fr) auto 30px;
+    }
+}
+
+@media (max-width: 760px) {
+    .work-section .section-heading {
+        margin-bottom: 28px;
+    }
+
+    .work-section .project-row {
+        grid-template-columns: 38px minmax(0, 1fr) 24px;
+    }
+
+    .coming-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-actions {
+        margin-top: 8px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .project-system {
+        transition: none !important;
+    }
+}
