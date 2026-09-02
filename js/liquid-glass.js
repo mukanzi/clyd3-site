@@ -3,10 +3,10 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     // Force the hero eye onto a unique asset URL so browsers cannot reuse
-    // the older cached Sharingan artwork referenced by index.html.
+    // an older cached Mangekyo/Sharingan artwork.
     const sharinganImage = document.querySelector('.sharingan-image');
     if (sharinganImage) {
-        sharinganImage.src = 'assets/mangekyo-threeblade.svg?v=1';
+        sharinganImage.src = 'assets/mangekyo-threeblade.svg?v=2';
     }
 
     const selectors = [
