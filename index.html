@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/system-sections.css">
     <link rel="stylesheet" href="css/refinements.css">
     <link rel="stylesheet" href="css/liquid-glass.css">
+    <link rel="stylesheet" href="css/work-field.css">
     <style>
         /* Isolated Sharingan component. Intentionally kept here so it cannot
            leak styles into the rest of the CLYD3 typography/layout system. */
@@ -254,39 +255,53 @@
                 <p class="section-note">A working index. Detailed case studies will live here as the site grows.</p>
             </div>
 
-            <div class="project-list">
-                <a class="project-row reveal" href="#">
-                    <span class="project-number">01</span>
-                    <div class="project-title">
-                        <h3>Data &amp; Impact</h3>
-                        <p>Analysis / evidence / decision support</p>
+            <div class="work-field reveal" aria-label="Selected work practice field">
+                <div class="work-core" aria-hidden="true">
+                    <strong>C3</strong>
+                    <span>Practice</span>
+                </div>
+                <span class="work-field-status" aria-hidden="true">Practice field / active</span>
+
+                <a class="work-node work-node--data" href="#">
+                    <div class="work-node-topline">
+                        <span class="work-node-number">01</span>
+                        <span>Field / Evidence</span>
                     </div>
-                    <span class="project-system">Field / Evidence</span>
-                    <span class="project-tag">Practice</span>
-                    <span class="project-arrow">↗</span>
+                    <h3 class="work-node-title">Data &amp; Impact</h3>
+                    <p class="work-node-description">Analysis / evidence / decision support</p>
+                    <div class="work-node-footer">
+                        <span class="work-node-tag">Practice</span>
+                        <span class="work-node-arrow">↗</span>
+                    </div>
                 </a>
 
-                <a class="project-row reveal" href="#">
-                    <span class="project-number">02</span>
-                    <div class="project-title">
-                        <h3>Digital Systems</h3>
-                        <p>Tools / workflows / infrastructure</p>
+                <a class="work-node work-node--systems" href="#">
+                    <div class="work-node-topline">
+                        <span class="work-node-number">02</span>
+                        <span>Field / Infrastructure</span>
                     </div>
-                    <span class="project-system">Field / Infrastructure</span>
-                    <span class="project-tag">Build</span>
-                    <span class="project-arrow">↗</span>
+                    <h3 class="work-node-title">Digital Systems</h3>
+                    <p class="work-node-description">Tools / workflows / infrastructure</p>
+                    <div class="work-node-footer">
+                        <span class="work-node-tag">Build</span>
+                        <span class="work-node-arrow">↗</span>
+                    </div>
                 </a>
 
-                <a class="project-row reveal" href="#">
-                    <span class="project-number">03</span>
-                    <div class="project-title">
-                        <h3>Creative Experiments</h3>
-                        <p>Web / visual systems / interaction</p>
+                <a class="work-node work-node--creative" href="#">
+                    <div class="work-node-topline">
+                        <span class="work-node-number">03</span>
+                        <span>Field / Interaction</span>
                     </div>
-                    <span class="project-system">Field / Interaction</span>
-                    <span class="project-tag">Lab</span>
-                    <span class="project-arrow">↗</span>
+                    <h3 class="work-node-title">Creative Experiments</h3>
+                    <p class="work-node-description">Web / visual systems / interaction</p>
+                    <div class="work-node-footer">
+                        <span class="work-node-tag">Lab</span>
+                        <span class="work-node-arrow">↗</span>
+                    </div>
                 </a>
+
+                <span class="work-field-end" aria-hidden="true">Open / case studies</span>
             </div>
         </section>
 
