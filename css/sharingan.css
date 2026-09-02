@@ -1,6 +1,5 @@
-/* CLYD3 — Animated Sharingan signal core
-   The eye is rendered as vector artwork inside the existing orbital field.
-   This avoids browser inconsistencies from constructing the tomoe from CSS spans. */
+/* CLYD3 — Sharingan signal core
+   Uses a standalone SVG asset for stable cross-browser rendering. */
 
 .signal-core.sharingan-core {
     position: absolute;
@@ -13,16 +12,15 @@
     place-items: center;
     border-radius: 50%;
     background: transparent;
-    z-index: 5;
+    z-index: 6;
     pointer-events: none;
     isolation: isolate;
 }
 
-/* Crimson energy halo immediately around the eye. */
 .signal-core.sharingan-core::before {
     content: '';
     position: absolute;
-    inset: -9px;
+    inset: -10px;
     border: 1px solid rgba(166, 61, 69, 0.58);
     border-radius: 50%;
     box-shadow:
@@ -32,7 +30,6 @@
     z-index: -1;
 }
 
-/* Retain one quiet teal ring to connect the eye to the CLYD3 system language. */
 .signal-core.sharingan-core::after {
     content: '';
     position: absolute;
@@ -43,57 +40,31 @@
 }
 
 .sharingan {
-    position: relative;
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    overflow: visible;
+    background-image: url('../assets/sharingan.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    filter: drop-shadow(0 0 7px rgba(166, 61, 69, 0.22));
     transform-origin: center;
-    animation: sharinganSpin 13s linear infinite;
+    animation: sharinganSpin 14s linear infinite;
     transition: filter 280ms ease;
 }
 
-/* Stable vector Sharingan artwork. */
-.sharingan::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 50%;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 100% 100%;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3CradialGradient id='iris' cx='38%25' cy='32%25' r='72%25'%3E%3Cstop offset='0' stop-color='%23d95b66'/%3E%3Cstop offset='.42' stop-color='%23b32232'/%3E%3Cstop offset='.75' stop-color='%238a1320'/%3E%3Cstop offset='1' stop-color='%2344060c'/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle cx='50' cy='50' r='49' fill='%23090909'/%3E%3Ccircle cx='50' cy='50' r='45.5' fill='url(%23iris)' stroke='%23230307' stroke-width='2'/%3E%3Ccircle cx='50' cy='50' r='31' fill='none' stroke='%23170204' stroke-width='2.2' opacity='.9'/%3E%3Cg fill='%23070707' stroke='%23070707' stroke-linejoin='round'%3E%3Cg transform='rotate(0 50 50)'%3E%3Ccircle cx='50' cy='20' r='5.3'/%3E%3Cpath d='M53.7 18.9 C64 16.8 68.5 23.6 61.8 31.2 C63 25.5 59.6 21.4 53.7 18.9 Z'/%3E%3C/g%3E%3Cg transform='rotate(120 50 50)'%3E%3Ccircle cx='50' cy='20' r='5.3'/%3E%3Cpath d='M53.7 18.9 C64 16.8 68.5 23.6 61.8 31.2 C63 25.5 59.6 21.4 53.7 18.9 Z'/%3E%3C/g%3E%3Cg transform='rotate(240 50 50)'%3E%3Ccircle cx='50' cy='20' r='5.3'/%3E%3Cpath d='M53.7 18.9 C64 16.8 68.5 23.6 61.8 31.2 C63 25.5 59.6 21.4 53.7 18.9 Z'/%3E%3C/g%3E%3C/g%3E%3Ccircle cx='50' cy='50' r='11.5' fill='%23030303'/%3E%3Ccircle cx='50' cy='50' r='7.4' fill='%23090909' stroke='%23230307' stroke-width='1.2'/%3E%3Cellipse cx='36' cy='29' rx='14' ry='7' fill='white' opacity='.08' transform='rotate(-28 36 29)'/%3E%3C/svg%3E");
-    box-shadow:
-        0 0 0 1px rgba(74, 6, 13, 0.58),
-        0 0 17px rgba(166, 61, 69, 0.19),
-        inset 0 0 11px rgba(0, 0, 0, 0.34);
-}
-
-/* Glassy highlight kept stationary relative to the spinning eye. */
-.sharingan::after {
-    content: '';
-    position: absolute;
-    inset: 4px;
-    border-radius: 50%;
-    background:
-        radial-gradient(circle at 34% 27%, rgba(255,255,255,.11), transparent 19%),
-        radial-gradient(circle at center, transparent 54%, rgba(101,4,14,.15) 81%, transparent 100%);
-    mix-blend-mode: screen;
-    animation: sharinganIrisPulse 3.8s ease-in-out infinite;
-}
-
-/* Old HTML drawing primitives are intentionally hidden; the vector above owns the artwork. */
-.signal-core.sharingan-core .sharingan-ring,
-.signal-core.sharingan-core .tomoe,
-.signal-core.sharingan-core .pupil,
-.signal-core.sharingan-core .iris-glow {
+/* Legacy CSS-built eye primitives are hidden; the SVG asset owns the artwork. */
+.sharingan > * {
     display: none !important;
 }
 
-/* Interaction: the Sharingan accelerates and the field warms to crimson. */
 .signal-field:hover .sharingan {
-    animation-duration: 4.2s;
-    filter: saturate(1.14) contrast(1.05) brightness(1.03);
+    animation-duration: 4.5s;
+    filter:
+        saturate(1.14)
+        contrast(1.05)
+        brightness(1.03)
+        drop-shadow(0 0 11px rgba(166, 61, 69, 0.36));
 }
 
 .signal-field:hover .signal-core.sharingan-core::before {
@@ -132,17 +103,6 @@
     }
 }
 
-@keyframes sharinganIrisPulse {
-    0%, 100% {
-        opacity: .58;
-        transform: scale(1);
-    }
-    50% {
-        opacity: .95;
-        transform: scale(1.025);
-    }
-}
-
 @media (max-width: 760px) {
     .signal-core.sharingan-core {
         width: 88px;
@@ -151,8 +111,7 @@
 
 @media (prefers-reduced-motion: reduce) {
     .sharingan,
-    .signal-core.sharingan-core::before,
-    .sharingan::after {
+    .signal-core.sharingan-core::before {
         animation: none !important;
     }
 }
