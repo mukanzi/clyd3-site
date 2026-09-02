@@ -1,32 +1,28 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-label="Three-blade Mangekyo-inspired symbol">
-  <circle cx="512" cy="512" r="478" fill="#c40000"/>
-  <circle cx="512" cy="512" r="438" fill="none" stroke="#7f0000" stroke-width="16" opacity="0.45"/>
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="256" cy="256" r="122" fill="#C40000"></circle>
+  <circle cx="256" cy="256" r="111" stroke="#7D0000" stroke-width="6" opacity="0.45"></circle>
+  <circle cx="256" cy="256" r="98" stroke="#E35A5A" stroke-width="3" opacity="0.35"></circle>
 
-  <!-- Three separated peripheral blades. These stop well short of the centre
-       so the crimson iris remains dominant. -->
-  <g fill="#050505">
-    <path d="M512 126
-             C610 141 694 204 728 300
-             C751 365 742 426 706 482
-             C661 431 607 396 548 374
-             C497 355 456 324 430 280
-             C446 217 474 164 512 126Z"/>
-    <path d="M512 126
-             C610 141 694 204 728 300
-             C751 365 742 426 706 482
-             C661 431 607 396 548 374
-             C497 355 456 324 430 280
-             C446 217 474 164 512 126Z"
-          transform="rotate(120 512 512)"/>
-    <path d="M512 126
-             C610 141 694 204 728 300
-             C751 365 742 426 706 482
-             C661 431 607 396 548 374
-             C497 355 456 324 430 280
-             C446 217 474 164 512 126Z"
-          transform="rotate(240 512 512)"/>
-  </g>
+  <!-- one tapered Mangekyo blade -->
+  <defs>
+    <path id="blade" d="
+      M 258 78
+      C 230 88, 205 118, 194 154
+      C 182 194, 184 233, 173 270
+      C 161 311, 136 343, 98 365
+      C 124 364, 151 360, 176 349
+      C 219 330, 250 300, 268 258
+      C 284 221, 290 184, 299 148
+      C 309 111, 326 83, 358 61
+      C 323 61, 288 67, 258 78 Z"></path>
+  </defs>
 
-  <circle cx="512" cy="512" r="34" fill="#090909"/>
-  <circle cx="512" cy="512" r="13" fill="#e00000"/>
+  <use href="#blade" fill="#050505"></use>
+  <use href="#blade" fill="#050505" transform="rotate(120 256 256)"></use>
+  <use href="#blade" fill="#050505" transform="rotate(240 256 256)"></use>
+
+  <!-- preserve more visible red center -->
+  <circle cx="256" cy="256" r="34" fill="#B30000"></circle>
+  <circle cx="256" cy="256" r="18" fill="#2B0000" opacity="0.65"></circle>
+  <circle cx="256" cy="256" r="5.5" fill="#E00000"></circle>
 </svg>
