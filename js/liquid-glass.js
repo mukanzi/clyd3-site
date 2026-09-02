@@ -2,6 +2,13 @@
 // Adds pointer-reactive specular highlights without modifying layout or typography.
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Force the hero eye onto a unique asset URL so browsers cannot reuse
+    // the older cached Sharingan artwork referenced by index.html.
+    const sharinganImage = document.querySelector('.sharingan-image');
+    if (sharinganImage) {
+        sharinganImage.src = 'assets/mangekyo-threeblade.svg?v=1';
+    }
+
     const selectors = [
         '.site-header',
         '.constellation-node',
