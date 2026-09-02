@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // older cached Mangekyo artwork.
     const sharinganImage = document.querySelector('.sharingan-image');
     if (sharinganImage) {
-        sharinganImage.src = 'assets/mangekyo-threeblade.svg?v=3';
+        sharinganImage.src = 'assets/mangekyo-threeblade.svg?v=4';
     }
 
     const selectors = [
