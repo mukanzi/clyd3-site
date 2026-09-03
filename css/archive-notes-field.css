@@ -1,0 +1,378 @@
+/* CLYD3 — Archive / Notes shared field
+   Replaces the equal two-card composition with one asymmetrical signal field.
+   Designed to inherit the same open geometry, signal logic and restrained
+   interaction language used by the hero, constellation and practice field. */
+
+.coming-grid {
+    --archive-share: 58%;
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    grid-template-columns: minmax(0, 1.38fr) minmax(320px, .92fr);
+    width: min(100%, 1600px);
+    max-width: 1600px;
+    min-height: 650px;
+    margin: 0 auto;
+    padding: clamp(92px, 9vw, 150px) var(--gutter);
+    gap: clamp(54px, 7vw, 112px);
+    overflow: hidden;
+    background: transparent;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+}
+
+/* Shared signal spine — not a panel divider. */
+.coming-grid::before {
+    content: '';
+    position: absolute;
+    left: var(--archive-share);
+    top: 11%;
+    bottom: 11%;
+    width: 1px;
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        var(--line-soft) 12%,
+        var(--line) 46%,
+        var(--line) 54%,
+        var(--line-soft) 88%,
+        transparent 100%
+    );
+    pointer-events: none;
+    z-index: 0;
+}
+
+.coming-grid::after {
+    content: '';
+    position: absolute;
+    left: calc(var(--archive-share) - 5px);
+    top: 50%;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--teal);
+    box-shadow:
+        0 0 0 7px color-mix(in srgb, var(--teal) 9%, transparent),
+        0 0 28px color-mix(in srgb, var(--teal) 15%, transparent);
+    transform: translateY(-50%);
+    pointer-events: none;
+    z-index: 2;
+}
+
+.coming-grid .coming-panel,
+.coming-grid .coming-panel:first-child,
+.coming-grid .dark-panel,
+.coming-grid .coming-panel.liquid-glass-surface {
+    position: relative;
+    min-height: 470px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: visible;
+    background-color: transparent !important;
+    background-image: none !important;
+    color: var(--ink);
+    border: 0 !important;
+    box-shadow: none !important;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    transition: opacity 260ms ease, transform 320ms cubic-bezier(.2,.7,.2,1);
+}
+
+/* Archive owns the visual side of the field. */
+.coming-grid .coming-panel:first-child {
+    padding-right: clamp(28px, 5vw, 82px);
+    justify-content: flex-end;
+}
+
+/* Notes is narrower and intentionally more editorial. */
+.coming-grid .dark-panel {
+    padding-left: clamp(8px, 2vw, 30px);
+    justify-content: flex-start;
+    padding-top: clamp(72px, 8vw, 124px);
+}
+
+/* Open orbital geometry rather than card chrome. */
+.coming-grid .coming-panel::before {
+    content: '';
+    position: absolute;
+    width: clamp(330px, 31vw, 500px);
+    aspect-ratio: 1;
+    top: clamp(-150px, -9vw, -80px);
+    right: clamp(-155px, -9vw, -86px);
+    border: 1px solid var(--line-soft);
+    border-radius: 50%;
+    background: transparent;
+    box-shadow:
+        0 0 0 54px color-mix(in srgb, var(--ink) 1.8%, transparent),
+        0 0 0 108px color-mix(in srgb, var(--ink) 1%, transparent);
+    opacity: .82;
+    pointer-events: none;
+    transition: transform 650ms cubic-bezier(.2,.7,.2,1), border-color 260ms ease;
+    z-index: -1;
+}
+
+.coming-grid .dark-panel::before {
+    width: clamp(240px, 22vw, 350px);
+    top: auto;
+    right: clamp(-112px, -6vw, -56px);
+    bottom: clamp(-132px, -7vw, -70px);
+    border-style: dashed;
+    box-shadow: none;
+    opacity: .66;
+}
+
+/* Route nodes sit inside the shared field rather than in card corners. */
+.coming-grid .coming-panel::after {
+    content: '';
+    position: absolute;
+    left: auto;
+    top: 50%;
+    right: clamp(-57px, -4vw, -38px);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--teal);
+    box-shadow: 0 0 0 6px color-mix(in srgb, var(--teal) 9%, transparent);
+    transform: translateY(-50%);
+    transition: transform 240ms ease, box-shadow 240ms ease;
+}
+
+.coming-grid .dark-panel::after {
+    left: clamp(-57px, -4vw, -38px);
+    right: auto;
+    top: 62%;
+    background: var(--crimson);
+    box-shadow: 0 0 0 6px color-mix(in srgb, var(--crimson) 9%, transparent);
+}
+
+.coming-grid .coming-panel .eyebrow {
+    position: relative;
+    inset: auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0 0 clamp(36px, 4vw, 64px);
+    font-size: 9px;
+    color: var(--soft-ink);
+}
+
+.coming-grid .coming-panel .eyebrow::before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    flex: 0 0 7px;
+    border-radius: 50%;
+    background: var(--teal);
+    box-shadow: 0 0 0 6px color-mix(in srgb, var(--teal) 8%, transparent);
+}
+
+.coming-grid .dark-panel .eyebrow::before {
+    background: var(--crimson);
+    box-shadow: 0 0 0 6px color-mix(in srgb, var(--crimson) 8%, transparent);
+}
+
+.coming-grid .coming-panel .eyebrow span {
+    color: var(--ink);
+}
+
+.coming-grid .coming-panel h2 {
+    position: relative;
+    z-index: 2;
+    margin: 0;
+    max-width: 650px;
+    font-size: clamp(62px, 6.9vw, 112px);
+    line-height: .88;
+    letter-spacing: -.065em;
+    font-weight: 500;
+    transition: transform 300ms cubic-bezier(.2,.7,.2,1), color 220ms ease;
+}
+
+.coming-grid .dark-panel h2 {
+    max-width: 470px;
+    font-size: clamp(52px, 5.1vw, 82px);
+    line-height: .92;
+}
+
+.coming-grid .coming-panel > p:not(.eyebrow) {
+    position: relative;
+    z-index: 2;
+    max-width: 510px;
+    margin: clamp(26px, 3vw, 42px) 0 0;
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--soft-ink);
+}
+
+.coming-grid .dark-panel > p:not(.eyebrow) {
+    max-width: 390px;
+}
+
+.coming-grid .panel-status,
+.coming-grid .panel-status.liquid-glass-surface {
+    position: relative;
+    z-index: 2;
+    width: fit-content;
+    margin-top: 34px;
+    padding: 7px 11px 7px 23px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--paper) 78%, transparent);
+    color: var(--soft-ink);
+    font-family: 'DM Mono', monospace;
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    box-shadow: inset 0 1px 0 color-mix(in srgb, var(--paper) 75%, transparent);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+.coming-grid .panel-status::before {
+    content: '';
+    position: absolute;
+    left: 9px;
+    top: 50%;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--teal);
+    transform: translateY(-50%);
+}
+
+.coming-grid .dark-panel .panel-status::before {
+    background: var(--crimson);
+}
+
+/* One route owns the field on interaction; the other remains present. */
+.coming-grid:has(.coming-panel:hover) .coming-panel:not(:hover) {
+    opacity: .52;
+}
+
+.coming-grid .coming-panel:hover {
+    transform: translateY(-4px);
+}
+
+.coming-grid .coming-panel:first-child:hover h2 {
+    color: var(--teal);
+    transform: translateX(5px);
+}
+
+.coming-grid .dark-panel:hover h2 {
+    color: var(--crimson);
+    transform: translateX(5px);
+}
+
+.coming-grid .coming-panel:hover::before {
+    transform: rotate(12deg) scale(1.035);
+    border-color: color-mix(in srgb, var(--teal) 42%, var(--line-soft));
+}
+
+.coming-grid .dark-panel:hover::before {
+    transform: rotate(-14deg) scale(1.04);
+    border-color: color-mix(in srgb, var(--crimson) 44%, var(--line-soft));
+}
+
+.coming-grid .coming-panel:hover::after {
+    transform: translateY(-50%) scale(1.35);
+    box-shadow: 0 0 0 9px color-mix(in srgb, var(--teal) 10%, transparent);
+}
+
+.coming-grid .dark-panel:hover::after {
+    box-shadow: 0 0 0 9px color-mix(in srgb, var(--crimson) 10%, transparent);
+}
+
+@media (max-width: 1050px) {
+    .coming-grid {
+        --archive-share: 55%;
+        grid-template-columns: 1.15fr .85fr;
+        gap: 52px;
+        min-height: 590px;
+    }
+
+    .coming-grid .coming-panel h2 {
+        font-size: clamp(54px, 7vw, 86px);
+    }
+
+    .coming-grid .dark-panel h2 {
+        font-size: clamp(46px, 5.8vw, 70px);
+    }
+}
+
+@media (max-width: 760px) {
+    .coming-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        min-height: 0;
+        padding-top: 76px;
+        padding-bottom: 76px;
+        gap: 0;
+        overflow: visible;
+    }
+
+    .coming-grid::before {
+        left: 20px;
+        top: 84px;
+        bottom: 84px;
+    }
+
+    .coming-grid::after {
+        left: 16px;
+        top: 50%;
+    }
+
+    .coming-grid .coming-panel,
+    .coming-grid .coming-panel:first-child,
+    .coming-grid .dark-panel {
+        min-height: auto;
+        padding: 52px 0 52px 46px;
+        justify-content: flex-start;
+    }
+
+    .coming-grid .coming-panel:first-child {
+        border-bottom: 1px solid var(--line) !important;
+    }
+
+    .coming-grid .coming-panel::before {
+        width: 250px;
+        right: -120px;
+        top: -36px;
+        opacity: .52;
+    }
+
+    .coming-grid .dark-panel::before {
+        top: auto;
+        bottom: -60px;
+    }
+
+    .coming-grid .coming-panel::after,
+    .coming-grid .dark-panel::after {
+        left: 16px;
+        right: auto;
+        top: 66px;
+    }
+
+    .coming-grid .coming-panel .eyebrow {
+        margin-bottom: 30px;
+    }
+
+    .coming-grid .coming-panel h2,
+    .coming-grid .dark-panel h2 {
+        font-size: clamp(48px, 13vw, 68px);
+        max-width: 100%;
+    }
+
+    .coming-grid:has(.coming-panel:hover) .coming-panel:not(:hover) {
+        opacity: 1;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .coming-grid .coming-panel,
+    .coming-grid .coming-panel h2,
+    .coming-grid .coming-panel::before,
+    .coming-grid .coming-panel::after {
+        transition: none !important;
+    }
+}
