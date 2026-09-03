@@ -1,3 +1,38 @@
+// CLYD3 — theme bootstrapping
+// Theme CSS is intentionally modular and loaded by the core script so the
+// existing page structure does not need another design-system dependency.
+const themeStylesheet = document.createElement('link');
+themeStylesheet.rel = 'stylesheet';
+themeStylesheet.href = 'css/theme.css?v=1';
+document.head.appendChild(themeStylesheet);
+
+const themeStorageKey = 'clyd3-theme';
+const systemDarkMode = window.matchMedia('(prefers-color-scheme: dark)');
+
+const readSavedTheme = () => {
+    try {
+        const value = window.localStorage.getItem(themeStorageKey);
+        return value === 'light' || value === 'dark' ? value : null;
+    } catch {
+        return null;
+    }
+};
+
+let hasSavedTheme = Boolean(readSavedTheme());
+
+const resolveTheme = () => {
+    const saved = readSavedTheme();
+    if (saved) return saved;
+    return systemDarkMode.matches ? 'dark' : 'light';
+};
+
+const applyTheme = theme => {
+    document.documentElement.dataset.theme = theme;
+    document.documentElement.style.colorScheme = theme;
+};
+
+applyTheme(resolveTheme());
+
 const body = document.body;
 const menuToggle = document.querySelector('.menu-toggle');
 const primaryNav = document.querySelector('.primary-nav');
@@ -7,6 +42,57 @@ const signalNodes = document.querySelectorAll('.signal-node[data-depth]');
 const coordinates = document.querySelector('.cursor-coordinates');
 const year = document.querySelector('#current-year');
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// Light / dark mode selector — inserted into the existing navigation so it
+// inherits the CLYD3 header system without changing the page's information architecture.
+let themeToggle = null;
+
+if (primaryNav) {
+    themeToggle = document.createElement('button');
+    themeToggle.type = 'button';
+    themeToggle.className = 'theme-toggle';
+    themeToggle.innerHTML = `
+        <span class="theme-toggle-dot" aria-hidden="true"></span>
+        <span>Mode /</span>
+        <span class="theme-toggle-mode">Light</span>
+    `;
+    primaryNav.appendChild(themeToggle);
+
+    const refreshThemeControl = () => {
+        const currentTheme = document.documentElement.dataset.theme || 'light';
+        const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        const modeLabel = themeToggle.querySelector('.theme-toggle-mode');
+
+        if (modeLabel) modeLabel.textContent = currentTheme === 'dark' ? 'Dark' : 'Light';
+        themeToggle.setAttribute('aria-pressed', String(currentTheme === 'dark'));
+        themeToggle.setAttribute('aria-label', `Switch to ${nextTheme} mode`);
+        themeToggle.title = `Switch to ${nextTheme} mode`;
+    };
+
+    refreshThemeControl();
+
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = document.documentElement.dataset.theme || 'light';
+        const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+        applyTheme(nextTheme);
+        hasSavedTheme = true;
+
+        try {
+            window.localStorage.setItem(themeStorageKey, nextTheme);
+        } catch {
+            // Theme still works for the current session if storage is unavailable.
+        }
+
+        refreshThemeControl();
+    });
+
+    systemDarkMode.addEventListener?.('change', event => {
+        if (hasSavedTheme) return;
+        applyTheme(event.matches ? 'dark' : 'light');
+        refreshThemeControl();
+    });
+}
 
 window.addEventListener('DOMContentLoaded', () => {
     body.classList.remove('is-loading');
