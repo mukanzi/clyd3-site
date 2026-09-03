@@ -13,6 +13,14 @@ brandStylesheet.rel = 'stylesheet';
 brandStylesheet.href = 'css/brand-logo.css?v=1';
 document.head.appendChild(brandStylesheet);
 
+// Archive / Notes share one open signal field rather than two dashboard cards.
+// Load this after the earlier section and glass layers so it owns the final
+// composition without disturbing the rest of the homepage.
+const archiveNotesStylesheet = document.createElement('link');
+archiveNotesStylesheet.rel = 'stylesheet';
+archiveNotesStylesheet.href = 'css/archive-notes-field.css?v=1';
+document.head.appendChild(archiveNotesStylesheet);
+
 const themeStorageKey = 'clyd3-theme';
 const systemDarkMode = window.matchMedia('(prefers-color-scheme: dark)');
 
