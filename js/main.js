@@ -21,6 +21,21 @@ archiveNotesStylesheet.rel = 'stylesheet';
 archiveNotesStylesheet.href = 'css/archive-notes-field.css?v=1';
 document.head.appendChild(archiveNotesStylesheet);
 
+// Browser-tab identity. SVG stays crisp at favicon sizes and adapts to the
+// visitor's browser color scheme. The query string intentionally breaks old
+// favicon caches, which browsers tend to hold aggressively.
+const favicon = document.createElement('link');
+favicon.rel = 'icon';
+favicon.type = 'image/svg+xml';
+favicon.href = 'assets/favicon.svg?v=1';
+document.head.appendChild(favicon);
+
+const shortcutIcon = document.createElement('link');
+shortcutIcon.rel = 'shortcut icon';
+shortcutIcon.type = 'image/svg+xml';
+shortcutIcon.href = 'assets/favicon.svg?v=1';
+document.head.appendChild(shortcutIcon);
+
 const themeStorageKey = 'clyd3-theme';
 const systemDarkMode = window.matchMedia('(prefers-color-scheme: dark)');
 
