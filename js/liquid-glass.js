@@ -1,6 +1,19 @@
 // CLYD3 — Liquid Glass interaction layer
 // Adds pointer-reactive specular highlights without modifying layout or typography.
 
+// Toronto weather/time is kept as a separate, optional system layer. Loading it
+// here avoids coupling the live signal to the homepage markup and preserves the
+// existing header structure if the weather service is temporarily unavailable.
+const weatherStylesheet = document.createElement('link');
+weatherStylesheet.rel = 'stylesheet';
+weatherStylesheet.href = 'css/weather.css?v=1';
+document.head.appendChild(weatherStylesheet);
+
+const weatherScript = document.createElement('script');
+weatherScript.src = 'js/weather.js?v=1';
+weatherScript.defer = true;
+document.head.appendChild(weatherScript);
+
 document.addEventListener('DOMContentLoaded', () => {
     // Force the hero eye onto a unique asset URL so browsers cannot reuse
     // older cached Mangekyo artwork.
