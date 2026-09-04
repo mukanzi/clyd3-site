@@ -14,6 +14,18 @@ weatherScript.src = 'js/weather.js?v=1';
 weatherScript.defer = true;
 document.head.appendChild(weatherScript);
 
+// Kenya High Court decisions are also modular. The feed is generated from the
+// official Kenya Law High Court index and refreshed by GitHub Actions.
+const courtStylesheet = document.createElement('link');
+courtStylesheet.rel = 'stylesheet';
+courtStylesheet.href = 'css/court-feed.css?v=1';
+document.head.appendChild(courtStylesheet);
+
+const courtScript = document.createElement('script');
+courtScript.src = 'js/court-feed.js?v=1';
+courtScript.defer = true;
+document.head.appendChild(courtScript);
+
 document.addEventListener('DOMContentLoaded', () => {
     // Force the hero eye onto a unique asset URL so browsers cannot reuse
     // older cached Mangekyo artwork.
