@@ -1,0 +1,41 @@
+name: Update Kenya High Court feed
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - 'data/kenya-high-court.json'
+  schedule:
+    - cron: '17,47 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: kenya-high-court-feed
+  cancel-in-progress: true
+
+jobs:
+  update-feed:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Update latest High Court decisions
+        run: python3 scripts/update_kenya_high_court.py
+
+      - name: Commit feed when changed
+        run: |
+          if git diff --quiet -- data/kenya-high-court.json; then
+            echo "No feed changes to commit."
+            exit 0
+          fi
+          git config user.name "clyd3-feed-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/kenya-high-court.json
+          git commit -m "chore: refresh Kenya High Court decisions"
+          git push
