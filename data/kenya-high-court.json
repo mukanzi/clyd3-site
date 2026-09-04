@@ -1,15 +1,91 @@
 {
   "source": "Kenya Law / National Council for Law Reporting",
   "source_url": "https://new.kenyalaw.org/judgments/KEHC/",
-  "generated_at": "2026-09-04T05:26:00Z",
+  "generated_at": "2026-09-04T05:29:39.043298Z",
   "decisions": [
-    {"title":"Barasa v CSI Energy Group Limited (Petition E501 of 2025)","citation":"[2026] KEHC 3274 (KLR)","date":"2026-03-12","type":"Judgment","url":"https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/3274/eng@2026-03-12"},
-    {"title":"Bernard v Biwott & another (Civil Appeal E064 of 2024)","citation":"[2026] KEHC 3216 (KLR)","date":"2026-03-12","type":"Ruling","url":"https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/3216/eng@2026-03-12"},
-    {"title":"Britam General Insurance Company (Kenya) Ltd v Absalom (Civil Case E002 of 2024)","citation":"[2026] KEHC 3252 (KLR)","date":"2026-03-12","type":"Judgment","url":"https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/3252/eng@2026-03-12"},
-    {"title":"Cheruiyot v Republic (Miscellaneous Criminal Application E130 of 2024)","citation":"[2026] KEHC 3260 (KLR)","date":"2026-03-12","type":"Ruling","url":"https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/3260/eng@2026-03-12"},
-    {"title":"Gikonyo (Suing as the Legal Representative of Gikonyo Njuguna) v Njuguna (Family Appeal E010 of 2024)","citation":"[2026] KEHC 3222 (KLR)","date":"2026-03-12","type":"Ruling","url":"https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/3222/eng@2026-03-12"},
-    {"title":"In re Estate of Kanampiu (Deceased) (Miscellaneous Succession Cause E007 of 2025)","citation":"[2026] KEHC 3224 (KLR)","date":"2026-03-12","type":"Ruling","url":"https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/3224/eng@2026-03-12"},
-    {"title":"In re Estate of Mararo (Deceased) (Probate & Administration E033 of 2025)","citation":"[2026] KEHC 3296 (KLR)","date":"2026-03-12","type":"Ruling","url":"https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/3296/eng@2026-03-12"},
-    {"title":"In re Estate of Mucheru Githinji Ngotho (Deceased) (Probate & Administration 18 of 2025)","citation":"[2026] KEHC 3220 (KLR)","date":"2026-03-12","type":"Ruling","url":"https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/3220/eng@2026-03-12"}
+    {
+      "title": "RKK v Republic (Criminal Miscellaneous Application E150 of 2025)",
+      "citation": "[2026] KEHC 13293 (KLR)",
+      "date": "2026-09-03",
+      "type": "Ruling",
+      "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/13293/eng@2026-09-03"
+    },
+    {
+      "title": "Ibrahim v Republic (Criminal Revision E002 of 2026)",
+      "citation": "[2026] KEHC 13208 (KLR)",
+      "date": "2026-09-02",
+      "type": "Ruling",
+      "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/13208/eng@2026-09-02"
+    },
+    {
+      "title": "Mwamburi v Republic (Criminal Revision E073 of 2026)",
+      "citation": "[2026] KEHC 13291 (KLR)",
+      "date": "2026-09-02",
+      "type": "Ruling",
+      "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/13291/eng@2026-09-02"
+    },
+    {
+      "title": "Mzame v Lalu (Suing as the administrator of the Estate of Allen Warito Lalu – Deceased) & another (Civil Appeal E001 of 2020)",
+      "citation": "[2026] KEHC 13260 (KLR)",
+      "date": "2026-09-02",
+      "type": "Ruling",
+      "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/13260/eng@2026-09-02"
+    },
+    {
+      "title": "Republic v Wafula & another (Criminal Case 1034 of 2020)",
+      "citation": "[2026] KEHC 13289 (KLR)",
+      "date": "2026-09-02",
+      "type": "Judgment",
+      "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/13289/eng@2026-09-02"
+    },
+    {
+      "title": "In re Estate of Odhiambo (Deceased) (Succession Cause E030 of 2021)",
+      "citation": "[2026] KEHC 13222 (KLR)",
+      "date": "2026-09-01",
+      "type": "Judgment",
+      "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/13222/eng@2026-09-01"
+    },
+    {
+      "title": "Muraya v Chief Officer Health Services Nakuru County & 2 others (Constitutional Petition E009 of 2025)",
+      "citation": "[2026] KEHC 13226 (KLR)",
+      "date": "2026-09-01",
+      "type": "Judgment",
+      "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/13226/eng@2026-09-01"
+    },
+    {
+      "title": "Republic v Kaunga & another (Criminal Case E025 of 2026)",
+      "citation": "[2026] KEHC 13279 (KLR)",
+      "date": "2026-09-01",
+      "type": "Ruling",
+      "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/13279/eng@2026-09-01"
+    },
+    {
+      "title": "Republic v Kaunga (Criminal Case E025 of 2026)",
+      "citation": "[2026] KEHC 13288 (KLR)",
+      "date": "2026-09-01",
+      "type": "Ruling",
+      "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/13288/eng@2026-09-01"
+    },
+    {
+      "title": "Fortune Sacco Ltd v Principal Magisrate Court – Wang’uru & 2 others (Judicial Review E002 of 2025)",
+      "citation": "[2026] KEHC 13194 (KLR)",
+      "date": "2026-08-31",
+      "type": "Ruling",
+      "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/13194/eng@2026-08-31"
+    },
+    {
+      "title": "Irungu v Diageo Kenya Ltd & 7 others (Constitutional Petition E025 of 2026)",
+      "citation": "[2026] KEHC 13192 (KLR)",
+      "date": "2026-08-31",
+      "type": "Ruling",
+      "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/13192/eng@2026-08-31"
+    },
+    {
+      "title": "JJK v FKK (Family Originating Summons E005 of 2025)",
+      "citation": "[2026] KEHC 13177 (KLR)",
+      "date": "2026-08-31",
+      "type": "Ruling",
+      "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/13177/eng@2026-08-31"
+    }
   ]
 }
