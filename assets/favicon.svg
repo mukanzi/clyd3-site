@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <style>
+    :root { --ink:#111514; --teal:#168b87; --red:#c43a43; }
+    @media (prefers-color-scheme: dark) {
+      :root { --ink:#f1efe8; --teal:#47b8b2; --red:#e0525d; }
+    }
+  </style>
+
+  <!-- Minimal CLYD3 favicon: C + oversized heart + S -->
+  <g fill="none" stroke="var(--ink)" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M18.5 22.5c-3.2-2.4-8-1.8-10.2 1.5-2.7 4-2.5 12 .4 16 2.4 3.3 7 3.8 10.2 1.5"/>
+    <path d="M32 47 20.8 36.3c-5.2-5-4.2-12.5 1.5-15.2 4.3-2 8.1.3 9.7 3.8 1.6-3.5 5.4-5.8 9.7-3.8 5.7 2.7 6.7 10.2 1.5 15.2L32 47Z"/>
+    <path d="M45.6 23c2.7-2.6 7.2-2.7 9.4-.4 2 2.1 1.3 4.8-1.8 6.1l-5.3 2.3c-3 1.3-3.4 4.5-1 6.6 2.9 2.7 7.2 2.2 9.2-.3"/>
+  </g>
+
+  <!-- Cupid arrow: top-left to bottom-right -->
+  <g fill="none" stroke="var(--red)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M18 11 47 52"/>
+    <path d="M18 11 10.5 10.5M18 11 15.2 4.5"/>
+    <path d="M47 52 39.5 49.2M47 52 46.5 44.5"/>
+  </g>
+
+  <!-- C3 signal accents -->
+  <circle cx="32" cy="7" r="2" fill="var(--teal)"/>
+  <circle cx="32" cy="57" r="2" fill="var(--teal)"/>
+</svg>
