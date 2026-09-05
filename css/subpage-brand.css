@@ -128,6 +128,160 @@
   letter-spacing: -.025em !important;
 }
 
+/* FUT dark theme ---------------------------------------------------------
+   fut/clyd3.css historically assigned the same light variables to both
+   html[data-theme="light"] and html[data-theme="dark"]. Because this shared
+   integration stylesheet loads after fut/clyd3.css, these scoped rules restore
+   the actual CLYD3 graphite/night-paper theme without touching dashboard logic. */
+html[data-theme="dark"] body:has(.app) {
+  --paper: #101210;
+  --ink: #f0eee7;
+  --soft-ink: #aaa79f;
+  --line: rgba(240,238,231,.18);
+  --teal: #3ba8a2;
+  --crimson: #d05a64;
+
+  --bg: #101210;
+  --bg2: #101210;
+  --surface: rgba(20,22,20,.78);
+  --surface2: rgba(240,238,231,.045);
+  --surface3: rgba(240,238,231,.065);
+  --text: #f0eee7;
+  --muted: #aaa79f;
+  --green: #3ba8a2;
+  --lime: #3ba8a2;
+  --cyan: #3ba8a2;
+  --gold: #d05a64;
+  --orange: #d05a64;
+  --red: #d05a64;
+  --shadow: 0 18px 44px rgba(0,0,0,.18);
+
+  background: var(--paper) !important;
+  color: var(--ink) !important;
+}
+
+html[data-theme="dark"] body:has(.app)::before {
+  opacity: .18 !important;
+  background-image: linear-gradient(
+    to right,
+    transparent calc(100% - 1px),
+    rgba(240,238,231,.12) 1px
+  ) !important;
+}
+
+html[data-theme="dark"] body:has(.app)::after {
+  border-color: rgba(59,168,162,.12) !important;
+  box-shadow:
+    0 0 0 9vw rgba(59,168,162,.018),
+    0 0 0 18vw rgba(208,90,100,.012) !important;
+}
+
+html[data-theme="dark"] .app .sidebar {
+  background: rgba(16,18,16,.88) !important;
+  border-color: var(--line) !important;
+}
+
+html[data-theme="dark"] .app .dna-card,
+html[data-theme="dark"] .app .panel,
+html[data-theme="dark"] .app .kpi,
+html[data-theme="dark"] .app .legend-feature,
+html[data-theme="dark"] .app .legend-feature.captain,
+html[data-theme="dark"] .app .legend-feature.goat,
+html[data-theme="dark"] .app .c99,
+html[data-theme="dark"] .app .filters {
+  background: rgba(240,238,231,.035) !important;
+  border-color: var(--line) !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="dark"] .app .chip-btn,
+html[data-theme="dark"] .app .icon-btn,
+html[data-theme="dark"] .app .search-box,
+html[data-theme="dark"] .app .filters select,
+html[data-theme="dark"] .app .pager button,
+html[data-theme="dark"] .app .metric-switch,
+html[data-theme="dark"] .app .depth-toggle {
+  background: rgba(240,238,231,.035) !important;
+  border-color: var(--line) !important;
+  color: var(--ink) !important;
+}
+
+html[data-theme="dark"] .app .metric-switch button.active,
+html[data-theme="dark"] .app .depth-toggle button.active {
+  background: var(--ink) !important;
+  color: var(--paper) !important;
+}
+
+html[data-theme="dark"] .app .dna-meter,
+html[data-theme="dark"] .app .compare-track,
+html[data-theme="dark"] .app .bar-track,
+html[data-theme="dark"] .app .depth-track {
+  background: rgba(240,238,231,.075) !important;
+}
+
+html[data-theme="dark"] .app .compare-track.collection i {
+  background: rgba(240,238,231,.12) !important;
+}
+
+html[data-theme="dark"] .app .compare-track.usage i {
+  background: rgba(59,168,162,.36) !important;
+}
+
+html[data-theme="dark"] .app .ring-bg {
+  stroke: rgba(240,238,231,.10) !important;
+}
+
+html[data-theme="dark"] .app .pitch {
+  border-color: rgba(59,168,162,.24) !important;
+  background:
+    linear-gradient(90deg,rgba(59,168,162,.035) 50%,transparent 50%),
+    repeating-linear-gradient(90deg,rgba(59,168,162,.022) 0 12.5%,transparent 12.5% 25%),
+    #121713 !important;
+}
+
+html[data-theme="dark"] .app .pitch::before,
+html[data-theme="dark"] .app .pitch::after,
+html[data-theme="dark"] .app .pitch-circle {
+  border-color: rgba(240,238,231,.18) !important;
+}
+
+html[data-theme="dark"] .app .pitch-card {
+  background: rgba(16,18,16,.94) !important;
+  border-color: rgba(240,238,231,.14) !important;
+  box-shadow: 0 8px 18px rgba(0,0,0,.22) !important;
+}
+
+html[data-theme="dark"] .app thead {
+  background: rgba(16,18,16,.97) !important;
+}
+
+html[data-theme="dark"] .app th,
+html[data-theme="dark"] .app td,
+html[data-theme="dark"] .app .rank-item,
+html[data-theme="dark"] .app .market-item,
+html[data-theme="dark"] .app .feature-line {
+  border-color: rgba(240,238,231,.09) !important;
+}
+
+html[data-theme="dark"] .app .rating-pill,
+html[data-theme="dark"] .app .summary-grid div {
+  background: rgba(240,238,231,.055) !important;
+}
+
+html[data-theme="dark"] .app .endgame-callout {
+  background: rgba(208,90,100,.035) !important;
+}
+
+html[data-theme="dark"] .app .kpi::after {
+  border-color: rgba(59,168,162,.18) !important;
+}
+
+@media (max-width: 980px) {
+  html[data-theme="dark"] .app .sidebar {
+    background: rgba(16,18,16,.97) !important;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .brand-badge::before,
   .atlas-mark::after,
