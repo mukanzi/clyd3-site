@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Interactive analysis of a 2016–2025 personal music ranking archive." />
+  <title>CLYD3 — Listening Atlas</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="noise"></div>
+  <header class="site-header">
+    <a href="#top" class="brand" aria-label="Listening Atlas home">
+      <span class="brand-mark"><i></i><i></i><i></i></span>
+      <span>CLYD3 / LISTENING ATLAS</span>
+    </a>
+    <div class="header-right"><a class="clyd3-home-link" href="../">← CLYD3</a><nav class="nav-links" aria-label="Primary navigation">
+      <a href="#overview">Overview</a>
+      <a href="#evolution">Evolution</a>
+      <a href="#artists">Artists</a>
+      <a href="#tracks">Love Index</a>
+      <a href="#top100">Top 100</a>
+      <a href="#explorer">Explorer</a>
+    </nav></div>
+  </header>
+
+  <main id="top">
+    <section class="hero section-shell">
+      <div class="hero-copy">
+        <p class="eyebrow">A DECADE OF LISTENING • 2016–2025</p>
+        <h1>Your music has a <span>centre of gravity.</span></h1>
+        <p class="hero-lede">This archive maps 1,476 ranked entries across Apple Music, Spotify and YouTube—revealing the artists you return to, the eras you carry forward, and the sonic characteristics that define your listening.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#overview">Explore the analysis</a>
+          <a class="button ghost" href="#explorer">Browse every entry</a>
+        </div>
+      </div>
+      <div class="hero-orbit" aria-hidden="true">
+        <div class="orbit orbit-a"></div>
+        <div class="orbit orbit-b"></div>
+        <div class="orbit orbit-c"></div>
+        <div class="core">
+          <span class="pulse"></span>
+          <b>10</b>
+          <small>YEARS</small>
+        </div>
+      </div>
+    </section>
+
+    <section class="filter-strip section-shell" aria-label="Dashboard filters">
+      <div>
+        <p class="micro-label">FILTER THE STORY</p>
+        <p class="filter-note">Use the controls to recalculate most visuals.</p>
+      </div>
+      <label>Playlist year
+        <select id="yearFilter"><option value="All">All years</option></select>
+      </label>
+      <label>Platform
+        <select id="platformFilter"><option value="All">All platforms</option></select>
+      </label>
+      <button id="resetFilters" class="mini-button">Reset</button>
+    </section>
+
+    <section id="overview" class="section-shell section-block">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">01 / OVERVIEW</p>
+          <h2>The shape of your listening</h2>
+        </div>
+        <p>Rankings are treated as repeated listening snapshots. For the all-time Love Index, repeat appearances across years and platforms are positive evidence of stronger attachment.</p>
+      </div>
+      <div id="kpiGrid" class="kpi-grid"></div>
+
+      <div class="insight-grid top-gap">
+        <article class="feature-card feature-card-large">
+          <div class="card-kicker">DOMINANT LANGUAGE OF TASTE</div>
+          <h3>Electronic / Dance is the recurring anchor.</h3>
+          <p id="dominantGenreCopy"></p>
+          <div id="genreBars" class="bar-chart"></div>
+        </article>
+        <article class="feature-card">
+          <div class="card-kicker">SONIC SIGNATURE</div>
+          <h3>Energetic, positive, rarely sleepy.</h3>
+          <div class="sonic-rings">
+            <div class="ring-stat"><span id="energyRing"></span><b id="energyValue"></b><small>Energy</small></div>
+            <div class="ring-stat"><span id="valenceRing"></span><b id="valenceValue"></b><small>Valence</small></div>
+          </div>
+          <p id="sonicCopy"></p>
+        </article>
+      </div>
+    </section>
+
+    <section id="evolution" class="section-shell section-block">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">02 / EVOLUTION</p>
+          <h2>How the sound changed</h2>
+        </div>
+        <div class="metric-toggle" role="group" aria-label="Trend metric">
+          <button class="trend-button active" data-metric="energy">Energy</button>
+          <button class="trend-button" data-metric="bpm">BPM</button>
+          <button class="trend-button" data-metric="releaseAge">Catalog age</button>
+        </div>
+      </div>
+
+      <div class="chart-card">
+        <div class="chart-header">
+          <div><span class="micro-label">ANNUAL TREND</span><h3 id="trendTitle">Average energy by year</h3></div>
+          <div id="trendSummary" class="chart-summary"></div>
+        </div>
+        <div id="trendChart" class="trend-chart"></div>
+      </div>
+
+      <div class="era-grid top-gap">
+        <article class="era-card"><span>2016–2018</span><h3>Eclectic foundation</h3><p>Pop, R&B, African genres, hip-hop and early electronic favourites coexist with a broad catalog base.</p></article>
+        <article class="era-card"><span>2019–2022</span><h3>Electronic acceleration</h3><p>Electronic / Dance jumps sharply, culminating in a 62% share in 2021 and a concentrated run of trance-associated artists.</p></article>
+        <article class="era-card"><span>2023–2025</span><h3>Hybrid maturity</h3><p>Electronic remains central, but current African pop and a growing return to older catalog tracks make the mix more layered.</p></article>
+      </div>
+
+      <div class="two-col top-gap">
+        <article class="chart-card compact">
+          <div class="chart-header"><div><span class="micro-label">DISCOVERY ↔ NOSTALGIA</span><h3>Release-age mix</h3></div></div>
+          <div id="ageBuckets" class="stack-list"></div>
+        </article>
+        <article class="chart-card compact">
+          <div class="chart-header"><div><span class="micro-label">CATALOG FOOTPRINT</span><h3>Music by release decade</h3></div></div>
+          <div id="decadeBars" class="bar-chart"></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="artists" class="section-shell section-block">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">03 / ARTISTS</p>
+          <h2>The names that define the archive</h2>
+        </div>
+        <p>The ranking score rewards both recurrence and high placement: each entry receives <strong>101 − rank</strong> points.</p>
+      </div>
+      <div class="two-col artists-layout">
+        <article class="chart-card compact">
+          <div class="chart-header"><div><span class="micro-label">RANK-WEIGHTED PRESENCE</span><h3>Top artists</h3></div></div>
+          <div id="artistBars" class="bar-chart artist-bars"></div>
+        </article>
+        <article class="feature-card artist-spotlight" id="artistSpotlight"></article>
+      </div>
+      <div class="artist-table-wrap top-gap">
+        <table class="clean-table">
+          <thead><tr><th>Artist</th><th>Entries</th><th>Distinct tracks</th><th>Years present</th><th>Best signal</th></tr></thead>
+          <tbody id="artistTable"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="tracks" class="section-shell section-block">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">04 / LOVE INDEX</p>
+          <h2>The songs you loved most</h2>
+        </div>
+        <p><strong>All-time view:</strong> this section deliberately ignores the dashboard year/platform filters. A recurrent song should never collapse to “1 appearance” just because a single year is selected above.</p>
+      </div>
+
+      <div class="love-method-card">
+        <div><span class="micro-label">WEIGHTED LOVE INDEX</span><h3>Repeat listening is the core signal.</h3></div>
+        <p>The score combines <b>60% rank-weighted recurrence</b>, <b>20% multi-year persistence</b>, <b>15% platform breadth</b>, and <b>5% same-year cross-platform confirmation</b>. Higher placement contributes more points, and a track appearing on Spotify + YouTube in the same year gets additional confirmation.</p>
+      </div>
+      <div id="trackCards" class="track-grid top-gap"></div>
+
+      <div class="two-col top-gap">
+        <article class="chart-card compact">
+          <div class="chart-header"><div><span class="micro-label">ENERGY × VALENCE</span><h3>Your sonic field</h3></div><span class="chart-summary">Each dot = ranked entry</span></div>
+          <canvas id="sonicCanvas" width="720" height="420" aria-label="Scatter plot of energy and valence"></canvas>
+          <div class="axis-note"><span>Low energy</span><span>High energy</span></div>
+        </article>
+        <article class="chart-card compact platform-card">
+          <div class="chart-header"><div><span class="micro-label">PLATFORM LENS</span><h3>Same year, different charts</h3></div></div>
+          <p>Platform overlap is not noise in this analysis—it is a stronger signal. When the same song makes more than one platform’s Top 100 in a year, that is treated as additional evidence that it was genuinely central to your listening.</p>
+          <div id="platformOverlap" class="overlap-grid"></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="top100" class="section-shell section-block">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">05 / ALL-TIME TOP 100</p>
+          <h2>Your conclusive archive ranking</h2>
+        </div>
+        <p>“Conclusive” here means conclusive <em>within this archive and this weighting model</em>—not a claim about play counts we do not have. The ranking uses every available year/platform chart from 2016–2025.</p>
+      </div>
+      <div class="top100-toolbar">
+        <div id="loveSummary" class="love-summary"></div>
+        <a class="button ghost" href="top_100_love_index.csv" download>Download Top 100 CSV</a>
+      </div>
+      <div class="love-table-wrap top-gap">
+        <table class="love-table">
+          <thead><tr><th>#</th><th>Song</th><th>Artist</th><th>Love Index</th><th>List appearances</th><th>Years</th><th>Platforms</th><th>Cross-platform years</th><th>Best rank</th><th>Avg rank</th></tr></thead>
+          <tbody id="loveTable"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="explorer" class="section-shell section-block">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">06 / EXPLORER</p>
+          <h2>Search the archive</h2>
+        </div>
+        <p>Search by song, artist, album or genre. The table inherits the dashboard year/platform filters.</p>
+      </div>
+      <div class="explorer-controls">
+        <input id="searchInput" type="search" placeholder="Search songs, artists, albums…" />
+        <select id="genreFilter"><option value="All">All genre groups</option></select>
+        <span id="rowCount" class="row-count"></span>
+      </div>
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Rank</th><th>Song</th><th>Artist</th><th>Year</th><th>Platform</th><th>Genre</th><th>Released</th><th>Energy</th></tr></thead>
+          <tbody id="dataTable"></tbody>
+        </table>
+      </div>
+      <p class="table-note">Showing up to 100 matching entries at a time for performance.</p>
+    </section>
+
+    <section class="section-shell section-block methodology">
+      <div class="section-heading">
+        <div><p class="eyebrow">DATA NOTES</p><h2>How to read this dashboard</h2></div>
+      </div>
+      <div class="method-grid">
+        <div><b>Song identity is canonicalized.</b><p>Case, whitespace and straight/curly apostrophe differences are merged so “We’re All We Need” and “We're All We Need” count as the same song.</p></div>
+        <div><b>One chart = one song signal.</b><p>If the same song appears twice inside the same year/platform list, the Love Index keeps its best rank for that chart. The raw rows remain untouched.</p></div>
+        <div><b>No recency weighting.</b><p>A 2017 appearance is not discounted against a 2025 appearance. This is an all-time attachment score, not a “current favourites” score.</p></div>
+        <div><b>Rank matters.</b><p>Each valid chart appearance earns 101 − rank points before normalization, so #1 contributes 100 and #100 contributes 1.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="section-shell footer">
+    <p>LISTENING ATLAS <span>•</span> Personal music archive analysis</p>
+    <a href="#top">Back to top ↑</a>
+  </footer>
+
+  <script src="data-01.js"></script>
+  <script src="data-02.js"></script>
+  <script src="data-03.js"></script>
+  <script src="data-04.js"></script>
+  <script src="data-05.js"></script>
+  <script src="data-06.js"></script>
+  <script src="data-07.js"></script>
+  <script src="data-08.js"></script>
+  <script src="data-09.js"></script>
+  <script src="data-10.js"></script>
+  <script src="data-11.js"></script>
+  <script src="data-12.js"></script>
+  <script src="data-13.js"></script>
+  <script src="data-14.js"></script>
+  <script src="data-15.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
