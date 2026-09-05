@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Interactive FC FUT club analytics dashboard">
+  <title>CLYD3 — FUT Club Intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Inter:wght@400;500;600&family=Libre+Caslon+Display&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="clyd3.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="#overview" aria-label="FC FUT Analytics home">
+      <div class="brand-badge"><span>C3</span></div>
+      <div><strong>CLYD3 / FUT</strong><span>Club Intelligence</span></div>
+    </a>
+    <nav class="nav">
+      <a class="active" href="#overview"><span>01</span> Overview</a>
+      <a href="#hall"><span>02</span> Hall of Fame</a>
+      <a href="#players"><span>03</span> Player Explorer</a>
+      <a href="#depth"><span>04</span> Squad Depth</a>
+      <a href="#identity"><span>05</span> Club Identity</a>
+      <a href="#endgame"><span>06</span> End Game</a>
+    </nav>
+    <div class="dna-card">
+      <div class="mini-label">CLUB DNA</div>
+      <strong>Progression over replacement.</strong>
+      <p>Your Evos are a minority of inventory—but dominate appearances and output.</p>
+      <div class="dna-meter"><i id="dnaMeter"></i></div>
+    </div>
+    <div class="side-footer"><a href="../">← CLYD3 home</a><span>FUT archive • 2026</span></div>
+  </aside>
+
+  <main>
+    <header class="topbar">
+      <button class="icon-btn mobile-menu" id="menuBtn" aria-label="Open navigation">☰</button>
+      <div class="page-title">
+        <div class="eyebrow">CLYD3 / SYSTEM 08 // FUT CLUB INTELLIGENCE</div>
+        <h1>Your club, <span>quantified.</span></h1>
+        <p>An interactive record of the players, patterns and progression systems that shaped one FUT club across the cycle.</p>
+      </div>
+      <div class="header-actions">
+        <a class="chip-btn home-btn" href="../">← CLYD3</a><button class="chip-btn" id="printBtn">↗ Print / PDF</button>
+        <button class="icon-btn" id="themeBtn" aria-label="Toggle display theme">◐</button>
+      </div>
+    </header>
+
+    <section id="overview" class="section">
+      <div class="section-heading">
+        <div><span>OVERVIEW</span><h2>Club pulse</h2></div>
+        <div class="snapshot"><i></i> Dataset snapshot • 27 Aug 2026</div>
+      </div>
+      <div class="kpi-grid" id="kpis"></div>
+
+      <div class="feature-grid">
+        <article class="hero-insight panel">
+          <div class="hero-copy">
+            <span class="panel-kicker">THE BIG STORY</span>
+            <h2>5.9% of your club drives <em>69%</em> of appearances.</h2>
+            <p>Evolution cards are not experiments in this club—they are the core progression system. Your highest-usage players consistently survive power-curve shifts through upgrades.</p>
+            <div class="hero-tags"><span>Evolution-first</span><span>Long-term attachment</span><span>Performance &gt; OVR</span></div>
+          </div>
+          <div class="hero-ring">
+            <svg viewBox="0 0 120 120" aria-hidden="true">
+              <circle cx="60" cy="60" r="46" class="ring-bg"/>
+              <circle cx="60" cy="60" r="46" class="ring-value" id="heroRing"/>
+            </svg>
+            <div><strong id="heroPct">69%</strong><span>Evo apps</span></div>
+          </div>
+        </article>
+
+        <article class="panel comparison-card">
+          <div class="panel-head"><div><span>POWER CURVE</span><h3>Collection vs usage</h3></div><small>SHARE %</small></div>
+          <div id="ratingDist" class="compare-bars"></div>
+          <div class="legend-key"><span><i class="key collection"></i>Collection</span><span><i class="key usage"></i>Usage</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="hall" class="section">
+      <div class="section-heading">
+        <div><span>HALL OF FAME</span><h2>The players who defined the club</h2></div>
+        <div class="metric-switch" id="hofSwitch">
+          <button class="active" data-metric="apps">Apps</button>
+          <button data-metric="ga">G+A</button>
+          <button data-metric="gapg">Efficiency</button>
+        </div>
+      </div>
+      <div class="hof-grid">
+        <article class="panel hall-chart">
+          <div id="hofBars" class="bar-chart"></div>
+        </article>
+        <article class="legend-feature captain">
+          <div class="legend-top"><span>THE CAPTAIN</span><b>CB</b></div>
+          <h3>Dayot<br>Upamecano</h3>
+          <div class="big-number">720</div>
+          <p>appearances</p>
+          <div class="feature-line"><span>Longevity leader</span><span>98 OVR EVO</span></div>
+        </article>
+        <article class="legend-feature goat">
+          <div class="legend-top"><span>THE GOAT</span><b>LW</b></div>
+          <h3>Claudia<br>Pina</h3>
+          <div class="big-number">616</div>
+          <p>goal contributions</p>
+          <div class="feature-line"><span>361 G • 255 A</span><span>1.08 G+A/app</span></div>
+        </article>
+      </div>
+
+      <article class="panel pitch-panel">
+        <div class="panel-head"><div><span>CLUB LEGENDS XI</span><h3>Most-used XI by role</h3></div><small>4–3–3</small></div>
+        <div class="pitch" id="legendsPitch"></div>
+      </article>
+    </section>
+
+    <section id="players" class="section">
+      <div class="section-heading">
+        <div><span>PLAYER EXPLORER</span><h2>Search your used-player database</h2></div>
+        <div class="result-count" id="resultCount">—</div>
+      </div>
+      <article class="panel explorer">
+        <div class="filters">
+          <label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Search player, club, league or country..."></label>
+          <select id="positionFilter"><option value="">All positions</option></select>
+          <select id="evoFilter"><option value="">All cards</option><option value="Yes">Evolutions</option><option value="No">Non-Evos</option></select>
+          <select id="sortFilter">
+            <option value="apps">Most appearances</option>
+            <option value="ga">Most G+A</option>
+            <option value="gapg">Best G+A / app</option>
+            <option value="rating">Highest rated</option>
+            <option value="goals">Most goals</option>
+            <option value="assists">Most assists</option>
+          </select>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Player</th><th>OVR</th><th>Pos</th><th>Apps</th><th>G</th><th>A</th><th>G+A</th><th>G+A/App</th><th>Type</th></tr></thead>
+            <tbody id="playerTable"></tbody>
+          </table>
+        </div>
+        <div class="pager"><button id="prevPage">← Previous</button><span id="pageLabel"></span><button id="nextPage">Next →</button></div>
+      </article>
+    </section>
+
+    <section id="depth" class="section">
+      <div class="section-heading">
+        <div><span>SQUAD DEPTH</span><h2>Where your end-game strength lives</h2></div>
+        <div class="depth-toggle"><button class="active" data-depth="cards95">95+</button><button data-depth="cards97">97+</button><button data-depth="ga100">Output</button></div>
+      </div>
+      <div class="depth-layout">
+        <article class="panel">
+          <div id="depthBars" class="depth-bars"></div>
+        </article>
+        <article class="panel depth-summary" id="depthSummary"></article>
+      </div>
+    </section>
+
+    <section id="identity" class="section">
+      <div class="section-heading"><div><span>CLUB IDENTITY</span><h2>Where your football comes from</h2></div></div>
+      <div class="identity-grid">
+        <article class="panel"><div class="panel-head"><div><span>NATIONS</span><h3>Most-used countries</h3></div></div><div id="countries" class="rank-list"></div></article>
+        <article class="panel"><div class="panel-head"><div><span>COMPETITIONS</span><h3>Most-used leagues</h3></div></div><div id="leagues" class="rank-list"></div></article>
+        <article class="panel"><div class="panel-head"><div><span>ECONOMICS</span><h3>Top theoretical market values</h3></div></div><div id="marketList" class="market-list"></div></article>
+      </div>
+    </section>
+
+    <section id="endgame" class="section">
+      <div class="section-heading">
+        <div><span>END GAME</span><h2>The new 99-rated generation</h2></div>
+        <p class="section-note">Most have barely begun their club story.</p>
+      </div>
+      <div class="cards99" id="cards99"></div>
+      <article class="panel endgame-callout">
+        <span>TRANSITION WATCH</span>
+        <h3>Your collection has outrun your usage history.</h3>
+        <p>You now have elite cards across every line, but the statistics are still dominated by the players who carried you through the 90–97 power curve. The next club legends have not yet accumulated the games to displace them.</p>
+      </article>
+    </section>
+
+    <footer>
+      <span>CLYD3 / FUT Club Intelligence</span>
+      <span>Dataset: club-analyzer.csv • Player appearances are item appearances, not match count.</span>
+    </footer>
+  </main>
+</div>
+<script src="data-core.js"></script>
+<script src="data-players-01.js"></script>
+<script src="data-players-02.js"></script>
+<script src="data-players-03.js"></script>
+<script src="data-players-04.js"></script>
+<script src="data-players-05.js"></script>
+<script src="data-players-06.js"></script>
+<script src="data-players-07.js"></script>
+<script src="data-players-08.js"></script>
+<script src="data-players-09.js"></script>
+<script src="data-players-10.js"></script>
+<script src="data-players-11.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
