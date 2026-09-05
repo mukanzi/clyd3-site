@@ -1,8 +1,15 @@
 {
   "source": "Kenya Law / National Council for Law Reporting",
   "source_url": "https://new.kenyalaw.org/judgments/KEHC/",
-  "generated_at": "2026-09-05T21:42:25.598877Z",
+  "generated_at": "2026-09-05T23:19:08.824446Z",
   "decisions": [
+    {
+      "title": "Mbae v Investigations & 3 others (Petition E496 of 2026)",
+      "citation": "[2026] KEHC 13354 (KLR)",
+      "date": "2026-09-03",
+      "type": "Ruling",
+      "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/13354/eng@2026-09-03"
+    },
     {
       "title": "Ochieng v Republic (Criminal Appeal E038 of 2024)",
       "citation": "[2026] KEHC 13306 (KLR)",
@@ -79,13 +86,6 @@
       "date": "2026-09-01",
       "type": "Ruling",
       "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/13296/eng@2026-09-01"
-    },
-    {
-      "title": "Busienei v Rotich (Civil Appeal E067 of 2026)",
-      "citation": "[2026] KEHC 13327 (KLR)",
-      "date": "2026-09-01",
-      "type": "Ruling",
-      "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/13327/eng@2026-09-01"
     }
   ]
 }
