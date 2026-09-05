@@ -20,27 +20,41 @@ weatherScript.defer = true;
 document.head.appendChild(weatherScript);
 
 document.addEventListener('DOMContentLoaded', () => {
-    // FUT Club Intelligence launch — presented as a CLYD3 system module and
-    // opened in a separate tab/window so the main archive remains in place.
+    // CLYD3 system modules — each opens in a separate tab/window so the main
+    // archive remains in place while visitors explore the interactive systems.
     const heroActions = document.querySelector('.hero-actions');
-    if (heroActions && !document.querySelector('.fut-launch-button')) {
-        const futLink = document.createElement('a');
-        futLink.className = 'fut-launch-button';
-        futLink.href = 'fut/';
-        futLink.target = '_blank';
-        futLink.rel = 'noopener noreferrer';
-        futLink.innerHTML = '<span class="fut-launch-index">08</span><span>FUT Club Intelligence</span><span class="fut-launch-arrow">↗</span>';
-        heroActions.insertAdjacentElement('afterend', futLink);
+    if (heroActions && !document.querySelector('.system-launch-stack')) {
+        const launchStack = document.createElement('div');
+        launchStack.className = 'system-launch-stack';
+        launchStack.innerHTML = `
+            <a class="system-launch-button fut-launch-button" href="fut/" target="_blank" rel="noopener noreferrer">
+                <span class="system-launch-index">08</span>
+                <span>FUT Club Intelligence</span>
+                <span class="system-launch-arrow">↗</span>
+            </a>
+            <a class="system-launch-button music-launch-button" href="music/" target="_blank" rel="noopener noreferrer">
+                <span class="system-launch-index system-launch-index--music">09</span>
+                <span>Listening Atlas</span>
+                <span class="system-launch-arrow system-launch-arrow--music">↗</span>
+            </a>
+        `;
+        heroActions.insertAdjacentElement('afterend', launchStack);
 
         const style = document.createElement('style');
         style.textContent = `
-            .fut-launch-button {
+            .system-launch-stack {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+                width: fit-content;
+                margin-top: 24px;
+            }
+            .system-launch-button {
                 display: inline-grid;
                 grid-template-columns: auto 1fr auto;
                 align-items: center;
                 gap: 12px;
-                width: fit-content;
-                margin-top: 24px;
+                min-width: 190px;
                 padding: 11px 14px;
                 border: 1px solid var(--line);
                 border-radius: 999px;
@@ -50,27 +64,41 @@ document.addEventListener('DOMContentLoaded', () => {
                 font-family: 'DM Mono', monospace;
                 font-size: 9px;
                 letter-spacing: .035em;
+                text-decoration: none;
                 transition: border-color 220ms ease, transform 220ms ease, background-color 220ms ease;
+            }
+            .system-launch-button:hover,
+            .system-launch-button:focus-visible {
+                outline: none;
+                transform: translateY(-2px);
             }
             .fut-launch-button:hover,
             .fut-launch-button:focus-visible {
-                outline: none;
-                transform: translateY(-2px);
                 border-color: color-mix(in srgb, var(--teal) 42%, var(--line));
                 background: color-mix(in srgb, var(--teal) 4.5%, transparent);
             }
-            .fut-launch-index {
+            .music-launch-button:hover,
+            .music-launch-button:focus-visible {
+                border-color: color-mix(in srgb, #9a8cff 48%, var(--line));
+                background: color-mix(in srgb, #9a8cff 5%, transparent);
+            }
+            .system-launch-index {
                 color: var(--teal);
                 font-size: 7px;
             }
-            .fut-launch-arrow {
+            .system-launch-index--music { color: #9a8cff; }
+            .system-launch-arrow {
                 color: var(--crimson);
                 font-size: 13px;
                 transition: transform 220ms ease;
             }
-            .fut-launch-button:hover .fut-launch-arrow,
-            .fut-launch-button:focus-visible .fut-launch-arrow { transform: translate(2px,-2px); }
-            @media (max-width: 760px) { .fut-launch-button { margin-top: 18px; } }
+            .system-launch-arrow--music { color: #ff5aa7; }
+            .system-launch-button:hover .system-launch-arrow,
+            .system-launch-button:focus-visible .system-launch-arrow { transform: translate(2px,-2px); }
+            @media (max-width: 760px) {
+                .system-launch-stack { margin-top: 18px; width: 100%; }
+                .system-launch-button { min-width: 0; width: 100%; }
+            }
         `;
         document.head.appendChild(style);
     }
@@ -93,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
         '.panel-status',
         '.contact-side',
         '.contact-section .primary-contact',
-        '.fut-launch-button'
+        '.system-launch-button'
     ];
 
     const surfaces = document.querySelectorAll(selectors.join(','));
