@@ -1,0 +1,138 @@
+/* CLYD3 shared subpage brand mark
+   Mirrors the orbit/core/node construction used on the main homepage. */
+
+.brand-badge,
+.atlas-mark {
+  width: 38px !important;
+  height: 38px !important;
+  aspect-ratio: 1;
+  position: relative !important;
+  display: grid !important;
+  place-items: center !important;
+  flex: 0 0 38px;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: var(--ink, var(--text, #111111)) !important;
+  font-family: 'DM Mono', monospace !important;
+  font-size: 10px !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.08em !important;
+  overflow: visible !important;
+  isolation: isolate;
+}
+
+/* Orbit */
+.brand-badge::before,
+.atlas-mark::after {
+  content: '' !important;
+  position: absolute !important;
+  inset: 2px !important;
+  width: auto !important;
+  height: auto !important;
+  border: 1px solid var(--ink, var(--text, #111111)) !important;
+  border-radius: 50% !important;
+  background:
+    linear-gradient(-35deg,
+      transparent 49.35%,
+      var(--line, rgba(17,17,17,.18)) 49.35% 50.65%,
+      transparent 50.65%) center / 55% 55% no-repeat !important;
+  box-shadow: none !important;
+  transform: rotate(0deg);
+  transition: transform 450ms cubic-bezier(.2,.7,.2,1), border-color 220ms ease;
+  z-index: 0;
+}
+
+/* Core text */
+.brand-badge > span,
+.atlas-mark > span {
+  position: relative !important;
+  z-index: 2 !important;
+  display: inline !important;
+  margin: 0 !important;
+  color: var(--ink, var(--text, #111111)) !important;
+  font-family: 'DM Mono', monospace !important;
+  font-size: 10px !important;
+  font-weight: 500 !important;
+  line-height: 1 !important;
+  letter-spacing: -0.08em !important;
+}
+
+/* Signal node. FUT already used ::after; Listening Atlas used ::before. */
+.brand-badge::after,
+.atlas-mark::before {
+  content: '' !important;
+  position: absolute !important;
+  width: 6px !important;
+  height: 6px !important;
+  border: 0 !important;
+  border-radius: 50% !important;
+  background: var(--teal, var(--green, #0d7c78)) !important;
+  right: 1px !important;
+  top: 8px !important;
+  left: auto !important;
+  bottom: auto !important;
+  inset: auto 1px auto auto !important;
+  box-shadow: 0 0 0 5px color-mix(in srgb, var(--teal, #0d7c78) 8%, transparent) !important;
+  transform: translate(0,0);
+  transition: background 220ms ease, transform 450ms cubic-bezier(.2,.7,.2,1), box-shadow 220ms ease;
+  z-index: 3 !important;
+}
+
+/* Main-site hover behavior: orbit rotates and signal node shifts crimson. */
+.brand:hover .brand-badge::before,
+.brand:hover .atlas-mark::after,
+.brand:focus-visible .brand-badge::before,
+.brand:focus-visible .atlas-mark::after {
+  transform: rotate(28deg);
+}
+
+.brand:hover .brand-badge::after,
+.brand:hover .atlas-mark::before,
+.brand:focus-visible .brand-badge::after,
+.brand:focus-visible .atlas-mark::before {
+  background: var(--crimson, #a63d45) !important;
+  transform: translate(-2px, 8px);
+  box-shadow: 0 0 0 5px color-mix(in srgb, var(--crimson, #a63d45) 8%, transparent) !important;
+}
+
+/* Keep the module lockups subordinate to the shared CLYD3 mark. */
+.sidebar .brand {
+  gap: 13px !important;
+}
+.sidebar .brand > div:last-child strong {
+  font-family: 'Inter', Arial, sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.025em !important;
+  color: var(--ink, var(--text, #111111)) !important;
+}
+.sidebar .brand > div:last-child span {
+  margin-top: 3px !important;
+  font-family: 'DM Mono', monospace !important;
+  font-size: 8px !important;
+  font-weight: 400 !important;
+  letter-spacing: .05em !important;
+  text-transform: uppercase;
+  color: var(--soft-ink, var(--muted, #5f5d57)) !important;
+}
+
+.site-header .brand {
+  gap: 13px !important;
+}
+.site-header .brand > span:last-child {
+  font-family: 'Inter', Arial, sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  letter-spacing: -.025em !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-badge::before,
+  .atlas-mark::after,
+  .brand-badge::after,
+  .atlas-mark::before {
+    transition: none !important;
+  }
+}
