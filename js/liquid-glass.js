@@ -20,84 +20,193 @@ weatherScript.defer = true;
 document.head.appendChild(weatherScript);
 
 document.addEventListener('DOMContentLoaded', () => {
-    // CLYD3 system modules — each opens in a separate tab/window so the main
-    // archive remains in place while visitors explore the interactive systems.
+    // CLYD3 featured systems — prominent standalone modules that open in a
+    // separate tab/window so the main archive remains in place.
     const heroActions = document.querySelector('.hero-actions');
     if (heroActions && !document.querySelector('.system-launch-stack')) {
         const launchStack = document.createElement('div');
         launchStack.className = 'system-launch-stack';
         launchStack.innerHTML = `
-            <a class="system-launch-button fut-launch-button" href="fut/" target="_blank" rel="noopener noreferrer">
-                <span class="system-launch-index">08</span>
-                <span>FUT Club Intelligence</span>
-                <span class="system-launch-arrow">↗</span>
-            </a>
-            <a class="system-launch-button music-launch-button" href="music/" target="_blank" rel="noopener noreferrer">
-                <span class="system-launch-index system-launch-index--music">09</span>
-                <span>Listening Atlas</span>
-                <span class="system-launch-arrow system-launch-arrow--music">↗</span>
-            </a>
+            <div class="system-launch-intro">
+                <p class="system-launch-kicker">Featured systems / 08–09</p>
+                <p class="system-launch-explainer">Two interactive data projects from the CLYD3 archive. Each opens as its own focused interface for exploring the underlying patterns, signals and personal history.</p>
+            </div>
+            <div class="system-launch-grid">
+                <a class="system-launch-button fut-launch-button" href="fut/" target="_blank" rel="noopener noreferrer" aria-label="Open FUT Club Intelligence in a new tab">
+                    <span class="system-launch-accent" aria-hidden="true"></span>
+                    <span class="system-launch-meta">
+                        <span class="system-launch-index">08 / Football data</span>
+                        <span class="system-launch-arrow">↗</span>
+                    </span>
+                    <strong class="system-launch-title">FUT Club Intelligence</strong>
+                    <span class="system-launch-copy">Explore 489 FUT players through usage, performance, evolution paths, squad depth and club-wide patterns.</span>
+                    <span class="system-launch-cta">Open system <small>new tab</small></span>
+                </a>
+                <a class="system-launch-button music-launch-button" href="music/" target="_blank" rel="noopener noreferrer" aria-label="Open Listening Atlas in a new tab">
+                    <span class="system-launch-accent" aria-hidden="true"></span>
+                    <span class="system-launch-meta">
+                        <span class="system-launch-index system-launch-index--music">09 / Music data</span>
+                        <span class="system-launch-arrow system-launch-arrow--music">↗</span>
+                    </span>
+                    <strong class="system-launch-title">Listening Atlas</strong>
+                    <span class="system-launch-copy">Explore a decade of listening through artists, sonic trends, platform overlap and the weighted all-time Love Index.</span>
+                    <span class="system-launch-cta">Open atlas <small>new tab</small></span>
+                </a>
+            </div>
         `;
         heroActions.insertAdjacentElement('afterend', launchStack);
 
         const style = document.createElement('style');
         style.textContent = `
             .system-launch-stack {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 8px;
-                width: fit-content;
-                margin-top: 24px;
+                width: min(100%, 760px);
+                margin-top: 34px;
+            }
+            .system-launch-intro {
+                display: grid;
+                grid-template-columns: minmax(150px, .42fr) minmax(0, 1fr);
+                gap: 22px;
+                align-items: start;
+                padding: 0 2px 15px;
+                border-bottom: 1px solid var(--line);
+            }
+            .system-launch-kicker,
+            .system-launch-explainer {
+                margin: 0;
+            }
+            .system-launch-kicker {
+                font-family: 'DM Mono', monospace;
+                font-size: 8px;
+                line-height: 1.5;
+                letter-spacing: .08em;
+                text-transform: uppercase;
+                color: var(--teal);
+            }
+            .system-launch-explainer {
+                max-width: 540px;
+                font-size: 12px;
+                line-height: 1.55;
+                color: var(--soft-ink);
+            }
+            .system-launch-grid {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 10px;
+                margin-top: 10px;
             }
             .system-launch-button {
-                display: inline-grid;
-                grid-template-columns: auto 1fr auto;
-                align-items: center;
-                gap: 12px;
-                min-width: 190px;
-                padding: 11px 14px;
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+                min-width: 0;
+                min-height: 184px;
+                padding: 20px 20px 18px;
+                overflow: hidden;
                 border: 1px solid var(--line);
-                border-radius: 999px;
-                background: rgba(var(--theme-paper-rgb, 241,239,232),.42);
-                -webkit-backdrop-filter: blur(10px);
-                backdrop-filter: blur(10px);
-                font-family: 'DM Mono', monospace;
-                font-size: 9px;
-                letter-spacing: .035em;
+                border-radius: 16px;
+                background: rgba(var(--theme-paper-rgb, 241,239,232),.48);
+                -webkit-backdrop-filter: blur(12px);
+                backdrop-filter: blur(12px);
                 text-decoration: none;
-                transition: border-color 220ms ease, transform 220ms ease, background-color 220ms ease;
+                box-shadow: inset 0 1px 0 rgba(255,255,255,.12);
+                transition: border-color 220ms ease, transform 220ms ease, background-color 220ms ease, box-shadow 220ms ease;
             }
-            .system-launch-button:hover,
-            .system-launch-button:focus-visible {
-                outline: none;
-                transform: translateY(-2px);
+            .system-launch-accent {
+                position: absolute;
+                left: 20px;
+                top: 0;
+                width: 52px;
+                height: 2px;
+                background: var(--teal);
+                transition: width 260ms cubic-bezier(.2,.7,.2,1);
             }
-            .fut-launch-button:hover,
-            .fut-launch-button:focus-visible {
-                border-color: color-mix(in srgb, var(--teal) 42%, var(--line));
-                background: color-mix(in srgb, var(--teal) 4.5%, transparent);
-            }
-            .music-launch-button:hover,
-            .music-launch-button:focus-visible {
-                border-color: color-mix(in srgb, #9a8cff 48%, var(--line));
-                background: color-mix(in srgb, #9a8cff 5%, transparent);
+            .music-launch-button .system-launch-accent { background: var(--crimson); }
+            .system-launch-meta {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 14px;
+                margin-bottom: 23px;
+                font-family: 'DM Mono', monospace;
             }
             .system-launch-index {
                 color: var(--teal);
                 font-size: 7px;
+                line-height: 1;
+                letter-spacing: .07em;
+                text-transform: uppercase;
             }
-            .system-launch-index--music { color: #9a8cff; }
+            .system-launch-index--music { color: var(--crimson); }
             .system-launch-arrow {
                 color: var(--crimson);
-                font-size: 13px;
+                font-size: 16px;
+                line-height: 1;
                 transition: transform 220ms ease;
             }
-            .system-launch-arrow--music { color: #ff5aa7; }
+            .system-launch-arrow--music { color: var(--teal); }
+            .system-launch-title {
+                display: block;
+                margin-bottom: 9px;
+                font-family: 'Inter', Arial, sans-serif;
+                font-size: 18px;
+                line-height: 1.15;
+                letter-spacing: -.035em;
+                font-weight: 600;
+                color: var(--ink);
+            }
+            .system-launch-copy {
+                display: block;
+                max-width: 330px;
+                font-size: 11px;
+                line-height: 1.55;
+                color: var(--soft-ink);
+            }
+            .system-launch-cta {
+                display: flex;
+                align-items: baseline;
+                justify-content: space-between;
+                gap: 12px;
+                margin-top: auto;
+                padding-top: 20px;
+                font-family: 'DM Mono', monospace;
+                font-size: 8px;
+                line-height: 1;
+                letter-spacing: .055em;
+                text-transform: uppercase;
+                color: var(--ink);
+            }
+            .system-launch-cta small {
+                font: inherit;
+                color: var(--soft-ink);
+                opacity: .72;
+            }
+            .system-launch-button:hover,
+            .system-launch-button:focus-visible {
+                outline: none;
+                transform: translateY(-3px);
+            }
+            .system-launch-button:hover .system-launch-accent,
+            .system-launch-button:focus-visible .system-launch-accent { width: calc(100% - 40px); }
+            .fut-launch-button:hover,
+            .fut-launch-button:focus-visible {
+                border-color: color-mix(in srgb, var(--teal) 48%, var(--line));
+                background: color-mix(in srgb, var(--teal) 5%, rgba(var(--theme-paper-rgb, 241,239,232),.48));
+                box-shadow: inset 0 1px 0 rgba(255,255,255,.14), 0 16px 38px rgba(0,0,0,.06);
+            }
+            .music-launch-button:hover,
+            .music-launch-button:focus-visible {
+                border-color: color-mix(in srgb, var(--crimson) 46%, var(--line));
+                background: color-mix(in srgb, var(--crimson) 5%, rgba(var(--theme-paper-rgb, 241,239,232),.48));
+                box-shadow: inset 0 1px 0 rgba(255,255,255,.14), 0 16px 38px rgba(0,0,0,.06);
+            }
             .system-launch-button:hover .system-launch-arrow,
             .system-launch-button:focus-visible .system-launch-arrow { transform: translate(2px,-2px); }
             @media (max-width: 760px) {
-                .system-launch-stack { margin-top: 18px; width: 100%; }
-                .system-launch-button { min-width: 0; width: 100%; }
+                .system-launch-stack { margin-top: 26px; width: 100%; }
+                .system-launch-intro { grid-template-columns: 1fr; gap: 7px; }
+                .system-launch-grid { grid-template-columns: 1fr; }
+                .system-launch-button { min-height: 168px; }
             }
         `;
         document.head.appendChild(style);
