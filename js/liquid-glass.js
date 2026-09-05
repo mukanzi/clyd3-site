@@ -1,6 +1,13 @@
 // CLYD3 — Liquid Glass interaction layer
 // Adds pointer-reactive specular highlights without modifying layout or typography.
 
+// Resilient theme loader. This gives dark mode a second independent path so
+// stale cached theme assets cannot leave the toggle visually inert.
+const themeFallbackScript = document.createElement('script');
+themeFallbackScript.src = 'js/theme-fallback.js?v=3';
+themeFallbackScript.defer = true;
+document.head.appendChild(themeFallbackScript);
+
 // Toronto weather/time is kept as a separate, optional system layer.
 const weatherStylesheet = document.createElement('link');
 weatherStylesheet.rel = 'stylesheet';
@@ -37,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 padding: 11px 14px;
                 border: 1px solid var(--line);
                 border-radius: 999px;
-                background: rgba(241,239,232,.42);
+                background: rgba(var(--theme-paper-rgb, 241,239,232),.42);
                 -webkit-backdrop-filter: blur(10px);
                 backdrop-filter: blur(10px);
                 font-family: 'DM Mono', monospace;
@@ -49,8 +56,8 @@ document.addEventListener('DOMContentLoaded', () => {
             .fut-launch-button:focus-visible {
                 outline: none;
                 transform: translateY(-2px);
-                border-color: rgba(13,124,120,.42);
-                background: rgba(13,124,120,.045);
+                border-color: color-mix(in srgb, var(--teal) 42%, var(--line));
+                background: color-mix(in srgb, var(--teal) 4.5%, transparent);
             }
             .fut-launch-index {
                 color: var(--teal);
