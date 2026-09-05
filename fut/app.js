@@ -3,6 +3,13 @@ const $=id=>document.getElementById(id);
 const fmt=n=>new Intl.NumberFormat("en-CA").format(n);
 const money=n=>n>=1e6?`${(n/1e6).toFixed(2)}M`:n>=1e3?`${(n/1e3).toFixed(0)}K`:fmt(n);
 
+const THEME_KEY="clyd3-theme";
+const systemDarkMode=window.matchMedia('(prefers-color-scheme: dark)');
+const readTheme=()=>{try{const v=localStorage.getItem(THEME_KEY);return v==="light"||v==="dark"?v:null}catch{return null}};
+const applyTheme=theme=>{document.documentElement.dataset.theme=theme;document.documentElement.style.colorScheme=theme};
+let hasSavedTheme=Boolean(readTheme());
+applyTheme(readTheme()||(systemDarkMode.matches?"dark":"light"));
+
 function countUp(el,target,suffix=""){
   const t0=performance.now(),dur=650;
   const step=t=>{
@@ -102,7 +109,6 @@ document.querySelector(".depth-toggle").addEventListener("click",e=>{
 });
 
 function rankList(list){
- const max=Math.max(...list.map(x=>x.apps));
  return list.map((x,i)=>`<div class="rank-item"><span>${String(i+1).padStart(2,"0")}</span><div><b>${x.name}</b><small>${fmt(x.items)} player items</small></div><div class="rank-value">${fmt(x.apps)}</div></div>`).join("")
 }
 $("countries").innerHTML=rankList(D.topCountries);$("leagues").innerHTML=rankList(D.topLeagues);
@@ -110,7 +116,22 @@ $("marketList").innerHTML=D.topMarket.slice(0,8).map((p,i)=>`<div class="market-
 
 $("cards99").innerHTML=D.cards99.map(p=>`<article class="c99"><span>99</span><h3>${p.name}</h3><p>${p.pos} • ${fmt(p.apps)} appearances</p></article>`).join("");
 
-$("themeBtn").onclick=()=>{document.documentElement.dataset.theme=document.documentElement.dataset.theme==="dark"?"light":"dark"};
+const themeBtn=$("themeBtn");
+const refreshThemeButton=()=>{
+  const dark=document.documentElement.dataset.theme==="dark";
+  themeBtn.textContent=dark?"☀":"☾";
+  themeBtn.setAttribute("aria-label",dark?"Switch to light theme":"Switch to dark theme");
+  themeBtn.title=dark?"Light theme":"Dark theme";
+};
+refreshThemeButton();
+themeBtn.onclick=()=>{
+  const next=document.documentElement.dataset.theme==="dark"?"light":"dark";
+  applyTheme(next);hasSavedTheme=true;
+  try{localStorage.setItem(THEME_KEY,next)}catch{}
+  refreshThemeButton();
+};
+systemDarkMode.addEventListener?.('change',e=>{if(!hasSavedTheme){applyTheme(e.matches?"dark":"light");refreshThemeButton();}});
+
 $("printBtn").onclick=()=>window.print();
 $("menuBtn").onclick=()=>$("sidebar").classList.toggle("open");
 document.querySelectorAll(".nav a").forEach(a=>a.addEventListener("click",()=>{$("sidebar").classList.remove("open");document.querySelectorAll(".nav a").forEach(x=>x.classList.remove("active"));a.classList.add("active")}));
