@@ -1,0 +1,123 @@
+/* CLYD3 readability layer
+   Raises non-heading type without changing the editorial heading hierarchy. */
+
+body {
+    font-size: 16px;
+    line-height: 1.62;
+}
+
+/* Primary reading copy */
+body p {
+    font-size: 16px !important;
+    line-height: 1.65;
+}
+
+body .hero-intro {
+    font-size: clamp(18px, 1.35vw, 21px) !important;
+    line-height: 1.58;
+}
+
+body .text-link {
+    font-size: 15px !important;
+}
+
+/* Header, navigation and system metadata */
+body .primary-nav {
+    font-size: 14px !important;
+}
+
+body .primary-nav a span {
+    font-size: 9.5px !important;
+}
+
+body .header-status {
+    font-size: 11px !important;
+}
+
+body .eyebrow {
+    font-size: 12px !important;
+}
+
+body .signal-label {
+    font-size: 10.5px !important;
+}
+
+body .signal-live {
+    font-size: 9.5px !important;
+}
+
+body .signal-core small {
+    font-size: 8px !important;
+}
+
+/* Controls and secondary interface copy */
+body button,
+body input,
+body select,
+body textarea,
+body label {
+    font-size: 14px;
+}
+
+body small {
+    font-size: 11px;
+}
+
+/* Featured system launchers are injected by liquid-glass.js and therefore
+   receive explicit sizes here so their hierarchy stays compact but readable. */
+body .system-launch-kicker {
+    font-size: 11px !important;
+    line-height: 1.5 !important;
+}
+
+body .system-launch-explainer {
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+}
+
+body .system-launch-index {
+    font-size: 10px !important;
+}
+
+body .system-launch-copy {
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+}
+
+body .system-launch-cta,
+body .system-launch-cta small {
+    font-size: 10.5px !important;
+}
+
+/* Common metadata patterns used throughout Work, Archive, Notes and Contact. */
+body :is(
+    .project-tag,
+    .project-system,
+    .panel-status,
+    .section-index,
+    .section-label,
+    .archive-meta,
+    .note-meta,
+    .contact-meta,
+    .footer-meta
+) {
+    font-size: 11px !important;
+}
+
+@media (max-width: 760px) {
+    body {
+        font-size: 16px;
+    }
+
+    body p {
+        font-size: 16px !important;
+    }
+
+    body .hero-intro {
+        font-size: 18px !important;
+    }
+
+    body .primary-nav {
+        font-size: 14px !important;
+    }
+}
