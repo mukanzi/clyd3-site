@@ -14,7 +14,15 @@ async function bootstrap(){
   await import('../../fut/data-players-09.js');
   await import('../../fut/data-players-10.js');
   await import('../../fut/data-players-11.js');
-  const {default:FutApp}=await import('../pages/FutApp.jsx');
-  createRoot(document.getElementById('root')).render(<React.StrictMode><FutApp data={window.FUT_DATA}/></React.StrictMode>);
+  const [{default:FutApp},{default:FutPitchPortal}]=await Promise.all([
+    import('../pages/FutApp.jsx'),
+    import('../components/FutPitchPortal.jsx')
+  ]);
+  createRoot(document.getElementById('root')).render(
+    <React.StrictMode>
+      <FutApp data={window.FUT_DATA}/>
+      <FutPitchPortal players={window.FUT_DATA.legendsXI}/>
+    </React.StrictMode>
+  );
 }
 bootstrap().catch(error=>{console.error(error);document.getElementById('root').innerHTML='<main style="padding:40px;font-family:monospace">Unable to load FUT Club Intelligence.</main>'});
