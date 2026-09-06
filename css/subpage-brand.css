@@ -290,3 +290,188 @@ html[data-theme="dark"] .app .kpi::after {
     transition: none !important;
   }
 }
+
+/* Exact homepage brand lockup -------------------------------------------
+   The previous integration only approximated the CLYD3 mark. These final
+   rules mirror the homepage hierarchy: orbit + diagonal signal line + C3
+   core + teal node, followed by the CLYD3 wordmark. Module names are metadata. */
+
+.brand-badge,
+.atlas-mark {
+  width: 38px !important;
+  height: 38px !important;
+  flex: 0 0 38px !important;
+  position: relative !important;
+  display: grid !important;
+  place-items: center !important;
+  overflow: visible !important;
+  isolation: isolate !important;
+}
+
+/* Exact circular orbit */
+.brand-badge::before,
+.atlas-mark::before {
+  content: '' !important;
+  position: absolute !important;
+  inset: 2px !important;
+  width: auto !important;
+  height: auto !important;
+  border: 1px solid var(--ink, var(--text, #111111)) !important;
+  border-radius: 50% !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  transform: rotate(0deg) !important;
+  transition: transform 450ms cubic-bezier(.2,.7,.2,1) !important;
+  z-index: 0 !important;
+}
+
+/* Signal node */
+.brand-badge::after,
+.atlas-mark::after {
+  content: '' !important;
+  position: absolute !important;
+  width: 6px !important;
+  height: 6px !important;
+  right: 1px !important;
+  top: 8px !important;
+  left: auto !important;
+  bottom: auto !important;
+  border: 0 !important;
+  border-radius: 50% !important;
+  background: var(--teal, var(--green, #0d7c78)) !important;
+  box-shadow: none !important;
+  transform: translate(0,0) !important;
+  transition: background 220ms ease, transform 450ms cubic-bezier(.2,.7,.2,1) !important;
+  z-index: 3 !important;
+}
+
+/* C3 core and the same diagonal orbital line used on the homepage. */
+.brand-badge > span,
+.atlas-mark > span {
+  position: relative !important;
+  z-index: 2 !important;
+  display: grid !important;
+  place-items: center !important;
+  width: 100% !important;
+  height: 100% !important;
+  font-family: 'DM Mono', monospace !important;
+  font-size: 10px !important;
+  font-weight: 500 !important;
+  line-height: 1 !important;
+  letter-spacing: -0.08em !important;
+  color: var(--ink, var(--text, #111111)) !important;
+}
+
+.brand-badge > span::before,
+.atlas-mark > span::before {
+  content: '' !important;
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  width: 55% !important;
+  height: 1px !important;
+  background: var(--line, rgba(17,17,17,.18)) !important;
+  transform: translate(-50%,-50%) rotate(-35deg) !important;
+  z-index: -1 !important;
+}
+
+.brand:hover .brand-badge::before,
+.brand:focus-visible .brand-badge::before,
+.brand:hover .atlas-mark::before,
+.brand:focus-visible .atlas-mark::before {
+  transform: rotate(28deg) !important;
+}
+
+.brand:hover .brand-badge::after,
+.brand:focus-visible .brand-badge::after,
+.brand:hover .atlas-mark::after,
+.brand:focus-visible .atlas-mark::after {
+  background: var(--crimson, #a63d45) !important;
+  transform: translate(-2px,8px) !important;
+}
+
+/* FUT: render the homepage wordmark exactly, then module metadata below. */
+.sidebar .brand > div:last-child {
+  display: grid !important;
+  gap: 3px !important;
+  align-content: center !important;
+}
+
+.sidebar .brand > div:last-child strong {
+  display: block !important;
+  margin: 0 !important;
+  font-size: 0 !important;
+  line-height: 1 !important;
+}
+
+.sidebar .brand > div:last-child strong::before {
+  content: 'CLYD3' !important;
+  display: block !important;
+  font-family: 'Inter', Arial, sans-serif !important;
+  font-size: 19px !important;
+  font-weight: 600 !important;
+  line-height: 1 !important;
+  letter-spacing: -0.035em !important;
+  color: var(--ink, var(--text, #111111)) !important;
+}
+
+.sidebar .brand > div:last-child span {
+  display: block !important;
+  margin: 0 !important;
+  font-size: 0 !important;
+  line-height: 1 !important;
+}
+
+.sidebar .brand > div:last-child span::before {
+  content: 'SYSTEM 08 / FUT CLUB INTELLIGENCE' !important;
+  display: block !important;
+  font-family: 'DM Mono', monospace !important;
+  font-size: 7px !important;
+  font-weight: 400 !important;
+  line-height: 1.2 !important;
+  letter-spacing: .06em !important;
+  text-transform: uppercase !important;
+  color: var(--soft-ink, var(--muted, #5f5d57)) !important;
+}
+
+/* Listening Atlas: same homepage wordmark, module identity as metadata. */
+.site-header .brand > span:last-child {
+  display: grid !important;
+  gap: 3px !important;
+  align-content: center !important;
+  margin: 0 !important;
+  font-size: 0 !important;
+  line-height: 1 !important;
+}
+
+.site-header .brand > span:last-child::before {
+  content: 'CLYD3' !important;
+  display: block !important;
+  font-family: 'Inter', Arial, sans-serif !important;
+  font-size: 19px !important;
+  font-weight: 600 !important;
+  line-height: 1 !important;
+  letter-spacing: -0.035em !important;
+  color: var(--ink, var(--text, #111111)) !important;
+}
+
+.site-header .brand > span:last-child::after {
+  content: 'SYSTEM 09 / LISTENING ATLAS' !important;
+  display: block !important;
+  font-family: 'DM Mono', monospace !important;
+  font-size: 7px !important;
+  font-weight: 400 !important;
+  line-height: 1.2 !important;
+  letter-spacing: .06em !important;
+  text-transform: uppercase !important;
+  color: var(--soft-ink, var(--muted, #5f5d57)) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-badge::before,
+  .brand-badge::after,
+  .atlas-mark::before,
+  .atlas-mark::after {
+    transition: none !important;
+  }
+}
