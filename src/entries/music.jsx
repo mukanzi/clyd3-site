@@ -4,7 +4,12 @@ import '../styles/react-ui.css';
 async function bootstrap(){
   await import('../../music/atlas-core.js');
   window.ATLAS_DATA.sonic=[];
-  await Promise.all([import('../../music/atlas-top-01.js'),import('../../music/atlas-top-02.js'),import('../../music/atlas-top-03.js'),import('../../music/atlas-top-04.js')]);
+  // Keep the Love Index chunks deterministic: each file appends the next
+  // rank range, so load them in archive order rather than concurrently.
+  await import('../../music/atlas-top-01.js');
+  await import('../../music/atlas-top-02.js');
+  await import('../../music/atlas-top-03.js');
+  await import('../../music/atlas-top-04.js');
   await import('../../music/sonic-01.js');
   await import('../../music/sonic-02.js');
   await import('../../music/sonic-rest.js');
