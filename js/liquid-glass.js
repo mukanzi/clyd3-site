@@ -1,5 +1,12 @@
 // CLYD3 — Liquid Glass interaction layer
-// Adds pointer-reactive specular highlights without modifying layout or typography.
+// Adds pointer-reactive specular highlights and shared UI enhancements.
+
+// Readability layer. Loaded after the base styles so non-heading typography
+// can be increased without changing the established editorial heading scale.
+const readabilityStylesheet = document.createElement('link');
+readabilityStylesheet.rel = 'stylesheet';
+readabilityStylesheet.href = 'css/readability.css?v=1';
+document.head.appendChild(readabilityStylesheet);
 
 // Resilient theme loader. This gives dark mode a second independent path so
 // stale cached theme assets cannot leave the toggle visually inert.
