@@ -1,8 +1,15 @@
 {
   "source": "Kenya Law / National Council for Law Reporting",
   "source_url": "https://new.kenyalaw.org/judgments/KEHC/",
-  "generated_at": "2026-09-09T18:00:48.148796Z",
+  "generated_at": "2026-09-10T01:09:35.333907Z",
   "decisions": [
+    {
+      "title": "Kanyotu v Speaker of Kenya Senate & 6 others (Petition E514 of 2026)",
+      "citation": "[2026] KEHC 13384 (KLR)",
+      "date": "2026-09-07",
+      "type": "Ruling",
+      "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/13384/eng@2026-09-07"
+    },
     {
       "title": "Mbae v Investigations & 3 others (Petition E496 of 2026)",
       "citation": "[2026] KEHC 13354 (KLR)",
@@ -16,6 +23,13 @@
       "date": "2026-09-03",
       "type": "Judgment",
       "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/13306/eng@2026-09-03"
+    },
+    {
+      "title": "Papaton Security Services Ltd v Public Procurement Administrative Review Board & 3 others (Judicial Review Miscellaneous Application E095 of 2026)",
+      "citation": "[2026] KEHC 13368 (KLR)",
+      "date": "2026-09-03",
+      "type": "Ruling",
+      "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/13368/eng@2026-09-03"
     },
     {
       "title": "RKK v Republic (Criminal Miscellaneous Application E150 of 2025)",
@@ -32,11 +46,32 @@
       "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/13295/eng@2026-09-03"
     },
     {
+      "title": "Afedha v Kariuki (Civil Appeal E069 of 2025)",
+      "citation": "[2026] KEHC 13379 (KLR)",
+      "date": "2026-09-02",
+      "type": "Judgment",
+      "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/13379/eng@2026-09-02"
+    },
+    {
+      "title": "Gitonga v Odhungo (Civil Appeal E024 of 2025)",
+      "citation": "[2026] KEHC 13362 (KLR)",
+      "date": "2026-09-02",
+      "type": "Judgment",
+      "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/13362/eng@2026-09-02"
+    },
+    {
       "title": "Ibrahim v Republic (Criminal Revision E002 of 2026)",
       "citation": "[2026] KEHC 13208 (KLR)",
       "date": "2026-09-02",
       "type": "Ruling",
       "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/13208/eng@2026-09-02"
+    },
+    {
+      "title": "Kalisa v Gaswara Traders Ltd & another (Civil Appeal E139 of 2025)",
+      "citation": "[2026] KEHC 13372 (KLR)",
+      "date": "2026-09-02",
+      "type": "Judgment",
+      "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/13372/eng@2026-09-02"
     },
     {
       "title": "Kilonzo v Kithoi alias Gabriel Kithoi Justine (Miscellaneous Civil Application E030 of 2026)",
@@ -51,41 +86,6 @@
       "date": "2026-09-02",
       "type": "Sentence",
       "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/13326/eng@2026-09-02"
-    },
-    {
-      "title": "Mwamburi v Republic (Criminal Revision E073 of 2026)",
-      "citation": "[2026] KEHC 13291 (KLR)",
-      "date": "2026-09-02",
-      "type": "Ruling",
-      "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/13291/eng@2026-09-02"
-    },
-    {
-      "title": "Mzame v Lalu (Suing as the administrator of the Estate of Allen Warito Lalu – Deceased) & another (Civil Appeal E001 of 2020)",
-      "citation": "[2026] KEHC 13260 (KLR)",
-      "date": "2026-09-02",
-      "type": "Ruling",
-      "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/13260/eng@2026-09-02"
-    },
-    {
-      "title": "Republic v Wafula & another (Criminal Case 1034 of 2020)",
-      "citation": "[2026] KEHC 13289 (KLR)",
-      "date": "2026-09-02",
-      "type": "Judgment",
-      "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/13289/eng@2026-09-02"
-    },
-    {
-      "title": "Simon v China Road & Bridge Corporation Kenya (Civil Appeal E029 of 2022)",
-      "citation": "[2026] KEHC 13322 (KLR)",
-      "date": "2026-09-02",
-      "type": "Ruling",
-      "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/13322/eng@2026-09-02"
-    },
-    {
-      "title": "Absa Bank Kenya PLC v Owour (Commercial Appeal E174 of 2024)",
-      "citation": "[2026] KEHC 13296 (KLR)",
-      "date": "2026-09-01",
-      "type": "Ruling",
-      "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/13296/eng@2026-09-01"
     }
   ]
 }
