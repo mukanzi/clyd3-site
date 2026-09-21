@@ -494,8 +494,28 @@ tbody tr:last-child td { border-bottom: 0; }
 .love-score small { color: var(--soft-ink); font-family: 'DM Mono', monospace; font-size: 7px; text-transform: uppercase; letter-spacing: .08em; }
 .love-meter { height: 3px; background: var(--line-soft); overflow: hidden; margin-top: 10px; }
 .love-meter i { display: block; height: 100%; background: var(--teal); }
-.track-card .love-detail, .track-meta { color: var(--soft-ink); font-family: 'DM Mono', monospace; font-size: 8px; line-height: 1.55; }
-.track-meta { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 18px; }
+.track-card .love-detail {
+  color: var(--soft-ink);
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 450;
+  line-height: 1.55;
+  letter-spacing: 0;
+}
+
+.track-meta {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+  color: var(--soft-ink);
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0;
+  font-variant-numeric: tabular-nums;
+}
 .top100-toolbar { padding: 18px 20px; }
 .love-summary { color: var(--soft-ink); font-size: 11px; line-height: 1.6; }
 .love-summary strong { color: var(--ink); }
