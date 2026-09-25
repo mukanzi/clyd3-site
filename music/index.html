@@ -3,8 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Interactive analysis of a 2016–2025 personal music ranking archive." />
-  <title>CLYD3 — Listening Atlas</title>
+  <meta name="description" content="Listening Atlas is an interactive CLYD3 analysis of a personal 2016–2025 music archive across Apple Music, Spotify and YouTube." />
+  <title>Listening Atlas — Personal Music Archive | CLYD3</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg?v=2">
+  <link rel="shortcut icon" href="../assets/favicon.svg?v=2">
+  <meta name="theme-color" content="#f1efe8">
   <script>
     (() => {
       try {
@@ -19,6 +22,7 @@
   </script>
   <link rel="stylesheet" href="styles.css?v=2" />
   <link rel="stylesheet" href="../css/subpage-brand.css?v=2" />
+  <link rel="stylesheet" href="hardening.css?v=1" />
 </head>
 <body>
   <div class="page-grid" aria-hidden="true"></div>
@@ -32,7 +36,8 @@
     <div class="header-right">
       <span class="header-status" aria-label="System status"><i></i> System 09 / active</span>
       <a class="clyd3-home-link" href="../">← CLYD3</a>
-      <nav class="nav-links" aria-label="Primary navigation">
+      <button class="atlas-menu-toggle" id="atlasMenuToggle" type="button" aria-expanded="false" aria-controls="atlasNav"><span>Menu</span><i aria-hidden="true"></i></button>
+      <nav class="nav-links" id="atlasNav" aria-label="Primary navigation">
         <a href="#overview">Overview</a>
         <a href="#evolution">Evolution</a>
         <a href="#artists">Artists</a>
@@ -224,8 +229,10 @@
         <p>Search the conclusive Love Index ranking by song or artist.</p>
       </div>
       <div class="explorer-controls">
-        <input id="searchInput" type="search" placeholder="Search Top 100 songs or artists…" />
+        <label class="sr-only" for="searchInput">Search the all-time Top 100 by song or artist</label>
+        <input id="searchInput" type="search" placeholder="Search Top 100 songs or artists…" autocomplete="off" />
         <span id="rowCount" class="row-count"></span>
+        <span id="explorerStatus" class="interaction-status" role="status" aria-live="polite"></span>
       </div>
       <div class="data-table-wrap">
         <table class="data-table">
@@ -239,8 +246,12 @@
 
   <footer class="footer">
     <span>CLYD3 / Listening Atlas</span>
-    <span>Personal music archive / system 09</span>
-    <a href="#top">Back to top ↑</a>
+    <nav class="footer-nav" aria-label="Listening Atlas footer">
+      <a href="../">CLYD3 home</a>
+      <a href="../fut/">FUT Intelligence</a>
+      <a href="#top">Back to top ↑</a>
+    </nav>
+    <span>© <span id="musicYear">2026</span></span>
   </footer>
 
   <script src="atlas-core.js"></script>
@@ -249,5 +260,6 @@
   <script src="atlas-top-03.js"></script>
   <script src="atlas-top-04.js"></script>
   <script src="script.js?v=2"></script>
+  <script src="hardening.js?v=1"></script>
 </body>
 </html>

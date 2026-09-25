@@ -1,0 +1,19 @@
+/* CLYD3 site hardening: responsive containment, footer links and non-interactive work cards */
+html, body { max-width: 100%; overflow-x: hidden; overflow-x: clip; }
+img, video, canvas, svg { max-width: 100%; }
+main, section, article, header, footer, nav, .section-shell, .site-header, .site-footer { min-width: 0; }
+.work-node:not(a) { cursor: default; }
+.work-node:not(a):focus { outline: none; }
+.work-node-arrow { display: none !important; }
+.footer-links { display: flex; align-items: center; justify-content: center; gap: clamp(12px,2vw,26px); flex-wrap: wrap; }
+.footer-links a { position: relative; color: var(--soft-ink); transition: color 180ms ease; }
+.footer-links a:hover, .footer-links a:focus-visible { color: var(--ink); }
+.footer-links a:focus-visible, .text-link:focus-visible, .primary-nav a:focus-visible, .menu-toggle:focus-visible {
+  outline: 1px solid var(--teal); outline-offset: 5px;
+}
+@media (max-width:760px) {
+  .site-footer { grid-template-columns: 1fr; gap: 16px; padding-top: 28px; padding-bottom: 28px; }
+  .site-footer > span, .footer-links { justify-self: start; text-align: left; }
+  .footer-links { justify-content: flex-start; }
+  .hero, .hero-copy, .hero-visual, .work-field, .constellation-shell { max-width: 100%; }
+}

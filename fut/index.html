@@ -3,14 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Interactive FC FUT club analytics dashboard">
-  <title>CLYD3 — FUT Club Intelligence</title>
+  <meta name="description" content="FUT Club Intelligence is an interactive CLYD3 dashboard exploring player usage, squad depth, club identity and progression patterns." />
+  <title>FUT Club Intelligence — Squad Analytics | CLYD3</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg?v=2">
+  <link rel="shortcut icon" href="../assets/favicon.svg?v=2">
+  <meta name="theme-color" content="#f1efe8">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Inter:wght@400;500;600&family=Libre+Caslon+Display&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="clyd3.css">
   <link rel="stylesheet" href="../css/subpage-brand.css?v=2">
+  <link rel="stylesheet" href="hardening.css?v=1">
 </head>
 <body>
 <div class="app">
@@ -33,12 +37,12 @@
       <p>Your Evos are a minority of inventory—but dominate appearances and output.</p>
       <div class="dna-meter"><i id="dnaMeter"></i></div>
     </div>
-    <div class="side-footer"><a href="../">← CLYD3 home</a><span>FUT archive • 2026</span></div>
+    <div class="side-footer"><a href="../">← CLYD3 home</a><span>FUT archive • <span id="futSideYear">2026</span></span></div>
   </aside>
 
   <main>
     <header class="topbar">
-      <button class="icon-btn mobile-menu" id="menuBtn" aria-label="Open navigation">☰</button>
+      <button class="icon-btn mobile-menu" id="menuBtn" aria-label="Open navigation" aria-controls="sidebar" aria-expanded="false">☰</button>
       <div class="page-title">
         <div class="eyebrow">CLYD3 / SYSTEM 08 // FUT CLUB INTELLIGENCE</div>
         <h1>Your club, <span>quantified.</span></h1>
@@ -120,7 +124,7 @@
     <section id="players" class="section">
       <div class="section-heading">
         <div><span>PLAYER EXPLORER</span><h2>Search your used-player database</h2></div>
-        <div class="result-count" id="resultCount">—</div>
+        <div class="result-count" id="resultCount" role="status" aria-live="polite">—</div>
       </div>
       <article class="panel explorer">
         <div class="filters">
@@ -183,7 +187,12 @@
 
     <footer>
       <span>CLYD3 / FUT Club Intelligence</span>
-      <span>Dataset: club-analyzer.csv • Player appearances are item appearances, not match count.</span>
+      <nav class="footer-nav" aria-label="FUT footer">
+        <a href="../">CLYD3 home</a>
+        <a href="../music/">Listening Atlas</a>
+        <a href="#overview">Back to top ↑</a>
+      </nav>
+      <span>© <span id="futYear">2026</span></span>
     </footer>
   </main>
 </div>
@@ -200,5 +209,6 @@
 <script src="data-players-10.js"></script>
 <script src="data-players-11.js"></script>
 <script src="app.js"></script>
+<script src="hardening.js?v=1"></script>
 </body>
 </html>

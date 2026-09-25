@@ -27,13 +27,13 @@ document.head.appendChild(archiveNotesStylesheet);
 const favicon = document.createElement('link');
 favicon.rel = 'icon';
 favicon.type = 'image/svg+xml';
-favicon.href = 'assets/favicon.svg?v=1';
+favicon.href = 'assets/favicon.svg?v=2';
 document.head.appendChild(favicon);
 
 const shortcutIcon = document.createElement('link');
 shortcutIcon.rel = 'shortcut icon';
 shortcutIcon.type = 'image/svg+xml';
-shortcutIcon.href = 'assets/favicon.svg?v=1';
+shortcutIcon.href = 'assets/favicon.svg?v=2';
 document.head.appendChild(shortcutIcon);
 
 const themeStorageKey = 'clyd3-theme';

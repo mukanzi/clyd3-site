@@ -3,14 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="CLYD3 — a digital home for work, ideas, experiments and visual stories.">
-    <title>CLYD3 — Digital Home</title>
+    <meta name="description" content="CLYD3 is Clyde’s evolving digital home for data and impact work, digital systems, creative experiments, photography and notes.">
+    <title>CLYD3 — Work, Systems, Photography & Notes</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=2">
+    <link rel="shortcut icon" href="assets/favicon.svg?v=2">
+    <meta name="theme-color" content="#f1efe8">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/constellation.css">
     <link rel="stylesheet" href="css/system-sections.css">
     <link rel="stylesheet" href="css/refinements.css">
     <link rel="stylesheet" href="css/liquid-glass.css">
     <link rel="stylesheet" href="css/work-field.css">
+    <link rel="stylesheet" href="css/site-hardening.css?v=1">
     <style>
         /* Isolated Sharingan component. Intentionally kept here so it cannot
            leak styles into the rest of the CLYD3 typography/layout system. */
@@ -252,7 +256,7 @@
                     <p class="eyebrow"><span>003</span> SELECTED WORK</p>
                     <h2>Systems, stories<br>and useful things.</h2>
                 </div>
-                <p class="section-note">A working index. Detailed case studies will live here as the site grows.</p>
+                <p class="section-note">Three practice areas connecting evidence, systems and creative interaction.</p>
             </div>
 
             <div class="work-field reveal" aria-label="Selected work practice field">
@@ -262,7 +266,7 @@
                 </div>
                 <span class="work-field-status" aria-hidden="true">Practice field / active</span>
 
-                <a class="work-node work-node--data" href="#">
+                <article class="work-node work-node--data">
                     <div class="work-node-topline">
                         <span class="work-node-number">01</span>
                         <span>Field / Evidence</span>
@@ -271,11 +275,10 @@
                     <p class="work-node-description">Analysis / evidence / decision support</p>
                     <div class="work-node-footer">
                         <span class="work-node-tag">Practice</span>
-                        <span class="work-node-arrow">↗</span>
                     </div>
-                </a>
+                </article>
 
-                <a class="work-node work-node--systems" href="#">
+                <article class="work-node work-node--systems">
                     <div class="work-node-topline">
                         <span class="work-node-number">02</span>
                         <span>Field / Infrastructure</span>
@@ -284,11 +287,10 @@
                     <p class="work-node-description">Tools / workflows / infrastructure</p>
                     <div class="work-node-footer">
                         <span class="work-node-tag">Build</span>
-                        <span class="work-node-arrow">↗</span>
                     </div>
-                </a>
+                </article>
 
-                <a class="work-node work-node--creative" href="#">
+                <article class="work-node work-node--creative">
                     <div class="work-node-topline">
                         <span class="work-node-number">03</span>
                         <span>Field / Interaction</span>
@@ -297,9 +299,8 @@
                     <p class="work-node-description">Web / visual systems / interaction</p>
                     <div class="work-node-footer">
                         <span class="work-node-tag">Lab</span>
-                        <span class="work-node-arrow">↗</span>
                     </div>
-                </a>
+                </article>
 
                 <span class="work-field-end" aria-hidden="true">Open / case studies</span>
             </div>
@@ -350,7 +351,12 @@
 
     <footer class="site-footer section-shell">
         <span>CLYD3</span>
-        <span>Designed &amp; built as an evolving system.</span>
+        <nav class="footer-links" aria-label="Footer navigation">
+            <a href="#top">Top</a>
+            <a href="music/">Listening Atlas</a>
+            <a href="fut/">FUT Intelligence</a>
+            <a href="https://github.com/mukanzi" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </nav>
         <span>© <span id="current-year">2026</span></span>
     </footer>
 
