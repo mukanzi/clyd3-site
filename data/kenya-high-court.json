@@ -1,7 +1,7 @@
 {
   "source": "Kenya Law / National Council for Law Reporting",
   "source_url": "https://new.kenyalaw.org/judgments/KEHC/",
-  "generated_at": "2026-09-28T19:41:15.135230Z",
+  "generated_at": "2026-09-28T23:57:41.650476Z",
   "decisions": [
     {
       "title": "Abuu v Ahmed (Civil Appeal E103 of 2024)",
@@ -16,6 +16,13 @@
       "date": "2026-09-25",
       "type": "Judgment",
       "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/14010/eng@2026-09-25"
+    },
+    {
+      "title": "Bandari & 2 others v Kenya Railways Corporation & 3 others (Petition 57 of 2016)",
+      "citation": "[2026] KEHC 14113 (KLR)",
+      "date": "2026-09-25",
+      "type": "Judgment",
+      "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/14113/eng@2026-09-25"
     },
     {
       "title": "Doshi Iron Mongers Ltd v Kenya Revenue Authority & another (Civil Suit 105 of 2006)",
@@ -46,6 +53,20 @@
       "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/14002/eng@2026-09-25"
     },
     {
+      "title": "In re Estate of Kiiru (Deceased) (Succession Cause 86 of 2019)",
+      "citation": "[2026] KEHC 14115 (KLR)",
+      "date": "2026-09-25",
+      "type": "Ruling",
+      "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/14115/eng@2026-09-25"
+    },
+    {
+      "title": "In re Estate of Ngoru (Deceased) (Probate & Administration E1026 of 2023)",
+      "citation": "[2026] KEHC 14117 (KLR)",
+      "date": "2026-09-25",
+      "type": "Ruling",
+      "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/14117/eng@2026-09-25"
+    },
+    {
       "title": "In re Estate of Odera (Deceased) (Succession Cause E009 of 2024)",
       "citation": "[2026] KEHC 14016 (KLR)",
       "date": "2026-09-25",
@@ -53,39 +74,18 @@
       "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/14016/eng@2026-09-25"
     },
     {
+      "title": "In re Estate of Wanjala (Deceased) (Probate & Administration E216 of 2026)",
+      "citation": "[2026] KEHC 14116 (KLR)",
+      "date": "2026-09-25",
+      "type": "Ruling",
+      "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/14116/eng@2026-09-25"
+    },
+    {
       "title": "Kenyatta University & another v Opar & another (Suing as legal representatives of the Estate of Valeria Akinyi Ouma - Deceased) (Civil Appeal E012 of 2026)",
       "citation": "[2026] KEHC 14008 (KLR)",
       "date": "2026-09-25",
       "type": "Judgment",
       "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/14008/eng@2026-09-25"
-    },
-    {
-      "title": "Kipchirchir v Republic (Criminal Appeal E057 of 2025)",
-      "citation": "[2026] KEHC 13982 (KLR)",
-      "date": "2026-09-25",
-      "type": "Judgment",
-      "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/13982/eng@2026-09-25"
-    },
-    {
-      "title": "Lohim Ltd v Tavevo Water & Sewerage Company Ltd (Civil Suit E006 of 2025)",
-      "citation": "[2026] KEHC 14000 (KLR)",
-      "date": "2026-09-25",
-      "type": "Ruling",
-      "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/14000/eng@2026-09-25"
-    },
-    {
-      "title": "MHM v NM (Matrimonial Cause 23 of 2018)",
-      "citation": "[2026] KEHC 14003 (KLR)",
-      "date": "2026-09-25",
-      "type": "Ruling",
-      "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/14003/eng@2026-09-25"
-    },
-    {
-      "title": "Mwambingu (Suing as legal representative of the Estate of Jaffarson Odiambo Owaga - Deceased) v Ali & 2 others (Civil Appeal E057 of 2025)",
-      "citation": "[2026] KEHC 14007 (KLR)",
-      "date": "2026-09-25",
-      "type": "Judgment",
-      "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/14007/eng@2026-09-25"
     }
   ]
 }
