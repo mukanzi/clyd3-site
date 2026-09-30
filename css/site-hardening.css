@@ -5,6 +5,10 @@ main, section, article, header, footer, nav, .section-shell, .site-header, .site
 .work-node:not(a) { cursor: default; }
 .work-node:not(a):focus { outline: none; }
 .work-node-arrow { display: none !important; }
+
+/* Contact section intentionally removed from the homepage experience. */
+.contact-section { display: none !important; }
+
 .footer-links { display: flex; align-items: center; justify-content: center; gap: clamp(12px,2vw,26px); flex-wrap: wrap; }
 .footer-links a { position: relative; color: var(--soft-ink); transition: color 180ms ease; }
 .footer-links a:hover, .footer-links a:focus-visible { color: var(--ink); }
