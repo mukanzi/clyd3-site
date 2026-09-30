@@ -1,7 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
 /* CLYD3 site hardening: responsive containment, footer links and non-interactive work cards */
 html, body { max-width: 100%; overflow-x: hidden; overflow-x: clip; }
 img, video, canvas, svg { max-width: 100%; }
 main, section, article, header, footer, nav, .section-shell, .site-header, .site-footer { min-width: 0; }
+
+/* Ubuntu is the primary editorial/UI face. DM Mono remains reserved for system metadata. */
+body, button, input, select, textarea {
+  font-family: 'Ubuntu', Arial, sans-serif;
+}
+.hero-serif,
+.statement-copy .statement-lead {
+  font-family: 'Ubuntu', Arial, sans-serif;
+  font-style: italic;
+}
+.hero-serif { font-weight: 300; }
+.statement-copy .statement-lead { font-weight: 400; }
+
 .work-node:not(a) { cursor: default; }
 .work-node:not(a):focus { outline: none; }
 .work-node-arrow { display: none !important; }
