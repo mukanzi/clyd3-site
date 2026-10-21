@@ -1,8 +1,71 @@
 {
   "source": "Kenya Law / National Council for Law Reporting",
   "source_url": "https://new.kenyalaw.org/judgments/KEHC/",
-  "generated_at": "2026-10-21T06:02:29.335934Z",
+  "generated_at": "2026-10-21T11:51:40.079276Z",
   "decisions": [
+    {
+      "title": "Chapman v Wachiuri & another (Civil Appeal E035 of 2024)",
+      "citation": "[2026] KEHC 16070 (KLR)",
+      "date": "2026-10-19",
+      "type": "Ruling",
+      "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/16070/eng@2026-10-19"
+    },
+    {
+      "title": "In re Estate of Lebo (Deceased) (Succession Cause 312 of 2006)",
+      "citation": "[2026] KEHC 16073 (KLR)",
+      "date": "2026-10-19",
+      "type": "Ruling",
+      "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/16073/eng@2026-10-19"
+    },
+    {
+      "title": "Mwangi v Bitonga (Civil Appeal E019 of 2026)",
+      "citation": "[2026] KEHC 16055 (KLR)",
+      "date": "2026-10-19",
+      "type": "Ruling",
+      "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/16055/eng@2026-10-19"
+    },
+    {
+      "title": "Ngeno v Mutei (Civil Suit E002 of 2026)",
+      "citation": "[2026] KEHC 16092 (KLR)",
+      "date": "2026-10-19",
+      "type": "Judgment",
+      "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/16092/eng@2026-10-19"
+    },
+    {
+      "title": "Omundi (Suing through the next friend and husband Samuel Omundi Nchore) v Nganga & another (Civil Appeal E058 of 2022)",
+      "citation": "[2026] KEHC 16093 (KLR)",
+      "date": "2026-10-19",
+      "type": "Judgment",
+      "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/16093/eng@2026-10-19"
+    },
+    {
+      "title": "Adsite Limited v Imperial Bank Limited (In Liquidation) (Civil Suit 49 of 2020)",
+      "citation": "[2026] KEHC 15943 (KLR)",
+      "date": "2026-10-16",
+      "type": "Judgment",
+      "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/15943/eng@2026-10-16"
+    },
+    {
+      "title": "Alpha Aviation Company Limited & another v KCB Bank Kenya Limited (Commercial Suit E028 of 2025)",
+      "citation": "[2026] KEHC 15942 (KLR)",
+      "date": "2026-10-16",
+      "type": "Ruling",
+      "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/15942/eng@2026-10-16"
+    },
+    {
+      "title": "Assets Recovery Agency v Kundu & 7 others (Anti-Corruption and Economic Crimes Case 9 of 2020)",
+      "citation": "[2026] KEHC 16096 (KLR)",
+      "date": "2026-10-16",
+      "type": "Ruling",
+      "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/16096/eng@2026-10-16"
+    },
+    {
+      "title": "Assets Recovery Agency v Morlon & 6 others (Anti-Corruption and Economic Crimes Civil Suit E034 of 2025)",
+      "citation": "[2026] KEHC 16059 (KLR)",
+      "date": "2026-10-16",
+      "type": "Judgment",
+      "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/16059/eng@2026-10-16"
+    },
     {
       "title": "Attorney General v Irungu & another (Civil Appeal E072 of 2024)",
       "citation": "[2026] KEHC 15890 (KLR)",
@@ -18,74 +81,11 @@
       "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/15882/eng@2026-10-16"
     },
     {
-      "title": "In re Estate of Ikiki (Deceased) (Succession Cause 194 of 2000)",
-      "citation": "[2026] KEHC 15889 (KLR)",
-      "date": "2026-10-16",
-      "type": "Ruling",
-      "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/15889/eng@2026-10-16"
-    },
-    {
-      "title": "In re Estate of Mburi alias Joseph Ibwa (Deceased) (Miscellaneous Succession Application 21 of 2019)",
-      "citation": "[2026] KEHC 15877 (KLR)",
-      "date": "2026-10-16",
-      "type": "Ruling",
-      "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/15877/eng@2026-10-16"
-    },
-    {
-      "title": "Juja Coffee Exporters Ltd & 3 others v Bank of Africa Ltd & another (Civil Case 57 of 2016)",
-      "citation": "[2026] KEHC 15841 (KLR)",
-      "date": "2026-10-16",
-      "type": "Ruling",
-      "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/15841/eng@2026-10-16"
-    },
-    {
-      "title": "Kaleji v Kisabuli (Civil Appeal E028 of 2025)",
-      "citation": "[2026] KEHC 15865 (KLR)",
+      "title": "Chiando v Bunde & another (Constitutional Petition E016 of 2026)",
+      "citation": "[2026] KEHC 16029 (KLR)",
       "date": "2026-10-16",
       "type": "Judgment",
-      "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/15865/eng@2026-10-16"
-    },
-    {
-      "title": "Mburu t/a JM Mburu & Co Advocates v Chief Magistrate's Court, Law Courts, Mombasa & another (Petition E071 of 2024)",
-      "citation": "[2026] KEHC 15840 (KLR)",
-      "date": "2026-10-16",
-      "type": "Ruling",
-      "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/15840/eng@2026-10-16"
-    },
-    {
-      "title": "Njenga v Mwangi & another (Civil Appeal E072 of 2025)",
-      "citation": "[2026] KEHC 15859 (KLR)",
-      "date": "2026-10-16",
-      "type": "Ruling",
-      "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/15859/eng@2026-10-16"
-    },
-    {
-      "title": "Nkurumwa v Mwangi & another (Civil Appeal E032 of 2025)",
-      "citation": "[2026] KEHC 15852 (KLR)",
-      "date": "2026-10-16",
-      "type": "Judgment",
-      "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/15852/eng@2026-10-16"
-    },
-    {
-      "title": "Odongo v Sukari Industries Co Ltd (Civil Appeal E032 of 2024)",
-      "citation": "[2026] KEHC 15864 (KLR)",
-      "date": "2026-10-16",
-      "type": "Judgment",
-      "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/15864/eng@2026-10-16"
-    },
-    {
-      "title": "Otieno v Vice-Chancellor & Accounting Officer, Maseno University & 4 others (Constitutional Petition E040 of 2026)",
-      "citation": "[2026] KEHC 15844 (KLR)",
-      "date": "2026-10-16",
-      "type": "Judgment",
-      "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/15844/eng@2026-10-16"
-    },
-    {
-      "title": "Ragira v Missisippi Communication Ltd (Civil Case E004 of 2024)",
-      "citation": "[2026] KEHC 15853 (KLR)",
-      "date": "2026-10-16",
-      "type": "Judgment",
-      "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/15853/eng@2026-10-16"
+      "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/16029/eng@2026-10-16"
     }
   ]
 }
