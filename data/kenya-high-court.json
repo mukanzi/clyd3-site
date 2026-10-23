@@ -1,7 +1,7 @@
 {
   "source": "Kenya Law / National Council for Law Reporting",
   "source_url": "https://new.kenyalaw.org/judgments/KEHC/",
-  "generated_at": "2026-10-23T19:15:01.866209Z",
+  "generated_at": "2026-10-23T22:17:06.191383Z",
   "decisions": [
     {
       "title": "Abson Motors Ltd v Kyungu & another (Civil Appeal E085 of 2026)",
@@ -16,6 +16,13 @@
       "date": "2026-10-22",
       "type": "Directions",
       "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/16267/eng@2026-10-22"
+    },
+    {
+      "title": "Havi v Law Society of Kenya & 4 others (Constitutional Petition E782 of 2025)",
+      "citation": "[2026] KEHC 16335 (KLR)",
+      "date": "2026-10-22",
+      "type": "Ruling",
+      "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/16335/eng@2026-10-22"
     },
     {
       "title": "In re Estate of Nzioka (Deceased) (Civil Appeal E029 of 2025)",
@@ -79,13 +86,6 @@
       "date": "2026-10-22",
       "type": "Judgment",
       "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/16285/eng@2026-10-22"
-    },
-    {
-      "title": "Ali & another (Suing in Their Own Capacity as Chairman and Secretary of the Marina Beach Management Unit and in the Interest of Sixty-Nine (69) Members) v Kenya Fisheries Service & 3 others",
-      "citation": "[2026] KEHC 16261 (KLR)",
-      "date": "2026-10-21",
-      "type": "Ruling",
-      "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/16261/eng@2026-10-21"
     }
   ]
 }
