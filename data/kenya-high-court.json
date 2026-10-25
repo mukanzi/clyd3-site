@@ -1,7 +1,7 @@
 {
   "source": "Kenya Law / National Council for Law Reporting",
   "source_url": "https://new.kenyalaw.org/judgments/KEHC/",
-  "generated_at": "2026-10-25T10:10:04.249704Z",
+  "generated_at": "2026-10-25T14:23:23.757279Z",
   "decisions": [
     {
       "title": "Kelpar Investment Limited v Occidental Insurance Company Limited & 13 others (Civil Case E003 of 2025)",
@@ -9,6 +9,13 @@
       "date": "2026-10-29",
       "type": "Judgment",
       "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/16416/eng@2026-10-29"
+    },
+    {
+      "title": "Akshar Logistics Limited v Monarch Insurance Company Limited (Civil Case E009 of 2022)",
+      "citation": "[2026] KEHC 16433 (KLR)",
+      "date": "2026-10-23",
+      "type": "Judgment",
+      "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/16433/eng@2026-10-23"
     },
     {
       "title": "Ali & another v Gathingo t/a Joyisaac Cleaners (Civil Appeal E009 of 2024)",
@@ -53,6 +60,20 @@
       "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/16393/eng@2026-10-23"
     },
     {
+      "title": "Kikambala Housing Estate Limited v Devani & 9 others (All Trading as Anjarwalla & Khanna) & 2 others (Civil Suit 2 of 2018 & Civil Case 58 of 2018 (Consolidated))",
+      "citation": "[2026] KEHC 16435 (KLR)",
+      "date": "2026-10-23",
+      "type": "Ruling",
+      "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/16435/eng@2026-10-23"
+    },
+    {
+      "title": "Litein Tea Factory Limited v Siololo & 2 others (Family Appeal E002 of 2025)",
+      "citation": "[2026] KEHC 16430 (KLR)",
+      "date": "2026-10-23",
+      "type": "Judgment",
+      "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/16430/eng@2026-10-23"
+    },
+    {
       "title": "Moroa v Republic (Criminal Miscellaneous Application E002 of 2026)",
       "citation": "[2026] KEHC 16408 (KLR)",
       "date": "2026-10-23",
@@ -65,27 +86,6 @@
       "date": "2026-10-23",
       "type": "Ruling",
       "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/16400/eng@2026-10-23"
-    },
-    {
-      "title": "Musombe v Republic (Criminal Miscellaneous Application E122 of 2026)",
-      "citation": "[2026] KEHC 16347 (KLR)",
-      "date": "2026-10-23",
-      "type": "Ruling",
-      "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/16347/eng@2026-10-23"
-    },
-    {
-      "title": "Norgen Enterprises Ltd v County Secretary, County Government of Vihiga & 2 others (Judicial Review Application 14 of 2019)",
-      "citation": "[2026] KEHC 16345 (KLR)",
-      "date": "2026-10-23",
-      "type": "Ruling",
-      "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/16345/eng@2026-10-23"
-    },
-    {
-      "title": "Oganyo v Republic (Criminal Miscellaneous Application E026 of 2026)",
-      "citation": "[2026] KEHC 16406 (KLR)",
-      "date": "2026-10-23",
-      "type": "Ruling",
-      "url": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/16406/eng@2026-10-23"
     }
   ]
 }
