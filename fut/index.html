@@ -5,25 +5,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="FUT Club Intelligence is an interactive CLYD3 dashboard exploring player usage, squad depth, club identity and progression patterns." />
   <title>FUT Club Intelligence — Squad Analytics | CLYD3</title>
-  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg?v=2">
-  <link rel="shortcut icon" href="../assets/favicon.svg?v=2">
-  <meta name="theme-color" content="#f1efe8">
+  <link rel="canonical" href="https://clyd3.com/fut/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CLYD3">
+  <meta property="og:title" content="FUT Club Intelligence — Squad Analytics | CLYD3">
+  <meta property="og:description" content="FUT Club Intelligence is an interactive CLYD3 dashboard exploring player usage, squad depth, club identity and progression patterns.">
+  <meta property="og:url" content="https://clyd3.com/fut/">
+  <meta property="og:image" content="https://clyd3.com/assets/fut-intelligence-share.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="FUT Club Intelligence — Squad Analytics | CLYD3">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Inter:wght@400;500;600&family=Libre+Caslon+Display&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&amp;family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&amp;display=swap">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg?v=2">
+  <meta name="theme-color" content="#f1efe8">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="clyd3.css">
-  <link rel="stylesheet" href="../css/subpage-brand.css?v=2">
-  <link rel="stylesheet" href="hardening.css?v=1">
+  <link rel="stylesheet" href="../css/subpage-brand.css?v=3">
+  <link rel="stylesheet" href="hardening.css?v=2">
+  <link rel="stylesheet" href="../css/site-accessibility.css?v=1">
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 <div class="app">
   <aside class="sidebar" id="sidebar">
-    <a class="brand" href="#overview" aria-label="FC FUT Analytics home">
-      <div class="brand-badge"><span>C3</span></div>
+    <a class="brand" href="#overview" aria-label="FUT Club Intelligence overview">
+      <img class="clyd3-mark" src="../assets/favicon.svg?v=2" alt="" width="40" height="40">
       <div><strong>CLYD3 / FUT</strong><span>Club Intelligence</span></div>
     </a>
-    <nav class="nav">
+    <nav class="nav" aria-label="Primary navigation">
       <a class="active" href="#overview"><span>01</span> Overview</a>
       <a href="#hall"><span>02</span> Hall of Fame</a>
       <a href="#players"><span>03</span> Player Explorer</a>
@@ -40,9 +52,9 @@
     <div class="side-footer"><a href="../">← CLYD3 home</a><span>FUT archive • <span id="futSideYear">2026</span></span></div>
   </aside>
 
-  <main>
+  <main id="main-content" tabindex="-1">
     <header class="topbar">
-      <button class="icon-btn mobile-menu" id="menuBtn" aria-label="Open navigation" aria-controls="sidebar" aria-expanded="false">☰</button>
+      <button class="icon-btn mobile-menu" id="menuBtn" type="button" aria-label="Open navigation" aria-controls="sidebar" aria-expanded="false">☰</button>
       <div class="page-title">
         <div class="eyebrow">CLYD3 / SYSTEM 08 // FUT CLUB INTELLIGENCE</div>
         <h1>Your club, <span>quantified.</span></h1>
@@ -50,7 +62,7 @@
       </div>
       <div class="header-actions">
         <a class="chip-btn home-btn" href="../">← CLYD3</a><button class="chip-btn" id="printBtn">↗ Print / PDF</button>
-        <button class="icon-btn" id="themeBtn" aria-label="Toggle display theme">◐</button>
+        <button class="theme-toggle" id="themeBtn" type="button" aria-label="Switch theme"><span class="theme-toggle-dot" aria-hidden="true"></span><span class="theme-control-label">Mode / <b id="themeLabel">Dark</b></span></button>
       </div>
     </header>
 
@@ -128,20 +140,31 @@
       </div>
       <article class="panel explorer">
         <div class="filters">
-          <label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Search player, club, league or country..."></label>
-          <select id="positionFilter"><option value="">All positions</option></select>
-          <select id="evoFilter"><option value="">All cards</option><option value="Yes">Evolutions</option><option value="No">Non-Evos</option></select>
-          <select id="sortFilter">
-            <option value="apps">Most appearances</option>
-            <option value="ga">Most G+A</option>
-            <option value="gapg">Best G+A / app</option>
-            <option value="rating">Highest rated</option>
-            <option value="goals">Most goals</option>
-            <option value="assists">Most assists</option>
-          </select>
+          <label class="search-box"><span aria-hidden="true">⌕</span><span class="clyd3-visually-hidden">Search players</span><input id="searchInput" type="search" placeholder="Search player, club, league or country..."></label>
+          <div class="filter-field">
+            <label for="positionFilter">Position</label>
+            <select id="positionFilter"><option value="">All positions</option></select>
+          </div>
+          <div class="filter-field">
+            <label for="evoFilter">Card type</label>
+            <select id="evoFilter"><option value="">All cards</option><option value="Yes">Evolutions</option><option value="No">Non-Evos</option></select>
+          </div>
+          <div class="filter-field">
+            <label for="sortFilter">Sort by</label>
+            <select id="sortFilter">
+              <option value="apps">Most appearances</option>
+              <option value="ga">Most G+A</option>
+              <option value="gapg">Best G+A / app</option>
+              <option value="rating">Highest rated</option>
+              <option value="goals">Most goals</option>
+              <option value="assists">Most assists</option>
+            </select>
+          </div>
         </div>
-        <div class="table-wrap">
-          <table>
+        <p class="table-scroll-hint">Scroll horizontally for more columns.</p>
+        <div class="table-wrap table-scroll-region" tabindex="0" role="region" aria-label="Used-player results">
+          <table class="sticky-player-table">
+            <caption class="clyd3-visually-hidden">Used-player statistics</caption>
             <thead><tr><th>Player</th><th>OVR</th><th>Pos</th><th>Apps</th><th>G</th><th>A</th><th>G+A</th><th>G+A/App</th><th>Type</th></tr></thead>
             <tbody id="playerTable"></tbody>
           </table>
@@ -208,7 +231,7 @@
 <script src="data-players-09.js"></script>
 <script src="data-players-10.js"></script>
 <script src="data-players-11.js"></script>
-<script src="app.js"></script>
-<script src="hardening.js?v=1"></script>
+<script src="app.js?v=2"></script>
+<script src="hardening.js?v=2"></script>
 </body>
 </html>

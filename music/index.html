@@ -5,8 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Listening Atlas is an interactive CLYD3 analysis of a personal 2016–2025 music archive across Apple Music, Spotify and YouTube." />
   <title>Listening Atlas — Personal Music Archive | CLYD3</title>
+  <link rel="canonical" href="https://clyd3.com/music/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CLYD3">
+  <meta property="og:title" content="Listening Atlas — Personal Music Archive | CLYD3">
+  <meta property="og:description" content="Listening Atlas is an interactive CLYD3 analysis of a personal 2016–2025 music archive across Apple Music, Spotify and YouTube.">
+  <meta property="og:url" content="https://clyd3.com/music/">
+  <meta property="og:image" content="https://clyd3.com/assets/listening-atlas-share.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Listening Atlas — Personal Music Archive | CLYD3">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&amp;family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&amp;display=swap">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg?v=2">
-  <link rel="shortcut icon" href="../assets/favicon.svg?v=2">
   <meta name="theme-color" content="#f1efe8">
   <script>
     (() => {
@@ -20,16 +33,18 @@
       } catch {}
     })();
   </script>
-  <link rel="stylesheet" href="styles.css?v=2" />
-  <link rel="stylesheet" href="../css/subpage-brand.css?v=2" />
-  <link rel="stylesheet" href="hardening.css?v=1" />
+  <link rel="stylesheet" href="styles.css?v=3" />
+  <link rel="stylesheet" href="../css/subpage-brand.css?v=3" />
+  <link rel="stylesheet" href="hardening.css?v=2" />
+  <link rel="stylesheet" href="../css/site-accessibility.css?v=1">
 </head>
 <body>
+  <a class="skip-link" href="#top">Skip to main content</a>
   <div class="page-grid" aria-hidden="true"></div>
 
   <header class="site-header">
     <a href="#top" class="brand" aria-label="Listening Atlas home">
-      <span class="atlas-mark" aria-hidden="true"><span>C3</span></span>
+      <img class="clyd3-mark" src="../assets/favicon.svg?v=2" alt="" width="40" height="40">
       <span>CLYD3 / Listening Atlas</span>
     </a>
 
@@ -46,12 +61,12 @@
       </nav>
       <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch theme">
         <span class="theme-toggle-dot" aria-hidden="true"></span>
-        <span>Mode / <b id="themeLabel">Light</b></span>
+        <span class="theme-control-label">Mode / <b id="themeLabel">Light</b></span>
       </button>
     </div>
   </header>
 
-  <main id="top">
+  <main id="top" tabindex="-1">
     <section class="hero section-shell">
       <div class="hero-copy">
         <p class="eyebrow">A decade of listening / 2016–2025</p>
@@ -166,8 +181,10 @@
         </article>
         <article class="feature-card artist-spotlight" id="artistSpotlight"></article>
       </div>
-      <div class="artist-table-wrap top-gap">
+      <p class="table-scroll-hint">Scroll horizontally for more columns.</p>
+      <div class="artist-table-wrap top-gap table-scroll-region" tabindex="0" role="region" aria-label="Rank-weighted top artists">
         <table class="clean-table">
+          <caption class="clyd3-visually-hidden">Rank-weighted top artists</caption>
           <thead><tr><th>Artist</th><th>Entries</th><th>Distinct tracks</th><th>Years present</th><th>Best signal</th></tr></thead>
           <tbody id="artistTable"></tbody>
         </table>
@@ -212,8 +229,10 @@
         <p>“Conclusive” here means conclusive <em>within this archive and weighting model</em>. The ranking uses every available year/platform chart from 2016–2025.</p>
       </div>
       <div class="top100-toolbar"><div id="loveSummary" class="love-summary"></div></div>
-      <div class="love-table-wrap top-gap">
-        <table class="love-table">
+      <p class="table-scroll-hint">Scroll horizontally for more columns.</p>
+      <div class="love-table-wrap top-gap table-scroll-region" tabindex="0" role="region" aria-label="All-time Love Index ranking">
+        <table class="love-table sticky-song-table">
+          <caption class="clyd3-visually-hidden">All-time Love Index ranking</caption>
           <thead><tr><th>#</th><th>Song</th><th>Artist</th><th>Love Index</th><th>List appearances</th><th>Years</th><th>Platforms</th><th>Cross-platform years</th><th>Best rank</th><th>Avg rank</th></tr></thead>
           <tbody id="loveTable"></tbody>
         </table>
@@ -234,8 +253,10 @@
         <span id="rowCount" class="row-count"></span>
         <span id="explorerStatus" class="interaction-status" role="status" aria-live="polite"></span>
       </div>
-      <div class="data-table-wrap">
-        <table class="data-table">
+      <p class="table-scroll-hint">Scroll horizontally for more columns.</p>
+      <div class="data-table-wrap table-scroll-region" tabindex="0" role="region" aria-label="Searchable Top 100 tracks">
+        <table class="data-table sticky-song-table">
+          <caption class="clyd3-visually-hidden">Searchable Top 100 tracks</caption>
           <thead><tr><th>#</th><th>Song</th><th>Artist</th><th>Love Index</th><th>Years</th><th>Platforms</th><th>Best rank</th><th>Span</th></tr></thead>
           <tbody id="dataTable"></tbody>
         </table>
@@ -259,7 +280,7 @@
   <script src="atlas-top-02.js"></script>
   <script src="atlas-top-03.js"></script>
   <script src="atlas-top-04.js"></script>
-  <script src="script.js?v=2"></script>
-  <script src="hardening.js?v=1"></script>
+  <script src="script.js?v=3"></script>
+  <script src="hardening.js?v=2"></script>
 </body>
 </html>

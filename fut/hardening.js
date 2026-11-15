@@ -13,6 +13,7 @@
       if (e.key === 'Escape' && sidebar.classList.contains('open')) {
         sidebar.classList.remove('open');
         menu.setAttribute('aria-expanded','false');
+        menu.focus();
       }
     });
   }

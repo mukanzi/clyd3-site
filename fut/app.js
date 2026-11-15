@@ -78,7 +78,7 @@ function updatePlayerTable(reset=true){
   const slice=filtered.slice((page-1)*pageSize,page*pageSize);
   $("playerTable").innerHTML=slice.map(p=>`
   <tr>
-   <td>${p.name}<span class="player-sub">${p.club} • ${p.country}</span></td>
+   <th scope="row">${p.name}<span class="player-sub">${p.club} • ${p.country}</span></th>
    <td><span class="rating-pill">${p.rating}</span></td><td>${p.pos}</td><td>${fmt(p.apps)}</td>
    <td>${fmt(p.goals)}</td><td>${fmt(p.assists)}</td><td><b>${fmt(p.ga)}</b></td><td>${p.gapg.toFixed(2)}</td>
    <td><span class="badge ${p.evo==="Yes"?"evo":"std"}">${p.evo==="Yes"?"EVO":"STANDARD"}</span></td>
@@ -119,9 +119,10 @@ $("cards99").innerHTML=D.cards99.map(p=>`<article class="c99"><span>99</span><h3
 const themeBtn=$("themeBtn");
 const refreshThemeButton=()=>{
   const dark=document.documentElement.dataset.theme==="dark";
-  themeBtn.textContent=dark?"☀":"☾";
-  themeBtn.setAttribute("aria-label",dark?"Switch to light theme":"Switch to dark theme");
-  themeBtn.title=dark?"Light theme":"Dark theme";
+  $("themeLabel").textContent = dark ? "Dark" : "Light";
+  themeBtn.setAttribute("aria-pressed", String(dark));
+  themeBtn.setAttribute("aria-label",dark?"Switch to light mode":"Switch to dark mode");
+  themeBtn.title=dark?"Switch to light mode":"Switch to dark mode";
 };
 refreshThemeButton();
 themeBtn.onclick=()=>{

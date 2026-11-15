@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Inter:wght@400;500;600&family=Libre+Caslon+Display&display=swap');
-
 :root {
     --paper: #f1efe8;
     --ink: #111111;
@@ -25,13 +23,8 @@ body {
     overflow-x: hidden;
     background: var(--paper);
     color: var(--ink);
-    font-family: 'Inter', Arial, sans-serif;
+    font-family: 'Ubuntu', Arial, sans-serif;
     text-rendering: optimizeLegibility;
-}
-
-body.is-loading .reveal {
-    opacity: 0;
-    transform: translateY(18px);
 }
 
 ::selection {
@@ -246,7 +239,7 @@ button { color: inherit; font: inherit; }
 
 .hero-serif {
     display: block;
-    font-family: 'Libre Caslon Display', Georgia, serif;
+    font-family: 'Ubuntu', Georgia, serif;
     font-weight: 400;
     letter-spacing: -0.04em;
     font-style: italic;
@@ -677,7 +670,7 @@ button { color: inherit; font: inherit; }
 
 .statement-copy .statement-lead {
     margin-bottom: 24px;
-    font-family: 'Libre Caslon Display', Georgia, serif;
+    font-family: 'Ubuntu', Georgia, serif;
     font-style: italic;
     color: var(--crimson);
 }
@@ -760,7 +753,7 @@ button { color: inherit; font: inherit; }
 }
 
 .reveal { transition: opacity 650ms ease, transform 650ms cubic-bezier(.2,.7,.2,1); }
-.reveal:not(.visible) { opacity: 0; transform: translateY(22px); }
+.reveal.is-pending:not(.visible) { opacity: 0; transform: translateY(22px); }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 
 @keyframes radarSweep {

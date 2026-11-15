@@ -102,7 +102,7 @@
   gap: 13px !important;
 }
 .sidebar .brand > div:last-child strong {
-  font-family: 'Inter', Arial, sans-serif !important;
+  font-family: 'Ubuntu', Arial, sans-serif !important;
   font-size: 13px !important;
   font-weight: 600 !important;
   letter-spacing: -0.025em !important;
@@ -122,7 +122,7 @@
   gap: 13px !important;
 }
 .site-header .brand > span:last-child {
-  font-family: 'Inter', Arial, sans-serif !important;
+  font-family: 'Ubuntu', Arial, sans-serif !important;
   font-size: 14px !important;
   font-weight: 600 !important;
   letter-spacing: -.025em !important;
@@ -407,7 +407,7 @@ html[data-theme="dark"] .app .kpi::after {
 .sidebar .brand > div:last-child strong::before {
   content: 'CLYD3' !important;
   display: block !important;
-  font-family: 'Inter', Arial, sans-serif !important;
+  font-family: 'Ubuntu', Arial, sans-serif !important;
   font-size: 19px !important;
   font-weight: 600 !important;
   line-height: 1 !important;
@@ -447,7 +447,7 @@ html[data-theme="dark"] .app .kpi::after {
 .site-header .brand > span:last-child::before {
   content: 'CLYD3' !important;
   display: block !important;
-  font-family: 'Inter', Arial, sans-serif !important;
+  font-family: 'Ubuntu', Arial, sans-serif !important;
   font-size: 19px !important;
   font-weight: 600 !important;
   line-height: 1 !important;

@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Inter:wght@400;500;600&family=Libre+Caslon+Display&display=swap');
-
 :root {
   color-scheme: light;
   --paper: #f1efe8;
@@ -55,7 +53,7 @@ body {
   overflow-x: hidden;
   background: var(--paper);
   color: var(--ink);
-  font-family: 'Inter', Arial, sans-serif;
+  font-family: 'Ubuntu', Arial, sans-serif;
   text-rendering: optimizeLegibility;
   transition: background-color 280ms ease, color 280ms ease;
 }
@@ -242,7 +240,7 @@ html[data-theme="dark"] .theme-toggle-dot::before { transform: translateX(52%); 
 .hero h1 span {
   display: block;
   color: var(--teal);
-  font-family: 'Libre Caslon Display', Georgia, serif;
+  font-family: 'Ubuntu', Georgia, serif;
   font-style: italic;
   font-weight: 400;
   letter-spacing: -.04em;
@@ -467,7 +465,7 @@ html[data-theme="dark"] .theme-toggle-dot::before { transform: translateX(52%); 
 .artists-layout { align-items: stretch; }
 .artist-spotlight { min-height: 100%; display: flex; flex-direction: column; justify-content: space-between; position: relative; }
 .artist-spotlight::before { content: 'ARTIST / FIELD'; position: absolute; right: 22px; top: 22px; font-family: 'DM Mono', monospace; font-size: 7px; color: var(--soft-ink); letter-spacing: .06em; }
-.artist-spotlight .big-number { margin: 46px 0 10px; font-family: 'Libre Caslon Display', Georgia, serif; font-style: italic; font-size: clamp(70px,8vw,112px); line-height: .8; letter-spacing: -.07em; color: var(--teal); }
+.artist-spotlight .big-number { margin: 46px 0 10px; font-family: 'Ubuntu', Georgia, serif; font-style: italic; font-size: clamp(70px,8vw,112px); line-height: .8; letter-spacing: -.07em; color: var(--teal); }
 .artist-spotlight .spot-name { margin: 0; font-size: 30px; letter-spacing: -.04em; }
 .artist-spotlight .spot-meta { color: var(--soft-ink); font-family: 'DM Mono', monospace; font-size: 9px; line-height: 1.65; }
 .artist-table-wrap, .data-table-wrap, .love-table-wrap { overflow: auto; }
@@ -485,18 +483,18 @@ tbody tr:last-child td { border-bottom: 0; }
 .love-method-card p { margin: 0; color: var(--soft-ink); font-size: 12px; line-height: 1.7; }
 .track-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
 .track-card { min-height: 280px; padding: 24px; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; }
-.track-card::after { content: attr(data-index); position: absolute; right: 16px; top: 0; font-family: 'Libre Caslon Display', Georgia, serif; font-style: italic; font-size: 88px; line-height: 1; color: color-mix(in srgb,var(--ink) 5%,transparent); }
+.track-card::after { content: attr(data-index); position: absolute; right: 16px; top: 0; font-family: 'Ubuntu', Georgia, serif; font-style: italic; font-size: 88px; line-height: 1; color: color-mix(in srgb,var(--ink) 5%,transparent); }
 .track-rank { font-family: 'DM Mono', monospace; color: var(--teal); font-size: 8px; letter-spacing: .07em; }
 .track-card h3 { max-width: 84%; margin: 30px 0 6px; font-size: 26px; font-weight: 500; letter-spacing: -.04em; }
 .track-card .artist { margin: 0; color: var(--soft-ink); font-size: 12px; }
 .love-score { display: inline-flex; align-items: baseline; gap: 5px; margin-top: 24px; }
-.love-score b { font-family: 'Libre Caslon Display', Georgia, serif; font-style: italic; font-size: 42px; font-weight: 400; letter-spacing: -.055em; }
+.love-score b { font-family: 'Ubuntu', Georgia, serif; font-style: italic; font-size: 42px; font-weight: 400; letter-spacing: -.055em; }
 .love-score small { color: var(--soft-ink); font-family: 'DM Mono', monospace; font-size: 7px; text-transform: uppercase; letter-spacing: .08em; }
 .love-meter { height: 3px; background: var(--line-soft); overflow: hidden; margin-top: 10px; }
 .love-meter i { display: block; height: 100%; background: var(--teal); }
 .track-card .love-detail {
   color: var(--soft-ink);
-  font-family: 'Inter', Arial, sans-serif;
+  font-family: 'Ubuntu', Arial, sans-serif;
   font-size: 11px;
   font-weight: 450;
   line-height: 1.55;
@@ -509,7 +507,7 @@ tbody tr:last-child td { border-bottom: 0; }
   flex-wrap: wrap;
   margin-top: 18px;
   color: var(--soft-ink);
-  font-family: 'Inter', Arial, sans-serif;
+  font-family: 'Ubuntu', Arial, sans-serif;
   font-size: 10px;
   font-weight: 500;
   line-height: 1.5;

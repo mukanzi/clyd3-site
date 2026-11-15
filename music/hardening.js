@@ -8,7 +8,11 @@
       menu.setAttribute('aria-expanded', String(open));
     });
     nav.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+    document.addEventListener('keydown', event => {
+      if (event.key !== 'Escape' || !nav.classList.contains('open')) return;
+      close();
+      menu.focus();
+    });
     document.addEventListener('click', e => {
       if (!nav.classList.contains('open')) return;
       if (!nav.contains(e.target) && !menu.contains(e.target)) close();

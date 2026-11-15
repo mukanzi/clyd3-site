@@ -104,7 +104,7 @@
     const top = D.top100;
     $('#trackCards').innerHTML = top.slice(0,6).map(t=>`<article class="track-card" data-index="${String(t.rank).padStart(2,'0')}"><div><span class="track-rank">#${t.rank} / ALL-TIME LOVE</span><h3>${escapeHTML(t.song)}</h3><p class="artist">${escapeHTML(t.artist)}</p><div class="love-score"><b>${t.loveIndex.toFixed(1)}</b><small>/ 100 love index</small></div><div class="love-meter"><i style="width:${Math.min(100,t.loveIndex)}%"></i></div></div><div><p class="love-detail">${t.appearances} distinct year/platform chart appearances • ${t.years} years • ${t.platforms} platforms${t.cross?` • ${t.cross} cross-platform year${t.cross===1?'':'s'}`:''}</p><div class="track-meta"><span>best #${t.bestRank}</span><span>avg rank ${t.avgRank.toFixed(1)}</span><span>${t.firstYear}–${t.lastYear}</span></div></div></article>`).join('');
     $('#loveSummary').innerHTML = `<strong>100 songs</strong> ranked from the complete 2016–2025 archive. #1 is <strong>${escapeHTML(top[0].song)}</strong> by ${escapeHTML(top[0].artist)} with a Love Index of <strong>${top[0].loveIndex.toFixed(1)}</strong>.`;
-    $('#loveTable').innerHTML = top.map(t=>`<tr><td>${t.rank}</td><td><strong>${escapeHTML(t.song)}</strong></td><td>${escapeHTML(t.artist)}</td><td><span class="love-index-pill">${t.loveIndex.toFixed(1)}</span></td><td>${t.appearances}</td><td>${t.years}</td><td><span class="platform-dots">${Array.from({length:t.platforms},()=>'<i></i>').join('')}</span> ${t.platforms}</td><td>${t.cross}</td><td>#${t.bestRank}</td><td>${t.avgRank.toFixed(1)}</td></tr>`).join('');
+    $('#loveTable').innerHTML = top.map(t=>`<tr><td>${t.rank}</td><th scope="row"><strong>${escapeHTML(t.song)}</strong></th><td>${escapeHTML(t.artist)}</td><td><span class="love-index-pill">${t.loveIndex.toFixed(1)}</span></td><td>${t.appearances}</td><td>${t.years}</td><td><span class="platform-dots">${Array.from({length:t.platforms},()=>'<i></i>').join('')}</span> ${t.platforms}</td><td>${t.cross}</td><td>#${t.bestRank}</td><td>${t.avgRank.toFixed(1)}</td></tr>`).join('');
   }
 
   function renderScatter() {
@@ -131,7 +131,7 @@
     const q = state.search.trim().toLowerCase();
     const rows = D.top100.filter(t=>!q||`${t.song} ${t.artist}`.toLowerCase().includes(q));
     $('#rowCount').textContent = `${rows.length} matches`;
-    $('#dataTable').innerHTML = rows.map(t=>`<tr><td>#${t.rank}</td><td><strong>${escapeHTML(t.song)}</strong></td><td>${escapeHTML(t.artist)}</td><td>${t.loveIndex.toFixed(1)}</td><td>${t.years}</td><td>${t.platforms}</td><td>#${t.bestRank}</td><td>${t.firstYear}–${t.lastYear}</td></tr>`).join('');
+    $('#dataTable').innerHTML = rows.map(t=>`<tr><td>#${t.rank}</td><th scope="row"><strong>${escapeHTML(t.song)}</strong></th><td>${escapeHTML(t.artist)}</td><td>${t.loveIndex.toFixed(1)}</td><td>${t.years}</td><td>${t.platforms}</td><td>#${t.bestRank}</td><td>${t.firstYear}–${t.lastYear}</td></tr>`).join('');
   }
 
   $$('.trend-button').forEach(btn=>btn.addEventListener('click',()=>{
